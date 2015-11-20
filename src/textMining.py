@@ -12,7 +12,10 @@ from collections import Counter
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 from sklearn.feature_extraction import FeatureHasher
+from sklearn.cross_validation import KFold
 from mpi4py import MPI
+import pandas as pd
+from learner import *
 
 
 class Settings(object):
@@ -123,11 +126,38 @@ class Settings(object):
       mat = [Counter(row[1:]) for row in self.corpus]
       matrix_selected = hash(mat, num_features)
       matrix_selected = norm(matrix_selected)
-    return matrix_selected, label
+    data = pd.DataFrame(
+      [list(a) + [b] for a, b in zip(matrix_selected, label)])
+    return data
+
+
+def cross_val(pd_data, learner, fold=5):
+  """
+  do 5-fold cross_validation
+  """
+  for i in xrange(5): # repeat 5 times here
+    kf = KFold(len(pd_data),fold)
+    for train_index, test_index in kf:
+      train_X = pd_data.ix[train_index,:999].values
+      train_Y = pd_data.ix[train_index,1000].values
+      test_X = pd_data.ix[test_index,999].values
+      test_Y = pd_data.ix[test_index,1000].values
+      learner(train_X,train_Y,test_X,test_Y)
+
+
+
+
+
+
+
+
+
+
 
 
 def run(data_src='../data/StackExchange/anime.txt', process=4):
   # model = Settings(data_src)
+  # data = model.make_feature()
   # pdb.set_trace()
   # print(model.label)
   comm = MPI.COMM_WORLD
@@ -138,9 +168,14 @@ def run(data_src='../data/StackExchange/anime.txt', process=4):
   # different processes run different feature experiments
   model_hash = Settings(data_src, method='hash')
   model_tfidf = Settings(data_src, method='tfidf')
-  for f_num in features_num:
-    for method in [model_tfidf, model_hash]:
-      data, label = method.make_feature(f_num)
+  learners = [cartClassifier]
+  F_score = {}
+  for learner in learners:
+    random.seed(1)
+    for f_num in features_num:
+      for method in [model_tfidf, model_hash]:
+        pd_data = method.make_feature(f_num)
+        F_score[f_num] = cross_val(pd_data, learner)
 
 
 if __name__ == "__main__":
