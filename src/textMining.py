@@ -135,6 +135,7 @@ def cross_val(pd_data, learner, fold=5):
   """
   do 5-fold cross_validation
   """
+  F = {}
   for i in xrange(5): # repeat 5 times here
     kf = KFold(len(pd_data),fold)
     for train_index, test_index in kf:
@@ -142,17 +143,8 @@ def cross_val(pd_data, learner, fold=5):
       train_Y = pd_data.ix[train_index,1000].values
       test_X = pd_data.ix[test_index,999].values
       test_Y = pd_data.ix[test_index,1000].values
-      learner(train_X,train_Y,test_X,test_Y)
-
-
-
-
-
-
-
-
-
-
+      F = learner(train_X,train_Y,test_X,test_Y,F)
+  return F
 
 
 def run(data_src='../data/StackExchange/anime.txt', process=4):
@@ -168,14 +160,17 @@ def run(data_src='../data/StackExchange/anime.txt', process=4):
   # different processes run different feature experiments
   model_hash = Settings(data_src, method='hash')
   model_tfidf = Settings(data_src, method='tfidf')
-  learners = [cartClassifier]
-  F_score = {}
+  learners = [naive_bayes]
+  F_method = {}
   for learner in learners:
     random.seed(1)
+    F_feature = {}
     for f_num in features_num:
       for method in [model_tfidf, model_hash]:
         pd_data = method.make_feature(f_num)
-        F_score[f_num] = cross_val(pd_data, learner)
+        F_feature[f_num] = cross_val(pd_data, learner)
+    F_method[learner.func_name] = F_feature
+
 
 
 if __name__ == "__main__":
