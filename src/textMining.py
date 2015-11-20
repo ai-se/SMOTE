@@ -15,13 +15,13 @@ from sklearn.feature_extraction import FeatureHasher
 
 
 class Settings(object):
-  def __init__(self, src="../data/StackExchange/academia.txt", corpus=None, tfidf=None):
+  def __init__(self, src="../data/StackExchange/academia.txt", num_features = 1000, corpus=None, method='tfidf'):
     self.threshold = 20
     self.data_src = src
     self.processors = 4
-    self.data = self.get_data()
+    # self.data = self.get_data()
     self.corpus = corpus if corpus else self.load_data()
-    self.tfidf = tfidf if tfidf else self.make_feature(100, 'tfidf')
+    self.matrix, self.label = self.make_feature(num_features,method)
 
   def get_data(self):
     folders = [os.path.join(self.data_src, f) for f in listdir(self.data_src) if
@@ -30,6 +30,19 @@ class Settings(object):
     return folders
 
   def load_data(self):
+    """
+    loading data from files into self.corpus
+    """
+
+    def process(txt):
+      """
+      Preprocessing: stemming + stopwords removing
+      """
+      stemmer = PorterStemmer()
+      cached_stopwords = stopwords.words("english")
+      return ' '.join([stemmer.stem(word) for word in txt.lower().split()
+              if word not in cached_stopwords and len(word) > 1])
+
     if not self.data_src:
       raise ValueError('data src required!')
     all_label, corpus, used_label = [], [], []
@@ -41,7 +54,7 @@ class Settings(object):
         all_label.append(label)
         corpus.append([label] + process(line.split(' >>> ')[0]).split())
     label_dist = Counter(all_label)
-    for key, val in label_dist:
+    for key, val in label_dist.iteritems():
       if val > self.threshold:
         used_label.append(key)
     used_label.append('others')
@@ -50,7 +63,7 @@ class Settings(object):
         doc[0] = 'others'
     return corpus
 
-  def make_feature(self, num_features=100, method='tfidf'):
+  def make_feature(self, num_features=1000, method='tfidf'):
     """
     making feature matrix
     :param num: # of features selected
@@ -64,7 +77,7 @@ class Settings(object):
         matrix.append(row_no_label)  # keep each row into a matrix
         for key, val in row_no_label.iteritems():
           features[key] = features.get(key, 0) + val
-          files[key] = features.get(key, 0) + 1
+          files[key] = files.get(key, 0) + 1
 
       for each_feature in files.keys():
         tfidf[each_feature] = (features[each_feature] / sum(features.values())
@@ -73,7 +86,7 @@ class Settings(object):
 
     def norm(mat):
       """
-      l2 normalization. I haven't check it out.
+      l2 normalization. I haven't checked it out.
       """
       mat = mat.astype(float)
       for i, row in enumerate(mat):
@@ -92,7 +105,8 @@ class Settings(object):
       return X
 
     matrix_selected = []
-    label = list(zip(*self.corpus))
+    label = list(zip(*self.corpus)[0])
+    pdb.set_trace()
     if method == 'tfidf':
       tfidf, matrix = calculate_tf_idf()
       features_selected = [pair[0] for pair in sorted(tfidf.items(), key=lambda x: x[1])[-num_features:]]
@@ -101,24 +115,18 @@ class Settings(object):
       matrix_selected = np.array(matrix_selected)
       matrix_selected = norm(matrix_selected)
     else:  # tf
-      mat = [Counter[row[1:]] for row in self.corpus]
+      mat = [Counter(row[1:]) for row in self.corpus]
       matrix_selected = hash(mat, num_features)
       matrix_selected = norm(matrix_selected)
     return matrix_selected, label
 
 
-def process(txt):
-  """
-  Preprocessing: stemming + stopwords removing
-  """
-  stemmer = PorterStemmer()
-  cached_stopwords = stopwords.words("english")
-  return ' '.join(
-    [stemmer.stem(word) for word in txt.lower().split() if word not in cached_stopwords and len(word) > 1])
+def run(data_src='../data/StackExchange/anime.txt'):
+  model = Settings(data_src)
+  pdb.set_trace()
+  print(model.label)
 
 
-def run(data_src='../data/StackExchange/academia.txt'):
-  pass
 
 
 if __name__ == "__main__":
