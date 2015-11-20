@@ -12,20 +12,23 @@ from collections import Counter
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 from sklearn.feature_extraction import FeatureHasher
+from mpi4py import MPI
 
 
 class Settings(object):
-  def __init__(self, src="../data/StackExchange/academia.txt", num_features = 1000, corpus=None, method='tfidf'):
+  def __init__(self, src="", method='tfidf'):
     self.threshold = 20
     self.data_src = src
     self.processors = 4
+    self.method = method
     # self.data = self.get_data()
-    self.corpus = corpus if corpus else self.load_data()
-    self.matrix, self.label = self.make_feature(num_features,method)
+    self.corpus = self.load_data()
+    # self.matrix, self.label = self.make_feature(num_features,method)
 
   def get_data(self):
-    folders = [os.path.join(self.data_src, f) for f in listdir(self.data_src) if
-               os.path.isfile(os.path.join(self.data_src, f)) and ".DS" not in f]
+    folders = [os.path.join(self.data_src, f) for f in listdir(self.data_src)
+               if os.path.isfile(
+        os.path.join(self.data_src, f)) and ".DS" not in f]
     print(folders)
     return folders
 
@@ -40,8 +43,8 @@ class Settings(object):
       """
       stemmer = PorterStemmer()
       cached_stopwords = stopwords.words("english")
-      return ' '.join([stemmer.stem(word) for word in txt.lower().split()
-              if word not in cached_stopwords and len(word) > 1])
+      return ' '.join([stemmer.stem(word) for word in txt.lower().split() if
+                       word not in cached_stopwords and len(word) > 1])
 
     if not self.data_src:
       raise ValueError('data src required!')
@@ -63,7 +66,7 @@ class Settings(object):
         doc[0] = 'others'
     return corpus
 
-  def make_feature(self, num_features=1000, method='tfidf'):
+  def make_feature(self, num_features=1000):
     """
     making feature matrix
     :param num: # of features selected
@@ -80,8 +83,8 @@ class Settings(object):
           files[key] = files.get(key, 0) + 1
 
       for each_feature in files.keys():
-        tfidf[each_feature] = (features[each_feature] / sum(features.values())
-                               * np.log(len(self.corpus) / files[each_feature]))
+        tfidf[each_feature] = features[each_feature] / sum(
+          features.values()) * np.log(len(self.corpus) / files[each_feature])
       return tfidf, matrix
 
     def norm(mat):
@@ -106,10 +109,12 @@ class Settings(object):
 
     matrix_selected = []
     label = list(zip(*self.corpus)[0])
-    pdb.set_trace()
-    if method == 'tfidf':
+    # pdb.set_trace()
+    if self.method == 'tfidf':
       tfidf, matrix = calculate_tf_idf()
-      features_selected = [pair[0] for pair in sorted(tfidf.items(), key=lambda x: x[1])[-num_features:]]
+      features_selected = [pair[0] for pair in
+                           sorted(tfidf.items(), key=lambda x: x[1])[
+                           -num_features:]]
       for row in matrix:
         matrix_selected.append([row[each] for each in features_selected])
       matrix_selected = np.array(matrix_selected)
@@ -121,12 +126,21 @@ class Settings(object):
     return matrix_selected, label
 
 
-def run(data_src='../data/StackExchange/anime.txt'):
-  model = Settings(data_src)
-  pdb.set_trace()
-  print(model.label)
-
-
+def run(data_src='../data/StackExchange/anime.txt', process=4):
+  # model = Settings(data_src)
+  # pdb.set_trace()
+  # print(model.label)
+  comm = MPI.COMM_WORLD
+  rank = comm.Get_rank()
+  size = comm.Get_size()
+  features_num = [(rank + i * size) * 100 for i in xrange(12 + 1) if
+                  rank + i * size <= 12]
+  # different processes run different feature experiments
+  model_hash = Settings(data_src, method='hash')
+  model_tfidf = Settings(data_src, method='tfidf')
+  for f_num in features_num:
+    for method in [model_tfidf, model_hash]:
+      data, label = method.make_feature(f_num)
 
 
 if __name__ == "__main__":
