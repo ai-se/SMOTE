@@ -5,7 +5,11 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.naive_bayes import GaussianNB
 from sklearn import linear_model
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.naive_bayes import MultinomialNB
 from settings import *
+from newabcd import *
+from collections import Counter
+import numpy as np
  # __author__ = 'WeiFu'
 
 
@@ -123,33 +127,45 @@ from settings import *
 #     tuner.DE()
 
 
-def _Abcd(predicted, actual):
-  predicted_txt = []
-  for data in predicted:
-    predicted_txt.append(data)  # for multiple classes, just use it
-  score = sk_abcd(predicted_txt, actual)
-  return score
+def _Abcd(predicted, actual, F):
+  """
+  get performance scores. not test  yet!!! 1120
+  """
+  def calculate(scores):
+    for i, v in enumerate(scores):
+      F[uni_actual[i]] = F.get(uni_actual[i],[]) +[v]
+    freq_actual = [count_actual[one]/len(actual) for one in uni_actual]
+    F["mean"] = F.get("mean",[]) + [np.mean(scores)]
+    F["mean_weighted"] = (F.get("mean_weighted",[]) +
+                         [np.sum(np.array(scores)*np.array(freq_actual))])
+    return F
+
+  abcd = ABCD(predicted, actual)
+  uni_actual = list(set(actual))
+  count_actual = Counter(actual)
+  score_each_klass = [ k.stats()[-2]for k in abcd()]  # -2 is F measure
+  return calculate(score_each_klass)
 
 
-def learn(clf, train_X, train_Y, predict_X, predict_Y):
+def learn(clf, train_X, train_Y, predict_X, predict_Y, F):
   clf = clf.fit(train_X, train_Y)
   array = clf.predict(predict_X)
   predictresult = [i for i in array]
-  scores = _Abcd(predictresult, predict_Y)
+  scores = _Abcd(predictresult, predict_Y,F)
   return scores
 
 
-def cartClassifier(train_x, train_y, predict_x, predict_y):
+def cartClassifier(train_x, train_y, predict_x, predict_y, F):
   clf = DecisionTreeClassifier(
     max_features=The.cart.max_features,
     max_depth=The.cart.max_depth,
     min_samples_split=The.cart.min_samples_split,
     min_samples_leaf=The.cart.min_samples_leaf,
     random_state=1)
-  return learn(clf, train_x, train_y, predict_x, predict_y)
+  return learn(clf, train_x, train_y, predict_x, predict_y, F)
 
 
-def rfClassifier(train, train_x, train_y, predict_x, predict_y):
+def rfClassifier(train, train_x, train_y, predict_x, predict_y, F):
   clf = RandomForestClassifier(
     n_estimators=The.rf.n_estimators,
     max_features=The.rf.max_features,
@@ -158,12 +174,12 @@ def rfClassifier(train, train_x, train_y, predict_x, predict_y):
     max_leaf_nodes=The.rf.max_leaf_nodes,
     random_state=1)
   # pdb.set_trace()
-  return learn(clf, train_x, train_y, predict_x, predict_y)
+  return learn(clf, train_x, train_y, predict_x, predict_y, F)
 
 
-def bayes():
-  clf = GaussianNB()
-  return learn(clf)
+def naive_bayes(train_x, train_y, predict_x, predict_y, F):
+  clf = MultinomialNB()
+  return learn(clf,train_x, train_y, predict_x, predict_y, F)
 
 
 def logistic():
