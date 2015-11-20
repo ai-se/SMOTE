@@ -11,16 +11,17 @@ from os import listdir
 from collections import Counter
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
+from sklearn.feature_extraction import FeatureHasher
 
 
 class Settings(object):
-  def __init__(self, src="../data/StackExchange/academia.txt", corpus=None, tfidf = None):
+  def __init__(self, src="../data/StackExchange/academia.txt", corpus=None, tfidf=None):
     self.threshold = 20
     self.data_src = src
     self.processors = 4
     self.data = self.get_data()
     self.corpus = corpus if corpus else self.load_data()
-    self.tfidf = tfidf if tfidf else self.make_feature(100,'tfidf')
+    self.tfidf = tfidf if tfidf else self.make_feature(100, 'tfidf')
 
   def get_data(self):
     folders = [os.path.join(self.data_src, f) for f in listdir(self.data_src) if
@@ -49,33 +50,61 @@ class Settings(object):
         doc[0] = 'others'
     return corpus
 
-  def make_feature(self, num=100, method='tfidf'):
+  def make_feature(self, num_features=100, method='tfidf'):
     """
     making feature matrix
     :param num: # of features selected
     :param method: "tfidf" and "tf"
     """
 
-    def tf_idf():
-      pass
-
-    label = list(zip(*self.corpus))
-    if method == 'tfidf':
+    def calculate_tf_idf():
       features, files, tfidf, matrix = {}, {}, {}, []
       for row in self.corpus:
         row_no_label = Counter(row[1:])
         matrix.append(row_no_label)  # keep each row into a matrix
         for key, val in row_no_label.iteritems():
           features[key] = features.get(key, 0) + val
-          files[key] = features.get(key,0) + 1
+          files[key] = features.get(key, 0) + 1
 
       for each_feature in files.keys():
-        tfidf[each_feature] = (features[each_feature]/sum(features.values())*
-                               np.log(len(self.corpus)/files[each_feature]))
-      return matrix, tfidf
-    else:  # tf
-      return [Counter[row[1:]] for row in self.corpus]
+        tfidf[each_feature] = (features[each_feature] / sum(features.values())
+                               * np.log(len(self.corpus) / files[each_feature]))
+      return tfidf, matrix
 
+    def norm(mat):
+      """
+      l2 normalization. I haven't check it out.
+      """
+      mat = mat.astype(float)
+      for i, row in enumerate(mat):
+        nor = np.linalg.norm(row, 2)
+        if not nor == 0:
+          mat[i] = row / nor
+      return mat
+
+    def hash(mat, num_features):
+      """
+      hashing trick, why need this hash function ????
+      """
+      hasher = FeatureHasher(num_features)
+      X = hasher.transform(mat)
+      X = X.toarray()
+      return X
+
+    matrix_selected = []
+    label = list(zip(*self.corpus))
+    if method == 'tfidf':
+      tfidf, matrix = calculate_tf_idf()
+      features_selected = [pair[0] for pair in sorted(tfidf.items(), key=lambda x: x[1])[-num_features:]]
+      for row in matrix:
+        matrix_selected.append([row[each] for each in features_selected])
+      matrix_selected = np.array(matrix_selected)
+      matrix_selected = norm(matrix_selected)
+    else:  # tf
+      mat = [Counter[row[1:]] for row in self.corpus]
+      matrix_selected = hash(mat, num_features)
+      matrix_selected = norm(matrix_selected)
+    return matrix_selected, label
 
 
 def process(txt):
