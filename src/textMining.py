@@ -139,10 +139,10 @@ def cross_val(pd_data, learner, fold=5):
   for i in xrange(5): # repeat 5 times here
     kf = KFold(len(pd_data),fold)
     for train_index, test_index in kf:
-      train_X = pd_data.ix[train_index,:999].values
-      train_Y = pd_data.ix[train_index,1000].values
-      test_X = pd_data.ix[test_index,999].values
-      test_Y = pd_data.ix[test_index,1000].values
+      train_X = pd_data.ix[train_index,pd_data.columns[:-1]].values
+      train_Y = pd_data.ix[train_index,pd_data.columns[-1]].values
+      test_X = pd_data.ix[test_index,pd_data.columns[:-1]].values
+      test_Y = pd_data.ix[test_index,pd_data.columns[-1]].values
       F = learner(train_X,train_Y,test_X,test_Y,F)
   return F
 
@@ -152,12 +152,13 @@ def run(data_src='../data/StackExchange/anime.txt', process=4):
   # data = model.make_feature()
   # pdb.set_trace()
   # print(model.label)
-  comm = MPI.COMM_WORLD
-  rank = comm.Get_rank()
-  size = comm.Get_size()
-  features_num = [(rank + i * size) * 100 for i in xrange(12 + 1) if
-                  rank + i * size <= 12]
+  # comm = MPI.COMM_WORLD
+  # rank = comm.Get_rank()
+  # size = comm.Get_size()
+  # features_num = [(rank + i * size) * 100 for i in xrange(12 + 1) if
+  #                 rank + i * size <= 12]
   # different processes run different feature experiments
+  features_num = [100]
   model_hash = Settings(data_src, method='hash')
   model_tfidf = Settings(data_src, method='tfidf')
   learners = [naive_bayes]
