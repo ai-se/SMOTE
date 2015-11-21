@@ -10,6 +10,7 @@ from settings import *
 from newabcd import *
 from collections import Counter
 import numpy as np
+import pdb
  # __author__ = 'WeiFu'
 
 
@@ -139,8 +140,8 @@ def _Abcd(predicted, actual, F):
     F["mean_weighted"] = (F.get("mean_weighted",[]) +
                          [np.sum(np.array(scores)*np.array(freq_actual))])
     return F
-
-  abcd = ABCD(predicted, actual)
+  # pdb.set_trace()
+  abcd = ABCD(actual, predicted)
   uni_actual = list(set(actual))
   count_actual = Counter(actual)
   score_each_klass = [ k.stats()[-2]for k in abcd()]  # -2 is F measure
@@ -149,8 +150,7 @@ def _Abcd(predicted, actual, F):
 
 def learn(clf, train_X, train_Y, predict_X, predict_Y, F):
   clf = clf.fit(train_X, train_Y)
-  array = clf.predict(predict_X)
-  predictresult = [i for i in array]
+  predictresult = clf.predict(predict_X)
   scores = _Abcd(predictresult, predict_Y,F)
   return scores
 
