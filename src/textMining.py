@@ -19,7 +19,7 @@ from learner import *
 
 
 class Settings(object):
-  def __init__(self, src="", method='tfidf'):
+  def __init__(self, src, method):
     self.threshold = 20
     self.data_src = src
     self.processors = 4
@@ -69,7 +69,7 @@ class Settings(object):
         doc[0] = 'others'
     return corpus
 
-  def make_feature(self, num_features=1000):
+  def make_feature(self, num_features):
     """
     making feature matrix
     :param num: # of features selected
@@ -88,6 +88,8 @@ class Settings(object):
       for each_feature in files.keys():
         tfidf[each_feature] = features[each_feature] / sum(
           features.values()) * np.log(len(self.corpus) / files[each_feature])
+        if np.log(len(self.corpus) / files[each_feature]) <0:
+          set_trace()
       return tfidf, matrix
 
     def norm(mat):
@@ -152,17 +154,18 @@ def run(data_src='../data/StackExchange/anime.txt', process=4):
   # data = model.make_feature()
   # pdb.set_trace()
   # print(model.label)
-  # comm = MPI.COMM_WORLD
-  # rank = comm.Get_rank()
-  # size = comm.Get_size()
-  # features_num = [(rank + i * size) * 100 for i in xrange(12 + 1) if
-  #                 rank + i * size <= 12]
+  comm = MPI.COMM_WORLD
+  rank = comm.Get_rank()
+  size = comm.Get_size()
+  features_num = [(rank + i * size) * 100 for i in xrange(12 + 1) if
+                  rank + i * size <= 12]
   # different processes run different feature experiments
-  features_num = [100]
+  features_num = [1000]
   model_hash = Settings(data_src, method='hash')
   model_tfidf = Settings(data_src, method='tfidf')
   learners = [naive_bayes]
   F_method = {}
+  F_DF = pd.DataFrame()
   for learner in learners:
     random.seed(1)
     F_feature = {}
@@ -171,6 +174,21 @@ def run(data_src='../data/StackExchange/anime.txt', process=4):
         pd_data = method.make_feature(f_num)
         F_feature[f_num] = cross_val(pd_data, learner)
     F_method[learner.func_name] = F_feature
+  F_DF.append(F_method)
+
+  if rank == 0:
+    for i in xrange(1,size):
+      temp = comm.recv(source=i)
+      F_DF.append(temp) # receive data from other process
+      pdb.set_trace()
+      print("rank0")
+  else:
+    comm.send(F_DF, dest=0)
+
+  print("done!",str(rank))
+
+
+
 
 
 
