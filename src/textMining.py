@@ -107,7 +107,7 @@ class Settings(object):
       """
       hashing trick, why need this hash function ????
       """
-      hasher = FeatureHasher(num_features)
+      hasher = FeatureHasher(n_features=num_features)
       X = hasher.transform(mat)
       X = X.toarray()
       return X
@@ -150,40 +150,33 @@ def cross_val(pd_data, learner, fold=5):
 
 
 def run(data_src='../data/StackExchange/anime.txt', process=4):
-  # model = Settings(data_src)
-  # data = model.make_feature()
-  # pdb.set_trace()
-  # print(model.label)
   comm = MPI.COMM_WORLD
   rank = comm.Get_rank()
   size = comm.Get_size()
-  features_num = [(rank + i * size) * 100 for i in xrange(12 + 1) if
-                  rank + i * size <= 12]
   # different processes run different feature experiments
-  features_num = [1000]
-  model_hash = Settings(data_src, method='hash')
+  features_num = [ 100* i for i in xrange(1,13)]
+  features_num_process = [ features_num[i] for i in xrange(rank,len(features_num),size)]
+  print(features_num_process)
+  # model_hash = Settings(data_src, method='hash')
   model_tfidf = Settings(data_src, method='tfidf')
   learners = [naive_bayes]
-  F_method = {}
-  F_DF = pd.DataFrame()
-  for learner in learners:
-    random.seed(1)
-    F_feature = {}
-    for f_num in features_num:
-      for method in [model_tfidf, model_hash]:
+  F_feature = {}
+  for f_num in features_num_process:
+    F_method = {}
+    for learner in learners:
+      random.seed(1)
+      for method in [model_tfidf]:
         pd_data = method.make_feature(f_num)
-        F_feature[f_num] = cross_val(pd_data, learner)
-    F_method[learner.func_name] = F_feature
-  F_DF.append(F_method)
-
+        F_method[learner.func_name] = cross_val(pd_data, learner)
+    F_feature[f_num] = F_method
   if rank == 0:
     for i in xrange(1,size):
       temp = comm.recv(source=i)
-      F_DF.append(temp) # receive data from other process
+      F_feature.update(temp) # receive data from other process
       pdb.set_trace()
       print("rank0")
   else:
-    comm.send(F_DF, dest=0)
+    comm.send(F_feature, dest=0)
 
   print("done!",str(rank))
 
