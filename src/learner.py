@@ -6,6 +6,7 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn import linear_model
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.naive_bayes import MultinomialNB
+from sklearn import svm
 from settings import *
 from newabcd import *
 from collections import Counter
@@ -179,6 +180,11 @@ def rfClassifier(train, train_x, train_y, predict_x, predict_y, F):
 
 def naive_bayes(train_x, train_y, predict_x, predict_y, F):
   clf = MultinomialNB()
+  return learn(clf,train_x, train_y, predict_x, predict_y, F)
+
+
+def linear_SVM(train_x, train_y, predict_x, predict_y, F):
+  clf = svm.LinearSVC(dual=False)
   return learn(clf,train_x, train_y, predict_x, predict_y, F)
 
 
