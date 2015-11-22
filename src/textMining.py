@@ -16,6 +16,7 @@ from sklearn.cross_validation import KFold
 from mpi4py import MPI
 import pandas as pd
 from learner import *
+import time
 
 
 class Settings(object):
@@ -88,7 +89,7 @@ class Settings(object):
       for each_feature in files.keys():
         tfidf[each_feature] = features[each_feature] / sum(
           features.values()) * np.log(len(self.corpus) / files[each_feature])
-        if np.log(len(self.corpus) / files[each_feature]) <0:
+        if np.log(len(self.corpus) / files[each_feature]) < 0:
           set_trace()
       return tfidf, matrix
 
@@ -138,14 +139,14 @@ def cross_val(pd_data, learner, fold=5):
   do 5-fold cross_validation
   """
   F = {}
-  for i in xrange(5): # repeat 5 times here
-    kf = KFold(len(pd_data),fold)
+  for i in xrange(5):  # repeat 5 times here
+    kf = KFold(len(pd_data), fold)
     for train_index, test_index in kf:
-      train_X = pd_data.ix[train_index,pd_data.columns[:-1]].values
-      train_Y = pd_data.ix[train_index,pd_data.columns[-1]].values
-      test_X = pd_data.ix[test_index,pd_data.columns[:-1]].values
-      test_Y = pd_data.ix[test_index,pd_data.columns[-1]].values
-      F = learner(train_X,train_Y,test_X,test_Y,F)
+      train_X = pd_data.ix[train_index, pd_data.columns[:-1]].values
+      train_Y = pd_data.ix[train_index, pd_data.columns[-1]].values
+      test_X = pd_data.ix[test_index, pd_data.columns[:-1]].values
+      test_Y = pd_data.ix[test_index, pd_data.columns[-1]].values
+      F = learner(train_X, train_Y, test_X, test_Y, F)
   return F
 
 
@@ -153,10 +154,11 @@ def run(data_src='../data/StackExchange/anime.txt', process=4):
   comm = MPI.COMM_WORLD
   rank = comm.Get_rank()
   size = comm.Get_size()
+  print("process", str(rank), "started:", time.strftime("%b %d %Y %H:%M:%S "))
   # different processes run different feature experiments
-  features_num = [ 100* i for i in xrange(1,13)]
-  features_num_process = [ features_num[i] for i in xrange(rank,len(features_num),size)]
-  print(features_num_process)
+  features_num = [100 * i for i in xrange(1, 13)]
+  features_num_process = [features_num[i] for i in
+                          xrange(rank, len(features_num), size)]
   # model_hash = Settings(data_src, method='hash')
   model_tfidf = Settings(data_src, method='tfidf')
   learners = [naive_bayes]
@@ -170,19 +172,12 @@ def run(data_src='../data/StackExchange/anime.txt', process=4):
         F_method[learner.func_name] = cross_val(pd_data, learner)
     F_feature[f_num] = F_method
   if rank == 0:
-    for i in xrange(1,size):
+    for i in xrange(1, size):
       temp = comm.recv(source=i)
-      F_feature.update(temp) # receive data from other process
-      pdb.set_trace()
-      print("rank0")
+      F_feature.update(temp)  # receive data from other process
   else:
     comm.send(F_feature, dest=0)
-
-  print("done!",str(rank))
-
-
-
-
+  print("done!", str(rank))
 
 
 if __name__ == "__main__":
