@@ -155,7 +155,8 @@ def scott(features_num, learners, score):
   out = []
   for num in features_num:
     for learner in learners:
-      out.append([learner.func_name + "_" + str(num)] + score[num][learner.func_name][
+      out.append(
+        [learner.func_name + "_" + str(num)] + score[num][learner.func_name][
           'mean'])
       out.append([learner.func_name + "_" + str(num) + "_weighted"] +
                  score[num][learner.func_name]['mean_weighted'])
@@ -168,13 +169,13 @@ def run(data_src='../data/StackExchange/anime.txt', process=4):
   size = comm.Get_size()
   print("process", str(rank), "started:", time.strftime("%b %d %Y %H:%M:%S "))
   # different processes run different feature experiments
-  features_num = [1000 * i for i in xrange(1, 11)]
+  features_num = [100 * i for i in xrange(1, 2)]
   features_num_process = [features_num[i] for i in
                           xrange(rank, len(features_num), size)]
   # model_hash = Settings(data_src, method='hash')
   model_tfidf = Settings(data_src, method='tfidf')
   methods_lst = [model_tfidf]
-  learners = [naive_bayes,cartClassifier,linear_SVM]
+  learners = [naive_bayes, cartClassifier, linear_SVM]
   F_feature = {}
   for f_num in features_num_process:
     F_method = {}
@@ -188,26 +189,33 @@ def run(data_src='../data/StackExchange/anime.txt', process=4):
     for i in xrange(1, size):
       temp = comm.recv(source=i)
       F_feature.update(temp)  # receive data from other process
-    pdb.set_trace()
     scott(features_num, learners, F_feature)
+    file_name = data_src[data_src.rindex('/') + 1:data_src.rindex('.')]
+    with open('../pickles/' + file_name + '.pickle', 'wb') as mypickle:
+      pickle.dump(F_feature, mypickle)
   else:
     comm.send(F_feature, dest=0)
   print("process", str(rank), "end:", time.strftime("%b %d %Y %H:%M:%S "))
 
 
 def atom(x):
-  try : return int(x)
+  try:
+    return int(x)
   except ValueError:
-    try : return float(x)
-    except ValueError : return x
+    try:
+      return float(x)
+    except ValueError:
+      return x
 
-def cmd(com="demo('-h')"):
+
+def cmd(com="Nothing"):
   "Convert command line to a function call."
   if len(sys.argv) < 2: return com
-  def strp(x): return isinstance(x,basestring)
-  def wrap(x): return "'%s'"%x if strp(x) else str(x)
-  words = map(wrap,map(atom,sys.argv[2:]))
+  def strp(x): return isinstance(x, basestring)
+  def wrap(x): return "'%s'" % x if strp(x) else str(x)
+  words = map(wrap, map(atom, sys.argv[2:]))
   return sys.argv[1] + '(' + ','.join(words) + ')'
+
 
 if __name__ == "__main__":
   # settings().get_data()
