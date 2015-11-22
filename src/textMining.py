@@ -2,11 +2,9 @@ from __future__ import print_function, division
 # __author__ = 'WeiFu'
 import pickle
 import random
-import pdb
-import sys
+import time
 import mpi4py
 import os.path
-import numpy as np
 from os import listdir
 from collections import Counter
 from nltk.corpus import stopwords
@@ -16,7 +14,7 @@ from sklearn.cross_validation import KFold
 from mpi4py import MPI
 import pandas as pd
 from learner import *
-import time
+from sk import *
 
 
 class Settings(object):
@@ -150,6 +148,18 @@ def cross_val(pd_data, learner, fold=5):
   return F
 
 
+def scott(features_num, learners, score):
+  out = []
+  for num in features_num:
+    for learner in learners:
+      pdb.set_trace()
+      out.append([learner.func_name + "_" + str(num)] + score[num][learner.func_name][
+          'mean'])
+      out.append([learner.func_name + "_" + str(num) + "_weighted"] +
+                 score[num][learner.func_name]['mean_weighted'])
+  rdivDemo(out)
+
+
 def run(data_src='../data/StackExchange/anime.txt', process=4):
   comm = MPI.COMM_WORLD
   rank = comm.Get_rank()
@@ -161,13 +171,14 @@ def run(data_src='../data/StackExchange/anime.txt', process=4):
                           xrange(rank, len(features_num), size)]
   # model_hash = Settings(data_src, method='hash')
   model_tfidf = Settings(data_src, method='tfidf')
+  methods_lst = [model_tfidf]
   learners = [naive_bayes]
   F_feature = {}
   for f_num in features_num_process:
     F_method = {}
     for learner in learners:
       random.seed(1)
-      for method in [model_tfidf]:
+      for method in methods_lst:
         pd_data = method.make_feature(f_num)
         F_method[learner.func_name] = cross_val(pd_data, learner)
     F_feature[f_num] = F_method
@@ -175,6 +186,8 @@ def run(data_src='../data/StackExchange/anime.txt', process=4):
     for i in xrange(1, size):
       temp = comm.recv(source=i)
       F_feature.update(temp)  # receive data from other process
+    pdb.set_trace()
+    scott(features_num, learners, F_feature)
   else:
     comm.send(F_feature, dest=0)
   print("done!", str(rank))
