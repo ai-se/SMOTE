@@ -168,7 +168,7 @@ def run(data_src='../data/StackExchange/anime.txt', process=4):
   size = comm.Get_size()
   print("process", str(rank), "started:", time.strftime("%b %d %Y %H:%M:%S "))
   # different processes run different feature experiments
-  features_num = [100 * i for i in xrange(1, 13)]
+  features_num = [1000 * i for i in xrange(1, 11)]
   features_num_process = [features_num[i] for i in
                           xrange(rank, len(features_num), size)]
   # model_hash = Settings(data_src, method='hash')
@@ -195,6 +195,20 @@ def run(data_src='../data/StackExchange/anime.txt', process=4):
   print("process", str(rank), "end:", time.strftime("%b %d %Y %H:%M:%S "))
 
 
+def atom(x):
+  try : return int(x)
+  except ValueError:
+    try : return float(x)
+    except ValueError : return x
+
+def cmd(com="demo('-h')"):
+  "Convert command line to a function call."
+  if len(sys.argv) < 2: return com
+  def strp(x): return isinstance(x,basestring)
+  def wrap(x): return "'%s'"%x if strp(x) else str(x)
+  words = map(wrap,map(atom,sys.argv[2:]))
+  return sys.argv[1] + '(' + ','.join(words) + ')'
+
 if __name__ == "__main__":
   # settings().get_data()
-  run()
+  eval(cmd())
