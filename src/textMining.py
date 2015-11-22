@@ -149,10 +149,12 @@ def cross_val(pd_data, learner, fold=5):
 
 
 def scott(features_num, learners, score):
+  """
+   pass results to scott knott
+  """
   out = []
   for num in features_num:
     for learner in learners:
-      pdb.set_trace()
       out.append([learner.func_name + "_" + str(num)] + score[num][learner.func_name][
           'mean'])
       out.append([learner.func_name + "_" + str(num) + "_weighted"] +
@@ -172,7 +174,7 @@ def run(data_src='../data/StackExchange/anime.txt', process=4):
   # model_hash = Settings(data_src, method='hash')
   model_tfidf = Settings(data_src, method='tfidf')
   methods_lst = [model_tfidf]
-  learners = [naive_bayes]
+  learners = [naive_bayes,cartClassifier,linear_SVM]
   F_feature = {}
   for f_num in features_num_process:
     F_method = {}
@@ -190,7 +192,7 @@ def run(data_src='../data/StackExchange/anime.txt', process=4):
     scott(features_num, learners, F_feature)
   else:
     comm.send(F_feature, dest=0)
-  print("done!", str(rank))
+  print("process", str(rank), "end:", time.strftime("%b %d %Y %H:%M:%S "))
 
 
 if __name__ == "__main__":
