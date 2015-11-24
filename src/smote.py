@@ -18,7 +18,7 @@ class smote(object):
                       be over-sampled as much as majority class
     :return panda.DataFrame smoted data
     """
-    self.data = pd_data
+    self.set_data(pd_data)
     self.neighbor = neighbor
     self.up_to_max = False
     self.up_to_num = up_to_num
@@ -30,6 +30,13 @@ class smote(object):
       self.up_to_num = up_to_num
     else:
       self.up_to_max = True
+
+  def set_data(self, pd_data):
+    if not pd_data.empty and isinstance(pd_data.ix[0][-1], str):
+      self.data = pd_data
+    else:
+      raise ValueError(
+        "The last column of pd_data should be string as class label")
 
   def run(self):
     """
