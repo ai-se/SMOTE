@@ -132,12 +132,14 @@ class Settings(object):
     return data
 
 
-def cross_val(pd_data, learner, fold=5):
+def cross_val(pd_data1, learner, fold=5):
   """
   do 5-fold cross_validation
   """
   F = {}
   for i in xrange(5):  # repeat 5 times here
+    pd_data1 = pd_data1.reindex(np.random.permutation(pd_data1.index))
+    pd_data = pd.DataFrame(pd_data1.values)
     kf = KFold(len(pd_data), fold)
     for train_index, test_index in kf:
       train_X = pd_data.ix[train_index, pd_data.columns[:-1]].values
