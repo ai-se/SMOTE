@@ -52,8 +52,8 @@ class Settings(object):
       raise ValueError('data src required!')
     all_label, corpus, used_label = [], [], []
     with open(self.data_src, 'r') as f:
-      content = f.read().splitlines()
-      for line in content:
+      # content = f.read().splitlines()
+      for line in f.readlines():
         label = line.lower().split(' >>> ')[1].split()[0]
         # ' >>> ' the first term is selected as label.
         all_label.append(label)
@@ -165,7 +165,7 @@ def scott(features_num, learners, score):
   rdivDemo(out)
 
 
-def run(data_src='../data/StackExchange/anime.txt', process=4):
+def run(data_src='../data/StackExchange/SE0.txt', process=4):
   comm = MPI.COMM_WORLD
   rank = comm.Get_rank()
   size = comm.Get_size()
@@ -177,7 +177,7 @@ def run(data_src='../data/StackExchange/anime.txt', process=4):
   # model_hash = Settings(data_src, method='hash')
   model_tfidf = Settings(data_src, method='tfidf')
   methods_lst = [model_tfidf]
-  learners = [naive_bayes, cartClassifier, linear_SVM]
+  learners = [naive_bayes]
   F_feature = {}
   for f_num in features_num_process:
     F_method = {}
@@ -220,6 +220,6 @@ def cmd(com="Nothing"):
 
 
 if __name__ == "__main__":
-
+  run()
   # settings().get_data()
-  eval(cmd())
+  # eval(cmd())
