@@ -218,5 +218,6 @@ def cmd(com="Nothing"):
 
 
 if __name__ == "__main__":
+
   # settings().get_data()
   eval(cmd())
