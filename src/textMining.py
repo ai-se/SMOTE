@@ -141,7 +141,7 @@ def cross_val(pd_data1, learner, issmote=False, fold=5):
   for i in xrange(5):  # repeat 5 times here
     if issmote:
       pd_data1 = smote(pd_data1).run()
-      pdb.set_trace()
+      # pdb.set_trace()
     pd_data1 = pd_data1.reindex(np.random.permutation(pd_data1.index))
     pd_data = pd.DataFrame(pd_data1.values)
     kf = KFold(len(pd_data), fold)
