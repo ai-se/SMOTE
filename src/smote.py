@@ -69,7 +69,7 @@ class smote(object):
           new_row = []
           for i, one in enumerate(rand_ngbr):
             gap = random.random()
-            new_row.append(sample[i] + (sample[i] - one) * gap)
+            new_row.append(max(0,sample[i] + (sample[i] - one) * gap)) # here, feature vlaue should >=0
           new_row.append(label)
           total_data.append(new_row)
     return pd.DataFrame(total_data)
