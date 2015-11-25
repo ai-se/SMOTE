@@ -15,6 +15,7 @@ from mpi4py import MPI
 import pandas as pd
 from learner import *
 from sk import *
+from smote import smote
 
 
 class Settings(object):
@@ -132,7 +133,7 @@ class Settings(object):
     return data
 
 
-def cross_val(pd_data1, learner, fold=5):
+def cross_val(pd_data1, learner, issmote=False, fold=5):
   """
   do 5-fold cross_validation
   """
@@ -140,6 +141,10 @@ def cross_val(pd_data1, learner, fold=5):
   for i in xrange(5):  # repeat 5 times here
     pd_data1 = pd_data1.reindex(np.random.permutation(pd_data1.index))
     pd_data = pd.DataFrame(pd_data1.values)
+    if issmote:
+      X = pd_data
+      pd_data = smote(pd_data).run()
+      pdb.set_trace()
     kf = KFold(len(pd_data), fold)
     for train_index, test_index in kf:
       train_X = pd_data.ix[train_index, pd_data.columns[:-1]].values
@@ -165,7 +170,7 @@ def scott(features_num, learners, score):
   rdivDemo(out)
 
 
-def run(data_src='../data/StackExchange/SE0.txt', process=4):
+def run(data_src='../data/StackExchange/anime.txt', process=4):
   comm = MPI.COMM_WORLD
   rank = comm.Get_rank()
   size = comm.Get_size()
@@ -177,15 +182,19 @@ def run(data_src='../data/StackExchange/SE0.txt', process=4):
   # model_hash = Settings(data_src, method='hash')
   model_tfidf = Settings(data_src, method='tfidf')
   methods_lst = [model_tfidf]
-  learners = [naive_bayes,cartClassifier,svm]
+  learners = [naive_bayes]
   F_feature = {}
   for f_num in features_num_process:
     F_method = {}
     for learner in learners:
       random.seed(1)
-      for method in methods_lst:
-        pd_data = method.make_feature(f_num)
-        F_method[learner.func_name] = cross_val(pd_data, learner)
+      for isSmote in [True, False]:
+        for method in methods_lst:
+          pd_data = method.make_feature(f_num)
+          if isSmote:
+            F_method[learner.func_name+"_smote"] = cross_val(pd_data, learner, isSmote)
+          elif not isSmote:
+            F_method[learner.func_name] = cross_val(pd_data, learner, isSmote)
     F_feature[f_num] = F_method
   if rank == 0:
     for i in xrange(1, size):
@@ -220,6 +229,6 @@ def cmd(com="Nothing"):
 
 
 if __name__ == "__main__":
-  # run()
+  run()
   # settings().get_data()
-  eval(cmd())
+  # eval(cmd())
