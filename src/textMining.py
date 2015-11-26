@@ -154,7 +154,6 @@ def cross_val(pd_data1, learner, issmote=False, isTuning=False, fold=5):
       train_Y = pd_data.ix[train_index, pd_data.columns[-1]].values
       test_X = pd_data.ix[test_index, pd_data.columns[:-1]].values
       test_Y = pd_data.ix[test_index, pd_data.columns[-1]].values
-      pdb.set_trace()
       F = learner(train_X, train_Y, test_X, test_Y, F).learn()
   return F
 
@@ -180,7 +179,7 @@ def run(data_src='../data/StackExchange/anime.txt', process=4):
   size = comm.Get_size()
   print("process", str(rank), "started:", time.strftime("%b %d %Y %H:%M:%S "))
   # different processes run different feature experiments
-  features_num = [100 * i for i in xrange(1, 11)]
+  features_num = [10 * i for i in xrange(1, 12)]
   features_num_process = [features_num[i] for i in
                           xrange(rank, len(features_num), size)]
   # model_hash = Settings(data_src, method='hash')
@@ -234,6 +233,6 @@ def cmd(com="Nothing"):
 
 
 if __name__ == "__main__":
-  run()
+  # run()
   # settings().get_data()
-  # eval(cmd())
+  eval(cmd())
