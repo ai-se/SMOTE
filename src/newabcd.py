@@ -28,7 +28,7 @@ class counter():
       F1 = 2 * self.TP / (2 * self.TP + self.FP + self.FN)
       G = 2 * Sen * Spec / (Sen + Spec)
       G1 = Sen * Spec / (Sen + Spec)
-      return Sen, Spec, Prec, Acc, F, G
+      return Sen, 1-Spec, Prec, Acc, F, G
     except ZeroDivisionError:
       return 0, 0, 0, 0, 0, 0
 
