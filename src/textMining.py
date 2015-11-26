@@ -133,7 +133,7 @@ class Settings(object):
     return data
 
 
-def cross_val(pd_data1, learner, issmote=False, fold=5):
+def cross_val(pd_data1, learner, issmote=False, isTuning=False, fold=5):
   """
   do 5-fold cross_validation
   """
@@ -146,11 +146,16 @@ def cross_val(pd_data1, learner, issmote=False, fold=5):
     pd_data = pd.DataFrame(pd_data1.values)
     kf = KFold(len(pd_data), fold)
     for train_index, test_index in kf:
+      params = {}
+      if isTuning:
+        # params = call_TUning()
+        pass
       train_X = pd_data.ix[train_index, pd_data.columns[:-1]].values
       train_Y = pd_data.ix[train_index, pd_data.columns[-1]].values
       test_X = pd_data.ix[test_index, pd_data.columns[:-1]].values
       test_Y = pd_data.ix[test_index, pd_data.columns[-1]].values
-      F = learner(train_X, train_Y, test_X, test_Y, F)
+      pdb.set_trace()
+      F = learner(train_X, train_Y, test_X, test_Y, F).learn()
   return F
 
 
@@ -162,10 +167,10 @@ def scott(features_num, learners, score):
   for num in features_num:
     for learner in learners:
       out.append(
-        [learner.func_name + "_" + str(num)] + score[num][learner.func_name][
+        [learner.name + "_" + str(num)] + score[num][learner.name][
           'mean'])
-      out.append([learner.func_name + "_" + str(num) + "_weighted"] +
-                 score[num][learner.func_name]['mean_weighted'])
+      out.append([learner.name + "_" + str(num) + "_weighted"] +
+                 score[num][learner.name]['mean_weighted'])
   rdivDemo(out)
 
 
@@ -181,19 +186,20 @@ def run(data_src='../data/StackExchange/anime.txt', process=4):
   # model_hash = Settings(data_src, method='hash')
   model_tfidf = Settings(data_src, method='tfidf')
   methods_lst = [model_tfidf]
-  learners = [naive_bayes]
+  smote_lst = [False] # [True,False]
+  learners = [Naive_bayes]
   F_feature = {}
   for f_num in features_num_process:
     F_method = {}
     for learner in learners:
       random.seed(1)
-      for isSmote in [True, False]:
+      for isSmote in smote_lst:
         for method in methods_lst:
           pd_data = method.make_feature(f_num)
           if isSmote:
-            F_method[learner.func_name+"_smote"] = cross_val(pd_data, learner, isSmote)
+            F_method[learner.name+"_smote"] = cross_val(pd_data, learner, isSmote)
           elif not isSmote:
-            F_method[learner.func_name] = cross_val(pd_data, learner, isSmote)
+            F_method[learner.name] = cross_val(pd_data, learner, isSmote)
     F_feature[f_num] = F_method
   if rank == 0:
     for i in xrange(1, size):
@@ -228,6 +234,6 @@ def cmd(com="Nothing"):
 
 
 if __name__ == "__main__":
-  # run()
+  run()
   # settings().get_data()
-  eval(cmd())
+  # eval(cmd())
