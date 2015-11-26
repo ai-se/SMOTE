@@ -16,6 +16,7 @@ import pandas as pd
 from learner import *
 from sk import *
 from smote import smote
+from tuner import *
 
 
 class Settings(object):
@@ -133,7 +134,7 @@ class Settings(object):
     return data
 
 
-def cross_val(pd_data1, learner, issmote=False, isTuning=False, fold=5):
+def cross_val(pd_data1, learner, issmote=False, isTuning=True, fold=5):
   """
   do 5-fold cross_validation
   """
@@ -147,13 +148,21 @@ def cross_val(pd_data1, learner, issmote=False, isTuning=False, fold=5):
     kf = KFold(len(pd_data), fold)
     for train_index, test_index in kf:
       params = {}
-      if isTuning:
-        # params = call_TUning()
-        pass
       train_X = pd_data.ix[train_index, pd_data.columns[:-1]].values
       train_Y = pd_data.ix[train_index, pd_data.columns[-1]].values
       test_X = pd_data.ix[test_index, pd_data.columns[:-1]].values
       test_Y = pd_data.ix[test_index, pd_data.columns[-1]].values
+      if isTuning:
+        train_len = len(train_X)
+        new_train_index = np.random.choice(range(train_len),train_len*0.7)
+        new_tune_index = np.array(set(range(train_len)) -set(new_train_index))
+        new_train_X = train_X(new_train_index)
+        new_train_Y = train_Y(new_train_index)
+        new_tune_X = train_X(new_tune_index)
+        new_tune_Y = train_Y(new_tune_index)
+        clf = learner(new_train_X,new_train_Y,new_tune_X,new_tune_Y,{})
+        tuner = DE_Tune_ML(clf,clf.get_param())
+        pass
       F = learner(train_X, train_Y, test_X, test_Y, F).learn()
   return F
 
