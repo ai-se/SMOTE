@@ -34,7 +34,7 @@ class Learners(object):
     scores = self._Abcd(predictresult, self.predict_Y, self.F)
     return scores
 
-  def _Abcd(predicted, actual, F):
+  def _Abcd(self,predicted, actual, F):
     """
     get performance scores. not test  yet!!! 1120
     """
