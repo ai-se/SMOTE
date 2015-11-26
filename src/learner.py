@@ -59,8 +59,10 @@ class Learners(object):
     raise NotImplementedError("You should implement get_param function")
 
 class CartClassifier(Learners):
+  name = "CART"
   def __init__(self, train_x, train_y, predict_x, predict_y, F):
     clf = DecisionTreeClassifier()
+    self.name = "CART"
     super(CartClassifier, self).__init__(clf,train_x, train_y, predict_x, predict_y, F)
 
   def get_param(self):
@@ -73,8 +75,10 @@ class CartClassifier(Learners):
     return tunelst
 
 class RfClassifier(Learners):
+  name = "RF"
   def __init__(self, train_x, train_y, predict_x, predict_y, F):
     clf =  RandomForestClassifier()
+    self.name = "RF"
     super(RfClassifier, self).__init__(clf, train_x, train_y, predict_x, predict_y, F)
 
   def get_param(self):
@@ -88,8 +92,10 @@ class RfClassifier(Learners):
     return tunelst
 
 class Naive_bayes(Learners):
+  name = "NB"
   def __init__(self,train_x, train_y, predict_x, predict_y, F):
-    clf = Naive_bayes()
+    clf = MultinomialNB()
+    self.name = "NB"
     super(Naive_bayes, self).__init__(clf,train_x, train_y, predict_x, predict_y, F)
 
   def get_param(self):
@@ -97,8 +103,11 @@ class Naive_bayes(Learners):
     return tunelst
 
 class Linear_SVM(Learners):
+  name = "Linear_SVM"
   def __init__(self,train_x, train_y, predict_x, predict_y, F):
-    super(Linear_SVC, self).__init__(train_x, train_y, predict_x, predict_y, F)
+    clf = LinearSVC(dual=False)
+    self.name = "Linear_SVM"
+    super(Linear_SVM, self).__init__(clf,train_x, train_y, predict_x, predict_y, F)
 
   def get_param(self):
     tunelst = {}
