@@ -48,10 +48,11 @@ class Learners(object):
       return F
 
     # pdb.set_trace()
+    _goal = {"PD":0,"PF":1,"PREC":2,"F":3,"G":4}
     abcd = ABCD(actual, predicted)
     uni_actual = list(set(actual))
     count_actual = Counter(actual)
-    score_each_klass = [k.stats()[-2] for k in abcd()]  # -2 is F measure
+    score_each_klass = [k.stats()[_goal[self.goal]] for k in abcd()]  # -2 is F measure
     return calculate(score_each_klass)
 
   def get_param(self):
@@ -100,7 +101,10 @@ class Naive_bayes(Learners):
     super(Naive_bayes, self).__init__(clf,train_x, train_y, predict_x, predict_y)
 
   def get_param(self):
-    tunelst = {}
+    tunelst = {
+              "alpha":[0.0, 1.0],
+              "fit_prior":[False, True]
+    }
     return tunelst
 
 class Linear_SVM(Learners):
@@ -111,7 +115,14 @@ class Linear_SVM(Learners):
     super(Linear_SVM, self).__init__(clf,train_x, train_y, predict_x, predict_y)
 
   def get_param(self):
-    tunelst = {}
+    tunelst = {
+                "C":[0.01, 5.0],
+                "dual":[False, True],
+                "multi_class":['over','crammer_singer'],
+                "penalty":['l1','l2'],
+                "loss":['hinge','squared_hinge'],
+                "random_state":[1,1]
+    }
     return tunelst
 
 
