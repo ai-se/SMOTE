@@ -155,15 +155,17 @@ def cross_val(pd_data1, learner, issmote=False, isTuning=True, fold=5):
       if isTuning:
         train_len = len(train_X)
         new_train_index = np.random.choice(range(train_len),train_len*0.7)
-        new_tune_index = np.array(set(range(train_len)) -set(new_train_index))
-        new_train_X = train_X(new_train_index)
-        new_train_Y = train_Y(new_train_index)
-        new_tune_X = train_X(new_tune_index)
-        new_tune_Y = train_Y(new_tune_index)
-        clf = learner(new_train_X,new_train_Y,new_tune_X,new_tune_Y,{})
-        tuner = DE_Tune_ML(clf,clf.get_param())
+        new_tune_index = list(set(range(train_len)) -set(new_train_index))
+        new_train_X = train_X[new_train_index]
+        new_train_Y = train_Y[new_train_index]
+        new_tune_X = train_X[new_tune_index]
+        new_tune_Y = train_Y[new_tune_index]
+        clf = learner(new_train_X,new_train_Y,new_tune_X,new_tune_Y)
+        tuner = DE_Tune_ML(clf,clf.get_param(),"mean")
+        params = tuner.Tune()
+        pdb.set_trace()
         pass
-      F = learner(train_X, train_Y, test_X, test_Y, F).learn()
+      F = learner(train_X, train_Y, test_X, test_Y).learn(F, **params)
   return F
 
 
@@ -195,7 +197,7 @@ def run(data_src='../data/StackExchange/anime.txt', process=4):
   model_tfidf = Settings(data_src, method='tfidf')
   methods_lst = [model_tfidf]
   smote_lst = [False] # [True,False]
-  learners = [Naive_bayes]
+  learners = [CartClassifier]
   F_feature = {}
   for f_num in features_num_process:
     F_method = {}
@@ -242,6 +244,7 @@ def cmd(com="Nothing"):
 
 
 if __name__ == "__main__":
-  # run()
-  # settings().get_data()
-  eval(cmd())
+  if len(sys.argv) == 1:
+    run()
+  else:
+    eval(cmd())
