@@ -63,13 +63,14 @@ class DE(object):
         candidate[key] = round(random.uniform(val[0], val[1]), 3)
       elif isinstance(val[0], bool):
         candidate[key] = random.random() <= 0.5
-      elif isinstance(val[0], list):
-        pass
+      elif isinstance(val[0], str):
+        candidate[key] = random.choice(val) # randomly selelct if values of parameters are strs
       elif isinstance(val[0], int):
         candidate[key] = int(random.uniform(val[0], val[1]))
       else:
         raise ValueError("type of params distribution is wrong!")
-    candidate["random_state"] = 1  ## set random seed here
+    if "random_state" in self.params_distribution.keys():
+      candidate["random_state"] = 1  ## set random seed here
     return candidate
 
   def best(self):
@@ -113,8 +114,8 @@ class DE(object):
     for key, val in old.iteritems():
       if isinstance(self.params_distribution[key][0], bool):
         newf[key] = old[key] if self.cr < random.random() else not old[key]
-      elif isinstance(self.params_distribution[key][0], list):
-        pass
+      elif isinstance(self.params_distribution[key][0], str):
+        newf[key] =random.choice(self.params_distribution[key])
       else:
         newf[key] = old[key] if self.cr < random.random() else self.trim(key, (
           a[key] + self.f * (b[key] - c[key])))
