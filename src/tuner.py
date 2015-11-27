@@ -77,8 +77,10 @@ class DE(object):
 
   def evaluate(self):
     raise NotImplementedError("Please implement evaluate")
-  
-  
+
+  def get_target_score(self, score_dict):
+    raise NotImplementedError()
+
   def gen3(self, n, f):
     seen = [n]
 
@@ -95,43 +97,46 @@ class DE(object):
     c = gen1(seen)
     return a, b, c
 
-
   def trim(self, n, x):
-    pdb.set_trace()
     if isinstance(self.params_distribution[n][0], float):
-      return max(self.params_distribution[n][0], min(round(x, 2), self.params_distribution[n][1]))
+      return max(self.params_distribution[n][0],
+                 min(round(x, 2), self.params_distribution[n][1]))
     elif isinstance(self.params_distribution[n][0], int):
-      return max(self.params_distribution[n][0], min(int(x), self.params_distribution[n][1]))
+      return max(self.params_distribution[n][0],
+                 min(int(x), self.params_distribution[n][1]))
     else:
       raise ValueError("wrong type here in parameters")
 
   def update(self, index, old):
-    newf = []
+    newf = {}
     a, b, c = self.gen3(index, old)
-    for k in xrange(len(old)):
-      if isinstance(self.params_distribution[k], bool):
-        newf.append(old[k] if self.cr < random.random() else not old[k])
-      elif isinstance(self.params_distribution[k], list):
+    for key, val in old.iteritems():
+      if isinstance(self.params_distribution[key][0], bool):
+        newf[key] = old[key] if self.cr < random.random() else not old[key]
+      elif isinstance(self.params_distribution[key][0], list):
         pass
       else:
-        newf.append(old[k] if self.cr < random.random() else self.trim(k, (a[k] + self.fa * (b[k] - c[k]))))
+        newf[key] = old[key] if self.cr < random.random() else self.trim(key, (
+          a[key] + self.f * (b[key] - c[key])))
     return newf
 
   def Tune(self):
-    changed = False
     def isBetter(new, old):
       return new < old if self.tune_goal == "PF" else new > old
 
+    changed = False
     for k in xrange(self.repeats):
       if self.life <= 0:
         break
       nextgeneration = []
       for index, f in enumerate(self.frontier):
         new = self.update(index, f)
-        self.assign(self.tobetuned, new)
-        newscore = self.callModel()
+
+        # self.assign(self.tobetuned, new)
+        # newscore = self.callModel()
+        newscore = self.get_target_score(self.learner.learn({}, **new))
         self.evaluation += 1
-        if isBetter(newscore[self.obj], self.scores[index][self.obj]):
+        if isBetter(newscore[self.target_class], self.scores[index][self.target_class]):
           nextgeneration.append(new)
           self.scores[index] = newscore[:]
         else:
@@ -139,24 +144,19 @@ class DE(object):
       self.frontier = nextgeneration[:]
       newbestconf, newbestscore = self.best()
       if isBetter(newbestscore, self.bestscore):
-        print
-        "newbestscore %s:" % str(newbestscore)
-        print
-        "bestconf %s :" % str(newbestconf)
+        print("newbestscore %s:" % str(newbestscore))
+        print("bestconf %s :" % str(newbestconf))
         self.bestscore = newbestscore
         self.bestconf = newbestconf[:]
         changed = True
       if not changed:
         self.life -= 1
       changed = False
-    self.assign(self.tobetuned, self.bestconf)
-    self.writeResults()
-    print
-    "final bestescore %s: " + str(self.bestscore)
-    print
-    "final bestconf %s: " + str(self.bestconf)
-    print
-    "DONE !!!!"
+    print("final bestescore %s: " + str(self.bestscore))
+    print("final bestconf %s: " + str(self.bestconf))
+    print("DONE !!!!")
+    return self.bestconf
+
 
 
 class DE_Tune_ML(DE):
@@ -171,12 +171,16 @@ class DE_Tune_ML(DE):
     # clf = self.learner(self.train_X, self.train_Y, self.test_X, self.test_Y,
     #                    {}, self.tune_goal)
     for n, kwargs in enumerate(self.frontier):
-      temp = {}
-      for key, val in self.learner.learn({}, **kwargs).iteritems():
-        if key in self.target_class:
-          temp[key] = val[0]  # value, not list
-      self.scores[n] = temp
+      score_dict = self.learner.learn({}, **kwargs)
+      self.scores[n] = self.get_target_score(score_dict)
       # each return value like this{"mean":0.2,"weighted_mean":0.9}
+
+  def get_target_score(self, score_dict):
+    temp = {}
+    for key, val in score_dict.iteritems():
+      if key in self.target_class:
+        temp[key] = val[0]  # value, not list
+    return temp
 
   def best(self):
     sortlst = []
