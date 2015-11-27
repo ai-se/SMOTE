@@ -17,21 +17,20 @@ import pdb
 # __author__ = 'WeiFu'
 
 class Learners(object):
-  def __init__(self, clf, train_X, train_Y, predict_X, predict_Y, F, goal="F"):
+  def __init__(self, clf, train_X, train_Y, predict_X, predict_Y, goal="F"):
     self.train_X = train_X
     self.train_Y = train_Y
     self.predict_X = predict_X
     self.predict_Y = predict_Y
-    self.F = F
     self.goal = goal
     self.param_distribution = self.get_param()
     self.learner = clf
 
-  def learn(self, **kwargs):
+  def learn(self, F, **kwargs):
     self.learner.set_params(**kwargs)
     clf = self.learner.fit(self.train_X, self.train_Y)
     predictresult = clf.predict(self.predict_X)
-    scores = self._Abcd(predictresult, self.predict_Y, self.F)
+    scores = self._Abcd(predictresult, self.predict_Y, F)
     return scores
 
   def _Abcd(self,predicted, actual, F):
@@ -60,26 +59,27 @@ class Learners(object):
 
 class CartClassifier(Learners):
   name = "CART"
-  def __init__(self, train_x, train_y, predict_x, predict_y, F):
+  def __init__(self, train_x, train_y, predict_x, predict_y):
     clf = DecisionTreeClassifier()
     self.name = "CART"
-    super(CartClassifier, self).__init__(clf,train_x, train_y, predict_x, predict_y, F)
+    super(CartClassifier, self).__init__(clf,train_x, train_y, predict_x, predict_y)
 
   def get_param(self):
     tunelst = {
                 "max_features": [0.01, 1],
                 "max_depth": [1, 50],
                 "min_samples_split": [2, 20],
-                "min_samples_leaf": [1, 20]
+                "min_samples_leaf": [1, 20],
+                "random_state":[1,1]
               }
     return tunelst
 
 class RfClassifier(Learners):
   name = "RF"
-  def __init__(self, train_x, train_y, predict_x, predict_y, F):
+  def __init__(self, train_x, train_y, predict_x, predict_y):
     clf =  RandomForestClassifier()
     self.name = "RF"
-    super(RfClassifier, self).__init__(clf, train_x, train_y, predict_x, predict_y, F)
+    super(RfClassifier, self).__init__(clf, train_x, train_y, predict_x, predict_y)
 
   def get_param(self):
     tunelst = {
@@ -87,16 +87,17 @@ class RfClassifier(Learners):
                  "min_samples_leaf ":[2,20],
                  "max_leaf_nodes":[10,50],
                  "n_estimators":[50,150],
-                 "max_features":[0.01,1]
+                 "max_features":[0.01,1],
+                 "random_state":[1,1]
               }
     return tunelst
 
 class Naive_bayes(Learners):
   name = "NB"
-  def __init__(self,train_x, train_y, predict_x, predict_y, F):
+  def __init__(self,train_x, train_y, predict_x, predict_y):
     clf = MultinomialNB()
     self.name = "NB"
-    super(Naive_bayes, self).__init__(clf,train_x, train_y, predict_x, predict_y, F)
+    super(Naive_bayes, self).__init__(clf,train_x, train_y, predict_x, predict_y)
 
   def get_param(self):
     tunelst = {}
@@ -104,10 +105,10 @@ class Naive_bayes(Learners):
 
 class Linear_SVM(Learners):
   name = "Linear_SVM"
-  def __init__(self,train_x, train_y, predict_x, predict_y, F):
+  def __init__(self,train_x, train_y, predict_x, predict_y):
     clf = LinearSVC(dual=False)
     self.name = "Linear_SVM"
-    super(Linear_SVM, self).__init__(clf,train_x, train_y, predict_x, predict_y, F)
+    super(Linear_SVM, self).__init__(clf,train_x, train_y, predict_x, predict_y)
 
   def get_param(self):
     tunelst = {}

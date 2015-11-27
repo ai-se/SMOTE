@@ -138,7 +138,7 @@ class DE(object):
         self.evaluation += 1
         if isBetter(newscore[self.target_class], self.scores[index][self.target_class]):
           nextgeneration.append(new)
-          self.scores[index] = newscore[:]
+          self.scores[index] = newscore
         else:
           nextgeneration.append(f)
       self.frontier = nextgeneration[:]
@@ -147,7 +147,7 @@ class DE(object):
         print("newbestscore %s:" % str(newbestscore))
         print("bestconf %s :" % str(newbestconf))
         self.bestscore = newbestscore
-        self.bestconf = newbestconf[:]
+        self.bestconf = newbestconf
         changed = True
       if not changed:
         self.life -= 1
