@@ -134,13 +134,15 @@ class Settings(object):
     return data
 
 
-def cross_val(pd_data1, learner, issmote=False, isTuning=True, fold=5):
+def cross_val(pd_data1, learner, target_class, goal, isSmote=False,
+              isTuning=True, fold=5):
   """
   do 5-fold cross_validation
   """
+
   F = {}
   for i in xrange(5):  # repeat 5 times here
-    if issmote:
+    if isSmote:
       pd_data1 = smote(pd_data1).run()
       # pdb.set_trace()
     pd_data1 = pd_data1.reindex(np.random.permutation(pd_data1.index))
@@ -154,14 +156,14 @@ def cross_val(pd_data1, learner, issmote=False, isTuning=True, fold=5):
       test_Y = pd_data.ix[test_index, pd_data.columns[-1]].values
       if isTuning:
         train_len = len(train_X)
-        new_train_index = np.random.choice(range(train_len),train_len*0.7)
-        new_tune_index = list(set(range(train_len)) -set(new_train_index))
+        new_train_index = np.random.choice(range(train_len), train_len * 0.7)
+        new_tune_index = list(set(range(train_len)) - set(new_train_index))
         new_train_X = train_X[new_train_index]
         new_train_Y = train_Y[new_train_index]
         new_tune_X = train_X[new_tune_index]
         new_tune_Y = train_Y[new_tune_index]
-        clf = learner(new_train_X,new_train_Y,new_tune_X,new_tune_Y)
-        tuner = DE_Tune_ML(clf,clf.get_param(),"mean")
+        clf = learner(new_train_X, new_train_Y, new_tune_X, new_tune_Y)
+        tuner = DE_Tune_ML(clf, clf.get_param(), target_class)
         params = tuner.Tune()
         pdb.set_trace()
         pass
@@ -177,14 +179,13 @@ def scott(features_num, learners, score):
   for num in features_num:
     for learner in learners:
       out.append(
-        [learner.name + "_" + str(num)] + score[num][learner.name][
-          'mean'])
+        [learner.name + "_" + str(num)] + score[num][learner.name]['mean'])
       out.append([learner.name + "_" + str(num) + "_weighted"] +
                  score[num][learner.name]['mean_weighted'])
   rdivDemo(out)
 
 
-def run(data_src='../data/StackExchange/anime.txt', process=4):
+def run(data_src, process=4, target_class="mean_weighted", goal="F"):
   comm = MPI.COMM_WORLD
   rank = comm.Get_rank()
   size = comm.Get_size()
@@ -196,8 +197,8 @@ def run(data_src='../data/StackExchange/anime.txt', process=4):
   # model_hash = Settings(data_src, method='hash')
   model_tfidf = Settings(data_src, method='tfidf')
   methods_lst = [model_tfidf]
-  smote_lst = [False] # [True,False]
-  learners = [CartClassifier]
+  smote_lst = [False]  # [True,False]
+  learners = [Naive_bayes]
   F_feature = {}
   for f_num in features_num_process:
     F_method = {}
@@ -206,10 +207,12 @@ def run(data_src='../data/StackExchange/anime.txt', process=4):
       for isSmote in smote_lst:
         for method in methods_lst:
           pd_data = method.make_feature(f_num)
+          temp_results = cross_val(pd_data, learner, target_class, goal,
+                                   isSmote)
           if isSmote:
-            F_method[learner.name+"_smote"] = cross_val(pd_data, learner, isSmote)
+            F_method[learner.name + "_smote"] = temp_results
           elif not isSmote:
-            F_method[learner.name] = cross_val(pd_data, learner, isSmote)
+            F_method[learner.name] = temp_results
     F_feature[f_num] = F_method
   if rank == 0:
     for i in xrange(1, size):
@@ -237,14 +240,17 @@ def atom(x):
 def cmd(com="Nothing"):
   "Convert command line to a function call."
   if len(sys.argv) < 2: return com
+
   def strp(x): return isinstance(x, basestring)
+
   def wrap(x): return "'%s'" % x if strp(x) else str(x)
+
   words = map(wrap, map(atom, sys.argv[2:]))
   return sys.argv[1] + '(' + ','.join(words) + ')'
 
 
 if __name__ == "__main__":
   if len(sys.argv) == 1:
-    run()
+    run('../data/StackExchange/anime.txt')
   else:
     eval(cmd())
