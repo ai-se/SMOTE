@@ -117,10 +117,10 @@ class Linear_SVM(Learners):
   def get_param(self):
     tunelst = {
                 "C":[0.01, 5.0],
-                "dual":[False, True],
-                "multi_class":['over','crammer_singer'],
+                # "dual":[False, True],
+                # "multi_class":['ovr','crammer_singer'],
                 "penalty":['l1','l2'],
-                "loss":['hinge','squared_hinge'],
+                # "loss":['hinge','squared_hinge'],
                 "random_state":[1,1]
     }
     return tunelst
