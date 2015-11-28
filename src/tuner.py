@@ -64,9 +64,12 @@ class DE(object):
       elif isinstance(val[0], bool):
         candidate[key] = random.random() <= 0.5
       elif isinstance(val[0], str):
-        candidate[key] = random.choice(val) # randomly selelct if values of parameters are strs
+        candidate[key] = random.choice(val)
       elif isinstance(val[0], int):
         candidate[key] = int(random.uniform(val[0], val[1]))
+      elif isinstance(val[0], list) and isinstance(val[0][0], int):
+        candidate[key] = [int(random.uniform(each[0], each[1])) for each in
+                          val]
       else:
         raise ValueError("type of params distribution is wrong!")
     if "random_state" in self.params_distribution.keys():
@@ -115,7 +118,7 @@ class DE(object):
       if isinstance(self.params_distribution[key][0], bool):
         newf[key] = old[key] if self.cr < random.random() else not old[key]
       elif isinstance(self.params_distribution[key][0], str):
-        newf[key] =random.choice(self.params_distribution[key])
+        newf[key] = random.choice(self.params_distribution[key])
       else:
         newf[key] = old[key] if self.cr < random.random() else self.trim(key, (
           a[key] + self.f * (b[key] - c[key])))
@@ -137,7 +140,8 @@ class DE(object):
         # newscore = self.callModel()
         newscore = self.get_target_score(self.learner.learn({}, **new))
         self.evaluation += 1
-        if isBetter(newscore[self.target_class], self.scores[index][self.target_class]):
+        if isBetter(newscore[self.target_class],
+                    self.scores[index][self.target_class]):
           nextgeneration.append(new)
           self.scores[index] = newscore
         else:
@@ -159,7 +163,6 @@ class DE(object):
     return self.bestconf
 
 
-
 class DE_Tune_ML(DE):
   def __init__(self, learner, params_distribution, target_class="", goal="F",
                num_population=60, repeats=60, f=0.75, cr=0.3, life=5):
@@ -175,6 +178,57 @@ class DE_Tune_ML(DE):
       score_dict = self.learner.learn({}, **kwargs)
       self.scores[n] = self.get_target_score(score_dict)
       # each return value like this{"mean":0.2,"weighted_mean":0.9}
+
+  def get_target_score(self, score_dict):
+    temp = {}
+    for key, val in score_dict.iteritems():
+      if key in self.target_class:
+        temp[key] = val[0]  # value, not list
+    return temp
+
+  def best(self):
+    sortlst = []
+    if self.tune_goal == "PF":  # the less, the better.
+      sortlst = sorted(self.scores.items(),
+                       key=lambda x: x[1][self.target_class], reverse=True)
+    else:
+      sortlst = sorted(self.scores.items(),
+                       key=lambda x: x[1][self.target_class])
+    bestconf = self.frontier[sortlst[-1][0]]
+    bestscore = sortlst[-1][-1]
+    return bestconf, bestscore
+
+
+class DE_Tune_SMOTE(DE):
+  def __init__(self, learner, smote, params_distribution, train_pd, tune_pd,
+               target_class="", goal="F", num_population=60, repeats=60,
+               f=0.75, cr=0.3, life=5):
+    self.learner = learner  ## pass the class, not fitted yet
+    self.train = train_pd
+    self.tune = tune_pd
+    self.smote = smote
+    self.target_calss = target_class
+    super(DE_Tune_SMOTE, self).__init__(params_distribution, goal,
+                                        num_population, repeats, f, cr, life)
+
+  def evaluate(self):
+    for n, kwargs in enumerate(self.frontier):
+      k = kwargs["k"]
+      up_to_num = kwargs["up_to_num"]
+      score_lst = self.fit_learner(k, up_to_num)
+      self.scores[n] = self.get_target_score(score_lst)
+
+  def fit_learner(self, k, up_to_num):
+    train_smoted = self.smote(self.train, k, up_to_num)
+    train_X, train_Y = self.get_XY(train_smoted)
+    tune_X, tune_Y = self.get_XY(self.tune)
+    F = self.learner(train_X, train_Y, tune_X, tune_Y).learn({})
+    return F
+
+  def get_XY(self, data):
+    X = data.ix[:, data.columns[:-1]].values
+    Y = data.ix[:, data.columns[-1]].values
+    return X, Y
 
   def get_target_score(self, score_dict):
     temp = {}
