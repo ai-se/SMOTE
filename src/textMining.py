@@ -3,6 +3,7 @@ from __future__ import print_function, division
 import pickle
 import random
 import time
+import pdb
 import mpi4py
 import os.path
 from os import listdir
@@ -134,54 +135,101 @@ class Settings(object):
     return data
 
 
-def cross_val(pd_data1, learner, target_class, goal, isSmote=False,
-              isTuning=True, fold=5):
+def cross_val(pd_data, learner, target_class, goal, isWhat="", fold=5,
+              repeats=1):
   """
   do 5-fold cross_validation
   """
 
-  F = {}
-  for i in xrange(5):  # repeat 5 times here
-    if isSmote:
-      pd_data1 = smote(pd_data1).run()
-      # pdb.set_trace()
+  def tune_learner(train_X):
+    train_len = len(train_X)
+    new_train_index = np.random.choice(range(train_len), train_len * 0.7)
+    new_tune_index = list(set(range(train_len)) - set(new_train_index))
+    new_train_X = train_X[new_train_index]
+    new_train_Y = train_Y[new_train_index]
+    new_tune_X = train_X[new_tune_index]
+    new_tune_Y = train_Y[new_tune_index]
+    clf = learner(new_train_X, new_train_Y, new_tune_X, new_tune_Y)
+    tuner = DE_Tune_ML(clf, clf.get_param(), target_class)
+    return tuner.Tune()
+
+  def tune_SMOTE(train_pd):
+
+    train_len = len(train_pd)
+    pdb.set_trace()
+    new_train_index = random.sample(train_pd.index, int(train_len * 0.7))
+    new_train = train_pd.ix[new_train_index]
+    if "_TunedSmote" in isWhat:
+      new_train_X = new_train.ix[:, new_train.columns[:-1]].values
+      new_train_Y = new_train.ix[:, new_train.columns[-1]].values
+      new_tune = train_pd.drop(new_train_index)
+      new_tune_X = new_tune.ix[:, new_tune.columns[:-1]].values
+      new_tune_Y = new_tune.ix[:, new_tune.columns[-1]].values
+      # clf = learner(new_train_X, new_train_Y, new_tune_X, new_tune_Y)
+      A_smote = smote(new_train)
+      params_to_tune = {"k": [2, 10], "up_to_num": [[10,
+                                                     A_smote.get_majority_num()]] * (A_smote.label_num-1)}
+      tuner = DE_Tune_SMOTE(learner, smote, params_to_tune, new_train, new_tune, target_class)
+      pdb.set_trace()
+      params = tuner.Tune()
+      return params
+    tuner = DE_Tune_ML(clf, clf.get_param(), target_class)
+    return tuner.Tune()
+
+  def evalute_smote(pd_data1):
+    F = {}
     pd_data1 = pd_data1.reindex(np.random.permutation(pd_data1.index))
     pd_data = pd.DataFrame(pd_data1.values)
     kf = KFold(len(pd_data), fold)
     for train_index, test_index in kf:
-      params = {}
       train_X = pd_data.ix[train_index, pd_data.columns[:-1]].values
       train_Y = pd_data.ix[train_index, pd_data.columns[-1]].values
       test_X = pd_data.ix[test_index, pd_data.columns[:-1]].values
       test_Y = pd_data.ix[test_index, pd_data.columns[-1]].values
-      if isTuning:
-        train_len = len(train_X)
-        new_train_index = np.random.choice(range(train_len), train_len * 0.7)
-        new_tune_index = list(set(range(train_len)) - set(new_train_index))
-        new_train_X = train_X[new_train_index]
-        new_train_Y = train_Y[new_train_index]
-        new_tune_X = train_X[new_tune_index]
-        new_tune_Y = train_Y[new_tune_index]
-        clf = learner(new_train_X, new_train_Y, new_tune_X, new_tune_Y)
-        tuner = DE_Tune_ML(clf, clf.get_param(), target_class)
-        params = tuner.Tune()
-        pdb.set_trace()
-        pass
+      params = tune_learner(train_X) if "_TunedLearner" in isWhat else {}
+      F = learner(train_X, train_Y, test_X, test_Y).learn(F, **params)
+    return F
+
+  F = {}
+  for i in xrange(repeats):  # repeat 5 times here
+    # if isWhat == "_Smote":
+    #   pd_data1 = smote(pd_data1).run()
+    #   # pdb.set_trace()
+    # pd_data1 = pd_data1.reindex(np.random.permutation(pd_data1.index))
+    # pd_data = pd.DataFrame(pd_data1.values)
+    kf = KFold(len(pd_data), fold)
+    for train_index, test_index in kf:
+      train_pd = pd_data.ix[train_index]
+      test_pd = pd_data.ix[test_index]
+      if "Smote" in isWhat:
+        k = 5
+        up_to_num = []
+        if "_TunedSmote" in isWhat:
+          k, up_to_num = tune_SMOTE(train_pd)
+        train_pd = smote(train_pd, k, up_to_num).run()
+
+      train_X = train_pd.ix[:, train_pd.columns[:-1]].values
+      train_Y = train_pd.ix[:, train_pd.columns[-1]].values
+      test_X = test_pd.ix[:, test_pd.columns[:-1]].values
+      test_Y = test_pd.ix[:, test_pd.columns[-1]].values
+      params = tune_learner(train_X) if "_TunedLearner" in isWhat else {}
       F = learner(train_X, train_Y, test_X, test_Y).learn(F, **params)
   return F
 
 
-def scott(features_num, learners, score):
+def scott(features_num, learners, score, target_class):
   """
    pass results to scott knott
   """
   out = []
+  pdb.set_trace()
   for num in features_num:
     for learner in learners:
-      out.append(
-        [learner.name + "_" + str(num)] + score[num][learner.name]['mean'])
-      out.append([learner.name + "_" + str(num) + "_weighted"] +
-                 score[num][learner.name]['mean_weighted'])
+      try:
+        out.append([learner.name + "_" + str(num) + target_class] +
+                   score[num][learner.name][target_class])
+      except IndexError:
+        print(target_class + " does not exist!")
   rdivDemo(out)
 
 
@@ -191,34 +239,33 @@ def run(data_src, process=4, target_class="mean_weighted", goal="F"):
   size = comm.Get_size()
   print("process", str(rank), "started:", time.strftime("%b %d %Y %H:%M:%S "))
   # different processes run different feature experiments
-  features_num = [10 * i for i in xrange(1, 12)]
+  features_num = [10 * i for i in xrange(1, 2)]
   features_num_process = [features_num[i] for i in
                           xrange(rank, len(features_num), size)]
   # model_hash = Settings(data_src, method='hash')
   model_tfidf = Settings(data_src, method='tfidf')
   methods_lst = [model_tfidf]
-  smote_lst = [False]  # [True,False]
-  learners = [Naive_bayes]
+  # modification = ["_Naive", "_Smote", "_TunedLearner", "_TunedSmote"]  # [
+  # True,False]
+  modification = ["_TunedSmote"]
+  learners = [Naive_bayes, Linear_SVM]
   F_feature = {}
   for f_num in features_num_process:
     F_method = {}
     for learner in learners:
       random.seed(1)
-      for isSmote in smote_lst:
+      for isWhat in modification:
         for method in methods_lst:
           pd_data = method.make_feature(f_num)
-          temp_results = cross_val(pd_data, learner, target_class, goal,
-                                   isSmote)
-          if isSmote:
-            F_method[learner.name + "_smote"] = temp_results
-          elif not isSmote:
-            F_method[learner.name] = temp_results
+          name = learner.name + isWhat
+          F_method[name] = cross_val(pd_data, learner, target_class, goal,
+                                     isWhat)
     F_feature[f_num] = F_method
   if rank == 0:
     for i in xrange(1, size):
       temp = comm.recv(source=i)
       F_feature.update(temp)  # receive data from other process
-    scott(features_num, learners, F_feature)
+    scott(features_num, learners, F_feature, target_class)
     file_name = data_src[data_src.rindex('/') + 1:data_src.rindex('.')]
     with open('../pickles/' + file_name + '.pickle', 'wb') as mypickle:
       pickle.dump(F_feature, mypickle)
