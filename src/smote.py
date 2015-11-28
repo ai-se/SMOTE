@@ -22,6 +22,7 @@ class smote(object):
     self.neighbor = neighbor
     self.up_to_max = False
     self.up_to_num = up_to_num
+    self.label_num = len(set(pd_data[pd_data.columns[-1]].values))
     if up_to_num:
       label_num = len(set(pd_data[pd_data.columns[-1]].values))
       if label_num - 1 != len(up_to_num):
@@ -37,6 +38,12 @@ class smote(object):
     else:
       raise ValueError(
         "The last column of pd_data should be string as class label")
+
+  def get_majority_num(self):
+    total_data = self.data.values.tolist()
+    labelCont = Counter(self.data[self.data.columns[-1]].values)
+    majority_num = max(labelCont.values())
+    return majority_num
 
   def run(self):
     """
