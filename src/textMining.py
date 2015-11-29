@@ -156,7 +156,6 @@ def cross_val(pd_data, learner, target_class, goal, isWhat="", fold=5,
   def tune_SMOTE(train_pd):
 
     train_len = len(train_pd)
-    pdb.set_trace()
     new_train_index = random.sample(train_pd.index, int(train_len * 0.7))
     new_train = train_pd.ix[new_train_index]
     if "_TunedSmote" in isWhat:
@@ -167,28 +166,27 @@ def cross_val(pd_data, learner, target_class, goal, isWhat="", fold=5,
       new_tune_Y = new_tune.ix[:, new_tune.columns[-1]].values
       # clf = learner(new_train_X, new_train_Y, new_tune_X, new_tune_Y)
       A_smote = smote(new_train)
-      params_to_tune = {"k": [2, 10], "up_to_num": [[10,
-                                                     A_smote.get_majority_num()]] * (A_smote.label_num-1)}
-      tuner = DE_Tune_SMOTE(learner, smote, params_to_tune, new_train, new_tune, target_class)
-      pdb.set_trace()
+      num_range = [10, A_smote.get_majority_num()] * (A_smote.label_num - 1)
+      params_to_tune = {"k": [2, 10], "up_to_num": [num_range]}
+      tuner = DE_Tune_SMOTE(learner, smote, params_to_tune, new_train,
+                            new_tune, target_class)
       params = tuner.Tune()
-      return params
-    tuner = DE_Tune_ML(clf, clf.get_param(), target_class)
-    return tuner.Tune()
+      pdb.set_trace()
+      return params, new_train
 
-  def evalute_smote(pd_data1):
-    F = {}
-    pd_data1 = pd_data1.reindex(np.random.permutation(pd_data1.index))
-    pd_data = pd.DataFrame(pd_data1.values)
-    kf = KFold(len(pd_data), fold)
-    for train_index, test_index in kf:
-      train_X = pd_data.ix[train_index, pd_data.columns[:-1]].values
-      train_Y = pd_data.ix[train_index, pd_data.columns[-1]].values
-      test_X = pd_data.ix[test_index, pd_data.columns[:-1]].values
-      test_Y = pd_data.ix[test_index, pd_data.columns[-1]].values
-      params = tune_learner(train_X) if "_TunedLearner" in isWhat else {}
-      F = learner(train_X, train_Y, test_X, test_Y).learn(F, **params)
-    return F
+  # def evalute_smote(pd_data1):
+  #   F = {}
+  #   pd_data1 = pd_data1.reindex(np.random.permutation(pd_data1.index))
+  #   pd_data = pd.DataFrame(pd_data1.values)
+  #   kf = KFold(len(pd_data), fold)
+  #   for train_index, test_index in kf:
+  #     train_X = pd_data.ix[train_index, pd_data.columns[:-1]].values
+  #     train_Y = pd_data.ix[train_index, pd_data.columns[-1]].values
+  #     test_X = pd_data.ix[test_index, pd_data.columns[:-1]].values
+  #     test_Y = pd_data.ix[test_index, pd_data.columns[-1]].values
+  #     params = tune_learner(train_X) if "_TunedLearner" in isWhat else {}
+  #     F = learner(train_X, train_Y, test_X, test_Y).learn(F, **params)
+  #   return F
 
   F = {}
   for i in xrange(repeats):  # repeat 5 times here
@@ -205,7 +203,10 @@ def cross_val(pd_data, learner, target_class, goal, isWhat="", fold=5,
         k = 5
         up_to_num = []
         if "_TunedSmote" in isWhat:
-          k, up_to_num = tune_SMOTE(train_pd)
+          params, train_pd = tune_SMOTE(train_pd)
+          # use new training data not original, because some are used as tuning
+          k = params["k"]
+          up_to_num = params["up_to_num"]
         train_pd = smote(train_pd, k, up_to_num).run()
 
       train_X = train_pd.ix[:, train_pd.columns[:-1]].values

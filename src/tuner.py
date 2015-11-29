@@ -82,6 +82,9 @@ class DE(object):
   def evaluate(self):
     raise NotImplementedError("Please implement evaluate")
 
+  def evaluate_once(self, **kwargs):
+    raise NotImplementedError("Please implement evaluate")
+
   def get_target_score(self, score_dict):
     raise NotImplementedError()
 
@@ -119,6 +122,15 @@ class DE(object):
         newf[key] = old[key] if self.cr < random.random() else not old[key]
       elif isinstance(self.params_distribution[key][0], str):
         newf[key] = random.choice(self.params_distribution[key])
+      elif isinstance(self.params_distribution[key][0], list):
+        temp_lst = []
+        for i, each in enumerate(self.params_distribution[key]):
+          temp_lst.append(old[key][i] if self.cr < random.random() else
+                          max(self.params_distribution[key][i][0],
+                              min(self.params_distribution[key][i][1],
+                                  int(a[key][i] + self.f * (
+                                  b[key][i] - c[key][i])))))
+        newf[key] = temp_lst
       else:
         newf[key] = old[key] if self.cr < random.random() else self.trim(key, (
           a[key] + self.f * (b[key] - c[key])))
@@ -138,7 +150,7 @@ class DE(object):
 
         # self.assign(self.tobetuned, new)
         # newscore = self.callModel()
-        newscore = self.get_target_score(self.learner.learn({}, **new))
+        newscore = self.get_target_score(self.evaluate_once(**new))
         self.evaluation += 1
         if isBetter(newscore[self.target_class],
                     self.scores[index][self.target_class]):
@@ -179,6 +191,9 @@ class DE_Tune_ML(DE):
       self.scores[n] = self.get_target_score(score_dict)
       # each return value like this{"mean":0.2,"weighted_mean":0.9}
 
+  def evaluate_once(self,**new):
+    return self.learner.learn({}, **new)
+
   def get_target_score(self, score_dict):
     temp = {}
     for key, val in score_dict.iteritems():
@@ -207,7 +222,7 @@ class DE_Tune_SMOTE(DE):
     self.train = train_pd
     self.tune = tune_pd
     self.smote = smote
-    self.target_calss = target_class
+    self.target_class = target_class
     super(DE_Tune_SMOTE, self).__init__(params_distribution, goal,
                                         num_population, repeats, f, cr, life)
 
@@ -217,6 +232,11 @@ class DE_Tune_SMOTE(DE):
       up_to_num = kwargs["up_to_num"]
       score_lst = self.fit_learner(k, up_to_num)
       self.scores[n] = self.get_target_score(score_lst)
+
+  def evaluate_once(self, **kwargs):
+    k = kwargs["k"]
+    up_to_num = kwargs["up_to_num"]
+    return self.fit_learner(k, up_to_num)
 
   def fit_learner(self, k, up_to_num):
     train_smoted = self.smote(self.train, k, up_to_num).run()
