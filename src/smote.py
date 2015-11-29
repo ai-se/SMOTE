@@ -33,7 +33,8 @@ class smote(object):
       self.up_to_max = True
 
   def set_data(self, pd_data):
-    if not pd_data.empty and isinstance(pd_data.ix[:,pd_data.columns[-1]].values[0], str):
+    if not pd_data.empty and isinstance(
+        pd_data.ix[:, pd_data.columns[-1]].values[0], str):
       self.data = pd_data
     else:
       raise ValueError(
@@ -70,13 +71,18 @@ class smote(object):
         last_column = self.data[self.data.columns[-1]]
         data_w_label = self.data.loc[last_column == label]
         data_no_label = data_w_label[self.data.columns[:-1]].values
-        knn = NN(n_neighbors=self.neighbor).fit(data_no_label)
+        if len(data_no_label) < self.neighbor:
+          num_neigh = len(data_no_label) # void # of neighbors >= sample size
+        else:
+          num_neigh = self.neighbor
+        knn = NN(n_neighbors=num_neigh).fit(data_no_label)
         for _ in range(to_add):
           rand_ngbr, sample = get_ngbr(data_no_label, knn)
           new_row = []
           for i, one in enumerate(rand_ngbr):
             gap = random.random()
-            new_row.append(max(0,sample[i] + (sample[i] - one) * gap)) # here, feature vlaue should >=0
+            new_row.append(max(0, sample[i] + (
+            sample[i] - one) * gap))  # here, feature vlaue should >=0
           new_row.append(label)
           total_data.append(new_row)
     return pd.DataFrame(total_data)
