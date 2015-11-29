@@ -219,7 +219,7 @@ class DE_Tune_SMOTE(DE):
       self.scores[n] = self.get_target_score(score_lst)
 
   def fit_learner(self, k, up_to_num):
-    train_smoted = self.smote(self.train, k, up_to_num)
+    train_smoted = self.smote(self.train, k, up_to_num).run()
     train_X, train_Y = self.get_XY(train_smoted)
     tune_X, tune_Y = self.get_XY(self.tune)
     F = self.learner(train_X, train_Y, tune_X, tune_Y).learn({})
