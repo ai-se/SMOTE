@@ -166,27 +166,14 @@ def cross_val(pd_data, learner, target_class, goal, isWhat="", fold=5,
       new_tune_Y = new_tune.ix[:, new_tune.columns[-1]].values
       # clf = learner(new_train_X, new_train_Y, new_tune_X, new_tune_Y)
       A_smote = smote(new_train)
-      num_range = [10, A_smote.get_majority_num()] * (A_smote.label_num - 1)
-      params_to_tune = {"k": [2, 10], "up_to_num": [num_range]}
+      num_range = [[10, A_smote.get_majority_num()]] * (A_smote.label_num - 1)
+      params_to_tune = {"k": [2, 10], "up_to_num": num_range}
+      # pdb.set_trace()
       tuner = DE_Tune_SMOTE(learner, smote, params_to_tune, new_train,
                             new_tune, target_class)
       params = tuner.Tune()
-      pdb.set_trace()
       return params, new_train
 
-  # def evalute_smote(pd_data1):
-  #   F = {}
-  #   pd_data1 = pd_data1.reindex(np.random.permutation(pd_data1.index))
-  #   pd_data = pd.DataFrame(pd_data1.values)
-  #   kf = KFold(len(pd_data), fold)
-  #   for train_index, test_index in kf:
-  #     train_X = pd_data.ix[train_index, pd_data.columns[:-1]].values
-  #     train_Y = pd_data.ix[train_index, pd_data.columns[-1]].values
-  #     test_X = pd_data.ix[test_index, pd_data.columns[:-1]].values
-  #     test_Y = pd_data.ix[test_index, pd_data.columns[-1]].values
-  #     params = tune_learner(train_X) if "_TunedLearner" in isWhat else {}
-  #     F = learner(train_X, train_Y, test_X, test_Y).learn(F, **params)
-  #   return F
 
   F = {}
   for i in xrange(repeats):  # repeat 5 times here
@@ -218,17 +205,17 @@ def cross_val(pd_data, learner, target_class, goal, isWhat="", fold=5,
   return F
 
 
-def scott(features_num, learners, score, target_class):
+def scott(features_num, learners, score, target_class, exp_names):
   """
    pass results to scott knott
   """
   out = []
-  pdb.set_trace()
+  # pdb.set_trace()
   for num in features_num:
     for learner in learners:
       try:
-        out.append([learner.name + "_" + str(num) + target_class] +
-                   score[num][learner.name][target_class])
+        out.append([exp_names + "_" + str(num) + target_class] +
+                   score[num][exp_names][target_class])
       except IndexError:
         print(target_class + " does not exist!")
   rdivDemo(out)
@@ -251,14 +238,16 @@ def run(data_src, process=4, target_class="mean_weighted", goal="F"):
   modification = ["_TunedSmote"]
   learners = [Naive_bayes, Linear_SVM]
   F_feature = {}
+  exp_names = []
   for f_num in features_num_process:
     F_method = {}
     for learner in learners:
-      random.seed(1)
       for isWhat in modification:
+        random.seed(1)
         for method in methods_lst:
           pd_data = method.make_feature(f_num)
           name = learner.name + isWhat
+          exp_names.append(name)
           F_method[name] = cross_val(pd_data, learner, target_class, goal,
                                      isWhat)
     F_feature[f_num] = F_method
@@ -266,7 +255,7 @@ def run(data_src, process=4, target_class="mean_weighted", goal="F"):
     for i in xrange(1, size):
       temp = comm.recv(source=i)
       F_feature.update(temp)  # receive data from other process
-    scott(features_num, learners, F_feature, target_class)
+    scott(features_num, learners, F_feature, target_class, exp_names)
     file_name = data_src[data_src.rindex('/') + 1:data_src.rindex('.')]
     with open('../pickles/' + file_name + '.pickle', 'wb') as mypickle:
       pickle.dump(F_feature, mypickle)
