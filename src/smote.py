@@ -33,7 +33,7 @@ class smote(object):
       self.up_to_max = True
 
   def set_data(self, pd_data):
-    if not pd_data.empty and isinstance(pd_data.ix[0][pd_data.columns[-1]], str):
+    if not pd_data.empty and isinstance(pd_data.ix[:,pd_data.columns[-1]].values[0], str):
       self.data = pd_data
     else:
       raise ValueError(
