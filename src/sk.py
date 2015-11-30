@@ -492,13 +492,13 @@ def rdivDemo(data):
   lo, hi = all[0], all[-1]
   line = "----------------------------------------------------"
   last = None
-  print  ('%4s , %30s ,    %s   , %4s ' % \
+  print  ('%4s , %45s ,    %s   , %4s ' % \
                ('rank', 'name', 'med', 'iqr'))+ "\n"+ line
   # writefile(('%4s , %30s ,    %s   , %4s ' % \
   #              ('rank', 'name', 'med', 'iqr'))+ "\n"+ line)
   for _,__,x in sorted(ranks):
     q1,q2,q3 = x.quartiles()
-    print  ('%4s , %30s ,    %4s  ,  %4s ' % \
+    print  ('%4s , %45s ,    %4s  ,  %4s ' % \
                  (x.rank+1, x.name, q2, q3 - q1))  + \
               xtile(x.all,lo=lo,hi=hi,width=30,show="%5.2f")
     # writefile(('%4s , %30s ,    %4s  ,  %4s ' % \
