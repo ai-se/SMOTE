@@ -216,7 +216,7 @@ class DE_Tune_ML(DE):
 
 class DE_Tune_SMOTE(DE):
   def __init__(self, learner, smote, params_distribution, train_pd, tune_pd,
-               target_class="", goal="F", num_population=60, repeats=60,
+               target_class="", goal="F", num_population=10, repeats=60,
                f=0.75, cr=0.3, life=5):
     self.learner = learner  ## pass the class, not fitted yet
     self.train = train_pd
