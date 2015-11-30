@@ -13,5 +13,5 @@ rm err_test/*
 
 ##### this is only for testing on HPC
 foreach VAR (anime)
-  bsub -W 1000 -n 4 -o ./out/$VAR.out.%J -e ./err/$VAR.err.%J mpiexec -n 4 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/$VAR.txt
+  bsub -W 2000 -n 4 -o ./out/$VAR.out.%J -e ./err/$VAR.err.%J mpiexec -n 4 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/$VAR.txt
 end
