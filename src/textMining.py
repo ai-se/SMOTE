@@ -136,7 +136,7 @@ class Settings(object):
 
 
 def cross_val(pd_data, learner, target_class, goal, isWhat="", fold=5,
-              repeats=1):
+              repeats=2):
   """
   do 5-fold cross_validation
   """
@@ -212,10 +212,10 @@ def scott(features_num, learners, score, target_class, exp_names):
   out = []
   # pdb.set_trace()
   for num in features_num:
-    for learner in learners:
+    for learner in exp_names:
       try:
-        out.append([exp_names + "_" + str(num) + target_class] +
-                   score[num][exp_names][target_class])
+        out.append([learner + "_" + str(num) +"_"+target_class] +
+                   score[num][learner][target_class])
       except IndexError:
         print(target_class + " does not exist!")
   rdivDemo(out)
@@ -227,7 +227,7 @@ def run(data_src, process=4, target_class="mean_weighted", goal="F"):
   size = comm.Get_size()
   print("process", str(rank), "started:", time.strftime("%b %d %Y %H:%M:%S "))
   # different processes run different feature experiments
-  features_num = [10 * i for i in xrange(1, 11)]
+  features_num = [100 * i for i in xrange(1, 11,3)]
   features_num_process = [features_num[i] for i in
                           xrange(rank, len(features_num), size)]
   # model_hash = Settings(data_src, method='hash')
@@ -235,8 +235,8 @@ def run(data_src, process=4, target_class="mean_weighted", goal="F"):
   methods_lst = [model_tfidf]
   # modification = ["_Naive", "_Smote", "_TunedLearner", "_TunedSmote"]  # [
   # True,False]
-  modification = ["_TunedSmote"]
-  learners = [Naive_bayes, Linear_SVM]
+  modification = ["_Naive","_Smote","_TunedLearner","_TunedSmote"]
+  learners = [Naive_bayes]
   F_feature = {}
   exp_names = []
   for f_num in features_num_process:
