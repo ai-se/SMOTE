@@ -20,6 +20,11 @@ from smote import smote
 from tuner import *
 
 
+
+comm = MPI.COMM_WORLD
+rank = comm.Get_rank()
+size = comm.Get_size()
+
 class Settings(object):
   def __init__(self, src, method):
     self.threshold = 20
@@ -135,8 +140,8 @@ class Settings(object):
     return data
 
 
-def cross_val(pd_data, learner, target_class, goal, isWhat="", fold=5,
-              repeats=2):
+def cross_val(pd_data, learner, target_class, goal, isWhat="", fold=10,
+              repeats=1):
   """
   do 5-fold cross_validation
   """
@@ -183,7 +188,10 @@ def cross_val(pd_data, learner, target_class, goal, isWhat="", fold=5,
     # pd_data1 = pd_data1.reindex(np.random.permutation(pd_data1.index))
     # pd_data = pd.DataFrame(pd_data1.values)
     kf = KFold(len(pd_data), fold)
-    for train_index, test_index in kf:
+    kf_all = [(i,j) for i, j in kf]
+    kf_process = [kf_all[i] for i in xrange(rank, len(kf_all),size)]
+    pdb.set_trace()
+    for train_index, test_index in kf_process:
       train_pd = pd_data.ix[train_index]
       test_pd = pd_data.ix[test_index]
       if "Smote" in isWhat:
@@ -202,7 +210,14 @@ def cross_val(pd_data, learner, target_class, goal, isWhat="", fold=5,
       test_Y = test_pd.ix[:, test_pd.columns[-1]].values
       params = tune_learner(train_X) if "_TunedLearner" in isWhat else {}
       F = learner(train_X, train_Y, test_X, test_Y).learn(F, **params)
-  return F
+  if rank == 0:
+    for i in range(1, size):
+      temp = comm.recv(source=i)
+      for key, val in temp:
+        F[key] = F.get(key,[])+[val]
+    return F
+  else:
+    comm.send(F,dest=0)
 
 
 def scott(features_num, learners, score, target_class, exp_names):
@@ -222,12 +237,12 @@ def scott(features_num, learners, score, target_class, exp_names):
 
 
 def run(data_src, process=4, target_class="mean_weighted", goal="F"):
-  comm = MPI.COMM_WORLD
-  rank = comm.Get_rank()
-  size = comm.Get_size()
+  # comm = MPI.COMM_WORLD
+  # rank = comm.Get_rank()
+  # size = comm.Get_size()
   print("process", str(rank), "started:", time.strftime("%b %d %Y %H:%M:%S "))
   # different processes run different feature experiments
-  features_num = [100 * i for i in xrange(1, 11,3)]
+  features_num = [10 * i for i in xrange(1,2)]
   features_num_process = [features_num[i] for i in
                           xrange(rank, len(features_num), size)]
   # model_hash = Settings(data_src, method='hash')
@@ -235,11 +250,12 @@ def run(data_src, process=4, target_class="mean_weighted", goal="F"):
   methods_lst = [model_tfidf]
   # modification = ["_Naive", "_Smote", "_TunedLearner", "_TunedSmote"]  # [
   # True,False]
-  modification = ["_Naive","_Smote","_TunedLearner","_TunedSmote"]
+  modification = ["_TunedSmote"]
   learners = [Naive_bayes]
   F_feature = {}
   exp_names = []
-  for f_num in features_num_process:
+  # for f_num in features_num_process:
+  for f_num in [100]:
     F_method = {}
     for learner in learners:
       for isWhat in modification:
@@ -252,15 +268,15 @@ def run(data_src, process=4, target_class="mean_weighted", goal="F"):
                                      isWhat)
     F_feature[f_num] = F_method
   if rank == 0:
-    for i in xrange(1, size):
-      temp = comm.recv(source=i)
-      F_feature.update(temp)  # receive data from other process
+    # for i in xrange(1, size):
+    #   temp = comm.recv(source=i)
+    #   F_feature.update(temp)  # receive data from other process
     scott(features_num, learners, F_feature, target_class, exp_names)
     file_name = data_src[data_src.rindex('/') + 1:data_src.rindex('.')]
     with open('../pickles/' + file_name + '.pickle', 'wb') as mypickle:
       pickle.dump(F_feature, mypickle)
-  else:
-    comm.send(F_feature, dest=0)
+  # else:
+  #   comm.send(F_feature, dest=0)
   print("process", str(rank), "end:", time.strftime("%b %d %Y %H:%M:%S "))
 
 
@@ -287,6 +303,7 @@ def cmd(com="Nothing"):
 
 
 if __name__ == "__main__":
+  # pdb.set_trace()
   if len(sys.argv) == 1:
     run('../data/StackExchange/anime.txt')
   else:
