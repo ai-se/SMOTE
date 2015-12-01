@@ -21,11 +21,13 @@ from tuner import *
 
 
 class Settings(object):
-  def __init__(self, src, method):
+  def __init__(self, src, method, isBinary):
     self.threshold = 20
     self.data_src = src
     self.processors = 4
     self.method = method
+    self.isBinary = isBinary
+    self.target_class = "mean_weighted"
     # self.data = self.get_data()
     self.corpus = self.load_data()
     # self.matrix, self.label = self.make_feature(num_features,method)
@@ -62,14 +64,25 @@ class Settings(object):
         all_label.append(label)
         corpus.append([label] + process(line.split(' >>> ')[0]).split())
     label_dist = Counter(all_label)
+    label_3_percent = int(sum(label_dist.values()) * 0.03)
+    label_1_percent = int(sum(label_dist.values()) * 0.01)
+    # pdb.set_trace()
     for key, val in label_dist.iteritems():
-      if val > self.threshold:
+      if self.isBinary:
+        if label_1_percent <= val <= label_3_percent:
+          used_label.append(key)  # find the minority label for binary class
+          self.target_class = key
+          break
+      elif val > self.threshold:
         used_label.append(key)
     used_label.append('others')
     for doc in corpus:
       if doc[0] not in used_label:
         doc[0] = 'others'
     return corpus
+
+  def make_binary(self, corpus):
+    pass
 
   def make_feature(self, num_features):
     """
@@ -166,14 +179,15 @@ def cross_val(pd_data, learner, target_class, goal, isWhat="", fold=5,
       new_tune_Y = new_tune.ix[:, new_tune.columns[-1]].values
       # clf = learner(new_train_X, new_train_Y, new_tune_X, new_tune_Y)
       A_smote = smote(new_train)
-      num_range = [[10, A_smote.get_majority_num()]] * (A_smote.label_num - 1)
-      params_to_tune = {"k": [2, 10], "up_to_num": num_range}
+      num_range = [[int(A_smote.get_majority_num() * 0.5),
+                    int(A_smote.get_majority_num() * 1.5)]] * (
+                  A_smote.label_num - 1)
+      params_to_tune = {"k": [2, 20], "up_to_num": num_range}
       # pdb.set_trace()
       tuner = DE_Tune_SMOTE(learner, smote, params_to_tune, new_train,
                             new_tune, target_class)
       params = tuner.Tune()
       return params, new_train
-
 
   F = {}
   for i in xrange(repeats):  # repeat 5 times here
@@ -214,28 +228,29 @@ def scott(features_num, learners, score, target_class, exp_names):
   for num in features_num:
     for learner in exp_names:
       try:
-        out.append([learner + "_" + str(num) +"_"+target_class] +
+        out.append([learner + "_" + str(num) + "_" + target_class] +
                    score[num][learner][target_class])
       except IndexError:
         print(target_class + " does not exist!")
   rdivDemo(out)
 
 
-def run(data_src, process=4, target_class="mean_weighted", goal="F"):
+def run(data_src, process=4, isBinary=True, target_class="mean_weighted",
+        goal="F"):
   comm = MPI.COMM_WORLD
   rank = comm.Get_rank()
   size = comm.Get_size()
   print("process", str(rank), "started:", time.strftime("%b %d %Y %H:%M:%S "))
   # different processes run different feature experiments
-  features_num = [100 * i for i in xrange(1, 11,3)]
+  features_num = [1000 * i for i in xrange(1, 2)]
   features_num_process = [features_num[i] for i in
                           xrange(rank, len(features_num), size)]
   # model_hash = Settings(data_src, method='hash')
-  model_tfidf = Settings(data_src, method='tfidf')
+  model_tfidf = Settings(data_src, 'tfidf', isBinary)
   methods_lst = [model_tfidf]
   # modification = ["_Naive", "_Smote", "_TunedLearner", "_TunedSmote"]  # [
   # True,False]
-  modification = ["_Naive","_Smote","_TunedLearner","_TunedSmote"]
+  modification = ["_Naive", "_Smote", "_TunedLearner", "_TunedSmote"]
   learners = [Naive_bayes]
   F_feature = {}
   exp_names = []
@@ -246,6 +261,7 @@ def run(data_src, process=4, target_class="mean_weighted", goal="F"):
         random.seed(1)
         for method in methods_lst:
           pd_data = method.make_feature(f_num)
+          target_class = method.target_class
           name = learner.name + isWhat
           exp_names.append(name)
           F_method[name] = cross_val(pd_data, learner, target_class, goal,
@@ -287,7 +303,8 @@ def cmd(com="Nothing"):
 
 
 if __name__ == "__main__":
-  if len(sys.argv) == 1:
-    run('../data/StackExchange/anime.txt')
-  else:
-    eval(cmd())
+  # if len(sys.argv) == 1:
+  #   run('../data/StackExchange/anime.txt')
+  # else:
+  #   eval(cmd())
+  run('../data/StackExchange/anime.txt')
