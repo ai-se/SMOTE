@@ -1,19 +1,13 @@
 from __future__ import print_function, division
 # __author__ = 'WeiFu'
 import pickle
-import random
 import time
-import pdb
-import mpi4py
-import os.path
 from os import listdir
-from collections import Counter
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 from sklearn.feature_extraction import FeatureHasher
 from sklearn.cross_validation import KFold
 from mpi4py import MPI
-import pandas as pd
 from learner import *
 from sk import *
 from smote import smote
@@ -72,6 +66,7 @@ class Settings(object):
         if label_1_percent <= val <= label_3_percent:
           used_label.append(key)  # find the minority label for binary class
           self.target_class = key
+          print("target_label: ", self.target_class)
           break
       elif val > self.threshold:
         used_label.append(key)
@@ -149,7 +144,7 @@ class Settings(object):
 
 
 def cross_val(pd_data, learner, target_class, goal, isWhat="", fold=5,
-              repeats=2):
+              repeats=1):
   """
   do 5-fold cross_validation
   """
@@ -181,7 +176,7 @@ def cross_val(pd_data, learner, target_class, goal, isWhat="", fold=5,
       A_smote = smote(new_train)
       num_range = [[int(A_smote.get_majority_num() * 0.5),
                     int(A_smote.get_majority_num() * 1.5)]] * (
-                  A_smote.label_num - 1)
+                    A_smote.label_num - 1)
       params_to_tune = {"k": [2, 20], "up_to_num": num_range}
       # pdb.set_trace()
       tuner = DE_Tune_SMOTE(learner, smote, params_to_tune, new_train,
@@ -303,8 +298,8 @@ def cmd(com="Nothing"):
 
 
 if __name__ == "__main__":
-  # if len(sys.argv) == 1:
-  #   run('../data/StackExchange/anime.txt')
-  # else:
-  #   eval(cmd())
-  run('../data/StackExchange/anime.txt')
+  if len(sys.argv) == 1:
+    run('../data/StackExchange/anime.txt')
+  else:
+    eval(cmd())
+  # run('../data/StackExchange/anime.txt')
