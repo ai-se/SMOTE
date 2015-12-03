@@ -1,0 +1,217 @@
+process 0 started: Dec 02 2015 22:18:28 
+process 1 started: Dec 02 2015 22:18:28 
+process 3 started: Dec 02 2015 22:18:28 
+process 2 started: Dec 02 2015 22:18:28 
+target_label:  7.5
+target_label:  7.5
+target_label:  7.5
+target_label:  7.5
+newbestscore {'7.5': 0.011884550084889643}:
+bestconf {'alpha': 0.0, 'fit_prior': False} :
+final bestescore %s: {'7.5': 0.011884550084889643}
+final bestconf %s: {'alpha': 0.0, 'fit_prior': False}
+DONE !!!!
+newbestscore {'7.5': 0.010309278350515464}:
+bestconf {'alpha': 0.0, 'fit_prior': False} :
+final bestescore %s: {'7.5': 0.010309278350515464}
+final bestconf %s: {'alpha': 0.0, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'7.5': 0.01386481802426343}
+final bestconf %s: {'alpha': 0.0, 'fit_prior': True}
+DONE !!!!
+newbestscore {'7.5': 0.9689655172413794}:
+bestconf {'alpha': 0.84, 'fit_prior': False} :
+final bestescore %s: {'7.5': 0.9689655172413794}
+final bestconf %s: {'alpha': 0.84, 'fit_prior': False}
+DONE !!!!
+newbestscore {'7.5': 0.016891891891891893}:
+bestconf {'alpha': 0.0, 'fit_prior': True} :
+final bestescore %s: {'7.5': 0.016891891891891893}
+final bestconf %s: {'alpha': 0.0, 'fit_prior': True}
+DONE !!!!
+newbestscore {'7.5': 0.015544041450777202}:
+bestconf {'alpha': 0.0, 'fit_prior': False} :
+newbestscore {'7.5': 0.0137221269296741}:
+bestconf {'alpha': 0.0, 'fit_prior': False} :
+newbestscore {'7.5': 0.01517706576728499}:
+bestconf {'alpha': 0.0, 'fit_prior': False} :
+final bestescore %s: {'7.5': 0.015544041450777202}
+final bestconf %s: {'alpha': 0.0, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'7.5': 0.0137221269296741}
+final bestconf %s: {'alpha': 0.0, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'7.5': 0.01517706576728499}
+final bestconf %s: {'alpha': 0.0, 'fit_prior': False}
+DONE !!!!
+newbestscore {'7.5': 0.010452961672473868}:
+bestconf {'alpha': 0.0, 'fit_prior': False} :
+newbestscore {'7.5': 0.9774696707105719}:
+bestconf {'alpha': 0.08, 'fit_prior': False} :
+newbestscore {'7.5': 0.00530035335689046}:
+bestconf {'alpha': 0.0, 'fit_prior': False} :
+final bestescore %s: {'7.5': 0.010452961672473868}
+final bestconf %s: {'alpha': 0.0, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'7.5': 0.9774696707105719}
+final bestconf %s: {'alpha': 0.08, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'7.5': 0.00530035335689046}
+final bestconf %s: {'alpha': 0.0, 'fit_prior': False}
+DONE !!!!
+newbestscore {'7.5': 0.9601386481802426}:
+bestconf {'alpha': 0.03, 'fit_prior': False} :
+final bestescore %s: {'7.5': 0.9762308998302207}
+final bestconf %s: {'alpha': 0.068, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'7.5': 0.01015228426395939}
+final bestconf %s: {'alpha': 0.0, 'fit_prior': True}
+DONE !!!!
+final bestescore %s: {'7.5': 0.9601386481802426}
+final bestconf %s: {'alpha': 0.03, 'fit_prior': False}
+DONE !!!!
+newbestscore {'7.5': 0.027633851468048358}:
+bestconf {'alpha': 0.0, 'fit_prior': False} :
+newbestscore {'7.5': 0.9685863874345549}:
+bestconf {'alpha': 0.06, 'fit_prior': False} :
+final bestescore %s: {'7.5': 0.9634782608695652}
+final bestconf %s: {'alpha': 0.06, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'7.5': 0.027633851468048358}
+final bestconf %s: {'alpha': 0.0, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'7.5': 0.9685863874345549}
+final bestconf %s: {'alpha': 0.06, 'fit_prior': False}
+DONE !!!!
+newbestscore {'7.5': 0.017123287671232876}:
+bestconf {'alpha': 0.0, 'fit_prior': True} :
+final bestescore %s: {'7.5': 0.9518072289156626}
+final bestconf %s: {'alpha': 0.028, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'7.5': 0.9487179487179487}
+final bestconf %s: {'alpha': 0.028, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'7.5': 0.017123287671232876}
+final bestconf %s: {'alpha': 0.0, 'fit_prior': True}
+DONE !!!!
+final bestescore %s: {'7.5': 0}
+final bestconf %s: {'k': 17, 'up_to_num': [420]}
+DONE !!!!
+final bestescore %s: {'7.5': 0}
+final bestconf %s: {'k': 5, 'up_to_num': [1155]}
+DONE !!!!
+final bestescore %s: {'7.5': 0}
+final bestconf %s: {'k': 10, 'up_to_num': [1072]}
+DONE !!!!
+final bestescore %s: {'7.5': 0}
+final bestconf %s: {'k': 10, 'up_to_num': [1006]}
+DONE !!!!
+final bestescore %s: {'7.5': 0}
+final bestconf %s: {'k': 17, 'up_to_num': [420]}
+DONE !!!!
+final bestescore %s: {'7.5': 0}
+final bestconf %s: {'k': 17, 'up_to_num': [420]}
+DONE !!!!
+final bestescore %s: {'7.5': 0}
+final bestconf %s: {'k': 17, 'up_to_num': [420]}
+DONE !!!!
+final bestescore %s: {'7.5': 0}
+final bestconf %s: {'k': 3, 'up_to_num': [811]}
+DONE !!!!
+final bestescore %s: {'7.5': 0}
+final bestconf %s: {'k': 3, 'up_to_num': [405]}
+DONE !!!!
+final bestescore %s: {'7.5': 0}
+final bestconf %s: {'k': 3, 'up_to_num': [405]}
+DONE !!!!
+final bestescore %s: {'7.5': 0}
+final bestconf %s: {'k': 3, 'up_to_num': [405]}
+DONE !!!!
+final bestescore %s: {'7.5': 0}
+final bestconf %s: {'k': 14, 'up_to_num': [552]}
+DONE !!!!
+final bestescore %s: {'7.5': 0}
+final bestconf %s: {'k': 14, 'up_to_num': [552]}
+DONE !!!!
+final bestescore %s: {'7.5': 0}
+final bestconf %s: {'k': 14, 'up_to_num': [552]}
+DONE !!!!
+final bestescore %s: {'7.5': 0}
+final bestconf %s: {'k': 9, 'up_to_num': [448]}
+DONE !!!!
+final bestescore %s: {'7.5': 0}
+final bestconf %s: {'k': 9, 'up_to_num': [448]}
+DONE !!!!
+final bestescore %s: {'7.5': 0}
+final bestconf %s: {'k': 9, 'up_to_num': [448]}
+DONE !!!!
+final bestescore %s: {'7.5': 0}
+final bestconf %s: {'k': 16, 'up_to_num': [906]}
+DONE !!!!
+process 1 end: Dec 02 2015 23:04:53 
+final bestescore %s: {'7.5': 0}
+final bestconf %s: {'k': 16, 'up_to_num': [906]}
+DONE !!!!
+process 2 end: Dec 02 2015 23:05:05 
+final bestescore %s: {'7.5': 0}
+final bestconf %s: {'k': 16, 'up_to_num': [906]}
+DONE !!!!
+process 3 end: Dec 02 2015 23:05:58 
+
+rank ,                                          name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,                             NB_Naive_1000_7.5 ,       0  ,     0 (*              |              ), 0.00,  0.00,  0.00,  0.00,  0.00
+   1 ,                             NB_Smote_1000_7.5 ,       0  ,     0 (*              |              ), 0.00,  0.00,  0.00,  0.00,  0.00
+   1 ,                        NB_TunedSmote_1000_7.5 ,       0  ,     0 (*              |              ), 0.00,  0.00,  0.00,  0.00,  0.00
+   1 ,                             NB_Naive_4000_7.5 ,       0  ,     0 (*              |              ), 0.00,  0.00,  0.00,  0.00,  0.00
+   1 ,                             NB_Smote_4000_7.5 ,       0  ,     0 (*              |              ), 0.00,  0.00,  0.00,  0.00,  0.00
+   1 ,                        NB_TunedSmote_4000_7.5 ,       0  ,     0 (*              |              ), 0.00,  0.00,  0.00,  0.00,  0.00
+   1 ,                             NB_Naive_7000_7.5 ,       0  ,     0 (*              |              ), 0.00,  0.00,  0.00,  0.00,  0.00
+   1 ,                             NB_Smote_7000_7.5 ,       0  ,     0 (*              |              ), 0.00,  0.00,  0.00,  0.00,  0.00
+   1 ,                        NB_TunedSmote_7000_7.5 ,       0  ,     0 (*              |              ), 0.00,  0.00,  0.00,  0.00,  0.00
+   1 ,                            NB_Naive_10000_7.5 ,       0  ,     0 (*              |              ), 0.00,  0.00,  0.00,  0.00,  0.00
+   1 ,                            NB_Smote_10000_7.5 ,       0  ,     0 (*              |              ), 0.00,  0.00,  0.00,  0.00,  0.00
+   1 ,                       NB_TunedSmote_10000_7.5 ,       0  ,     0 (*              |              ), 0.00,  0.00,  0.00,  0.00,  0.00
+   1 ,                      NB_TunedLearner_4000_7.5 ,       0  ,     1 (*              |              ), 0.00,  0.00,  0.00,  0.01,  0.02
+   1 ,                      NB_TunedLearner_1000_7.5 ,       1  ,     2 (*              |              ), 0.00,  0.00,  0.01,  0.02,  0.02
+   1 ,                      NB_TunedLearner_7000_7.5 ,       1  ,     2 (*--------------|------------- ), 0.00,  0.00,  0.01,  0.02,  0.96
+   1 ,                     NB_TunedLearner_10000_7.5 ,       1  ,     2 (*--------------|------------- ), 0.00,  0.00,  0.01,  0.02,  0.96
+process 0 end: Dec 02 2015 23:05:58 
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n2e5-5>
+Subject: Job 502324: <mpiexec -n 4 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/windowsphone.txt> Done
+
+Job <mpiexec -n 4 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/windowsphone.txt> was submitted from host <login01.hpc.ncsu.edu> by user <wfu> in cluster <henry2>.
+Job was executed on host(s) <4*n2e5-5>, in queue <single_chassis>, as user <wfu> in cluster <henry2>.
+</home/wfu> was used as the home directory.
+</home/wfu/Github/SMOTE/src> was used as the working directory.
+Started at Wed Dec  2 22:18:22 2015
+Results reported at Wed Dec  2 23:05:59 2015
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+mpiexec -n 4 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/windowsphone.txt
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time   :  20216.65 sec.
+    Max Memory :      3007 MB
+    Max Swap   :      6072 MB
+
+    Max Processes  :         8
+    Max Threads    :        37
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <./err/windowsphone.err.502324> for stderr output of this job.
+

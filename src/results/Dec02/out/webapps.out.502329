@@ -1,0 +1,184 @@
+process 0 started: Dec 02 2015 22:18:28 
+process 1 started: Dec 02 2015 22:18:28 
+process 3 started: Dec 02 2015 22:18:28 
+process 2 started: Dec 02 2015 22:18:28 
+target_label:  google-apps
+target_label:  google-apps
+target_label:  google-apps
+target_label:  google-apps
+final bestescore %s: {'google-apps': 0.9833493435798911}
+final bestconf %s: {'alpha': 0.028, 'fit_prior': True}
+DONE !!!!
+final bestescore %s: {'google-apps': 0.9841346153846153}
+final bestconf %s: {'alpha': 0.019, 'fit_prior': True}
+DONE !!!!
+final bestescore %s: {'google-apps': 0.9088291746641075}
+final bestconf %s: {'alpha': 0.012, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'google-apps': 0.9834447628143903}
+final bestconf %s: {'alpha': 0.061, 'fit_prior': True}
+DONE !!!!
+final bestescore %s: {'google-apps': 0.9850313858039594}
+final bestconf %s: {'alpha': 0.044, 'fit_prior': True}
+DONE !!!!
+newbestscore {'google-apps': 0.8941925218774861}:
+bestconf {'k': 5, 'up_to_num': [7891]} :
+newbestscore {'google-apps': 0.8949880668257757}:
+bestconf {'k': 5, 'up_to_num': [11632]} :
+final bestescore %s: {'google-apps': 0.981629392971246}
+final bestconf %s: {'alpha': 0.028, 'fit_prior': True}
+DONE !!!!
+final bestescore %s: {'google-apps': 0.9823445204390011}
+final bestconf %s: {'alpha': 0.003, 'fit_prior': True}
+DONE !!!!
+final bestescore %s: {'google-apps': 0.9826653944020356}
+final bestconf %s: {'alpha': 0.005, 'fit_prior': True}
+DONE !!!!
+newbestscore {'google-apps': 0.9724403140522352}:
+bestconf {'alpha': 0.59, 'fit_prior': False} :
+final bestescore %s: {'google-apps': 0.9724403140522352}
+final bestconf %s: {'alpha': 0.59, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'google-apps': 0.983790723800353}
+final bestconf %s: {'alpha': 0.024, 'fit_prior': True}
+DONE !!!!
+final bestescore %s: {'google-apps': 0.8949880668257757}
+final bestconf %s: {'k': 5, 'up_to_num': [11632]}
+DONE !!!!
+newbestscore {'google-apps': 0.8968443383717847}:
+bestconf {'k': 14, 'up_to_num': [11520]} :
+newbestscore {'google-apps': 0.8976398833200743}:
+bestconf {'k': 3, 'up_to_num': [10501]} :
+newbestscore {'google-apps': 0.8984354282683639}:
+bestconf {'k': 11, 'up_to_num': [12954]} :
+final bestescore %s: {'google-apps': 0.8984354282683639}
+final bestconf %s: {'k': 11, 'up_to_num': [12954]}
+DONE !!!!
+final bestescore %s: {'google-apps': 0.9818529130850048}
+final bestconf %s: {'alpha': 0.028, 'fit_prior': True}
+DONE !!!!
+final bestescore %s: {'google-apps': 0.9811260396673065}
+final bestconf %s: {'alpha': 0.019, 'fit_prior': True}
+DONE !!!!
+newbestscore {'google-apps': 0.9786580436540017}:
+bestconf {'alpha': 0.4, 'fit_prior': False} :
+final bestescore %s: {'google-apps': 0.9786580436540017}
+final bestconf %s: {'alpha': 0.4, 'fit_prior': False}
+DONE !!!!
+newbestscore {'google-apps': 0.8994961548660833}:
+bestconf {'k': 19, 'up_to_num': [10527]} :
+newbestscore {'google-apps': 0.9803137003841229}:
+bestconf {'alpha': 0.01, 'fit_prior': True} :
+final bestescore %s: {'google-apps': 0.9803137003841229}
+final bestconf %s: {'alpha': 0.01, 'fit_prior': True}
+DONE !!!!
+newbestscore {'google-apps': 0.9005568814638027}:
+bestconf {'k': 11, 'up_to_num': [12987]} :
+newbestscore {'google-apps': 0.9839460587574249}:
+bestconf {'alpha': 0.01, 'fit_prior': True} :
+final bestescore %s: {'google-apps': 0.9839460587574249}
+final bestconf %s: {'alpha': 0.01, 'fit_prior': True}
+DONE !!!!
+newbestscore {'google-apps': 0.9013524264120922}:
+bestconf {'k': 8, 'up_to_num': [11743]} :
+final bestescore %s: {'google-apps': 0.9013524264120922}
+final bestconf %s: {'k': 8, 'up_to_num': [11743]}
+DONE !!!!
+newbestscore {'google-apps': 0.8915407053831875}:
+bestconf {'k': 16, 'up_to_num': [8486]} :
+final bestescore %s: {'google-apps': 0.8915407053831875}
+final bestconf %s: {'k': 16, 'up_to_num': [8486]}
+DONE !!!!
+newbestscore {'google-apps': 0.9008220631132325}:
+bestconf {'k': 8, 'up_to_num': [6085]} :
+final bestescore %s: {'google-apps': 0.9779848947452997}
+final bestconf %s: {'alpha': 0.303, 'fit_prior': False}
+DONE !!!!
+newbestscore {'google-apps': 0.9010872447626624}:
+bestconf {'k': 5, 'up_to_num': [4494]} :
+final bestescore %s: {'google-apps': 0.9835908873665764}
+final bestconf %s: {'alpha': 0.019, 'fit_prior': True}
+DONE !!!!
+final bestescore %s: {'google-apps': 0.9813804173354735}
+final bestconf %s: {'alpha': 0.005, 'fit_prior': True}
+DONE !!!!
+final bestescore %s: {'google-apps': 0.9799967994879181}
+final bestconf %s: {'alpha': 0.298, 'fit_prior': False}
+DONE !!!!
+newbestscore {'google-apps': 0.9814844373503592}:
+bestconf {'alpha': 0.008, 'fit_prior': True} :
+final bestescore %s: {'google-apps': 0.9814844373503592}
+final bestconf %s: {'alpha': 0.008, 'fit_prior': True}
+DONE !!!!
+final bestescore %s: {'google-apps': 0.9074516043489791}
+final bestconf %s: {'k': 12, 'up_to_num': [4813]}
+DONE !!!!
+final bestescore %s: {'google-apps': 0.9010872447626624}
+final bestconf %s: {'k': 5, 'up_to_num': [4494]}
+DONE !!!!
+newbestscore {'google-apps': 0.9090426942455582}:
+bestconf {'k': 17, 'up_to_num': [7052]} :
+newbestscore {'google-apps': 0.8997613365155132}:
+bestconf {'k': 4, 'up_to_num': [8391]} :
+final bestescore %s: {'google-apps': 0.9090426942455582}
+final bestconf %s: {'k': 17, 'up_to_num': [7052]}
+DONE !!!!
+newbestscore {'google-apps': 0.8944577035269159}:
+bestconf {'k': 2, 'up_to_num': [9597]} :
+newbestscore {'google-apps': 0.9002916998143728}:
+bestconf {'k': 5, 'up_to_num': [7076]} :
+newbestscore {'google-apps': 0.9079819676478388}:
+bestconf {'k': 8, 'up_to_num': [10022]} :
+newbestscore {'google-apps': 0.9082471492972686}:
+bestconf {'k': 9, 'up_to_num': [5991]} :
+newbestscore {'google-apps': 0.9005568814638027}:
+bestconf {'k': 5, 'up_to_num': [9597]} :
+final bestescore %s: {'google-apps': 0.9005568814638027}
+final bestconf %s: {'k': 5, 'up_to_num': [9597]}
+DONE !!!!
+newbestscore {'google-apps': 0.9087775125961284}:
+bestconf {'k': 6, 'up_to_num': [11672]} :
+final bestescore %s: {'google-apps': 0.9087775125961284}
+final bestconf %s: {'k': 6, 'up_to_num': [11672]}
+DONE !!!!
+newbestscore {'google-apps': 0.8952532484752055}:
+bestconf {'k': 18, 'up_to_num': [12678]} :
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n2d1-9>
+Subject: Job 502329: <mpiexec -n 4 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/webapps.txt> Exited
+
+Job <mpiexec -n 4 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/webapps.txt> was submitted from host <login01.hpc.ncsu.edu> by user <wfu> in cluster <henry2>.
+Job was executed on host(s) <4*n2d1-9>, in queue <single_chassis>, as user <wfu> in cluster <henry2>.
+</home/wfu> was used as the home directory.
+</home/wfu/Github/SMOTE/src> was used as the working directory.
+Started at Wed Dec  2 22:18:22 2015
+Results reported at Thu Dec  3 08:18:38 2015
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+mpiexec -n 4 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/webapps.txt
+------------------------------------------------------------
+
+TERM_RUNLIMIT: job killed after reaching LSF run time limit.
+Exited with exit code 140.
+
+Resource usage summary:
+
+    CPU time   :  28441.31 sec.
+    Max Memory :     22969 MB
+    Max Swap   :     37720 MB
+
+    Max Processes  :         8
+    Max Threads    :         9
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <./err/webapps.err.502329> for stderr output of this job.
+

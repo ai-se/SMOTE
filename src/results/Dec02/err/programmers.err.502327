@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "textMining.py", line 304, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+  File "textMining.py", line 258, in run
+    pd_data = method.make_feature(f_num)
+  File "textMining.py", line 142, in make_feature
+    [list(a) + [b] for a, b in zip(matrix_selected, label)])
+  File "/share3/wfu/miniconda/lib/python2.7/site-packages/pandas/core/frame.py", line 265, in __init__
+    arrays, columns = _to_arrays(data, columns, dtype=dtype)
+  File "/share3/wfu/miniconda/lib/python2.7/site-packages/pandas/core/frame.py", line 5279, in _to_arrays
+    dtype=dtype)
+  File "/share3/wfu/miniconda/lib/python2.7/site-packages/pandas/core/frame.py", line 5360, in _list_to_arrays
+    content = list(lib.to_object_array(data).T)
+  File "pandas/src/inference.pyx", line 1091, in pandas.lib.to_object_array (pandas/lib.c:62966)
+MemoryError
+User defined signal 2

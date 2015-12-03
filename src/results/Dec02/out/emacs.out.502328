@@ -1,0 +1,253 @@
+process 0 started: Dec 02 2015 22:18:29 
+process 2 started: Dec 02 2015 22:18:29 
+process 1 started: Dec 02 2015 22:18:29 
+process 3 started: Dec 02 2015 22:18:29 
+target_label:  helm
+target_label:  helm
+target_label:  helm
+target_label:  helm
+final bestescore %s: {'helm': 0.9678953626634959}
+final bestconf %s: {'alpha': 0.028, 'fit_prior': True}
+DONE !!!!
+newbestscore {'helm': 0.974025974025974}:
+bestconf {'alpha': 0.13, 'fit_prior': True} :
+final bestescore %s: {'helm': 0.974025974025974}
+final bestconf %s: {'alpha': 0.13, 'fit_prior': True}
+DONE !!!!
+newbestscore {'helm': 0.9669811320754716}:
+bestconf {'alpha': 0.02, 'fit_prior': False} :
+final bestescore %s: {'helm': 0.9669811320754716}
+final bestconf %s: {'alpha': 0.02, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'helm': 0.9797136038186157}
+final bestconf %s: {'alpha': 0.002, 'fit_prior': True}
+DONE !!!!
+newbestscore {'helm': 0.9423529411764706}:
+bestconf {'alpha': 1.0, 'fit_prior': False} :
+newbestscore {'helm': 0.9682352941176471}:
+bestconf {'alpha': 0.01, 'fit_prior': False} :
+final bestescore %s: {'helm': 0.9682352941176471}
+final bestconf %s: {'alpha': 0.01, 'fit_prior': False}
+DONE !!!!
+newbestscore {'helm': 0.9686888454011742}:
+bestconf {'k': 10, 'up_to_num': [972]} :
+final bestescore %s: {'helm': 0.9578313253012049}
+final bestconf %s: {'alpha': 0.177, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'helm': 0.9701149425287356}
+final bestconf %s: {'alpha': 0.003, 'fit_prior': True}
+DONE !!!!
+final bestescore %s: {'helm': 0.9681603773584906}
+final bestconf %s: {'alpha': 0.627, 'fit_prior': False}
+DONE !!!!
+newbestscore {'helm': 0.9678571428571429}:
+bestconf {'alpha': 0.204, 'fit_prior': False} :
+final bestescore %s: {'helm': 0.9678571428571429}
+final bestconf %s: {'alpha': 0.204, 'fit_prior': False}
+DONE !!!!
+newbestscore {'helm': 0.974025974025974}:
+bestconf {'alpha': 0.01, 'fit_prior': True} :
+final bestescore %s: {'helm': 0.974025974025974}
+final bestconf %s: {'alpha': 0.01, 'fit_prior': True}
+DONE !!!!
+final bestescore %s: {'helm': 0.9646643109540636}
+final bestconf %s: {'alpha': 0.303, 'fit_prior': False}
+DONE !!!!
+newbestscore {'helm': 0.9559164733178654}:
+bestconf {'alpha': 0.066, 'fit_prior': False} :
+final bestescore %s: {'helm': 0.9559164733178654}
+final bestconf %s: {'alpha': 0.066, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'helm': 0.9457831325301205}
+final bestconf %s: {'alpha': 0.043, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'helm': 0.9591836734693877}
+final bestconf %s: {'alpha': 0.068, 'fit_prior': False}
+DONE !!!!
+newbestscore {'helm': 0.9607142857142857}:
+bestconf {'alpha': 0.097, 'fit_prior': False} :
+final bestescore %s: {'helm': 0.9726840855106889}
+final bestconf %s: {'alpha': 0.003, 'fit_prior': True}
+DONE !!!!
+final bestescore %s: {'helm': 0.9607142857142857}
+final bestconf %s: {'alpha': 0.097, 'fit_prior': False}
+DONE !!!!
+newbestscore {'helm': 0.9519343493552169}:
+bestconf {'alpha': 0.07, 'fit_prior': False} :
+final bestescore %s: {'helm': 0.9686888454011742}
+final bestconf %s: {'k': 10, 'up_to_num': [972]}
+DONE !!!!
+newbestscore {'helm': 0.02588235294117647}:
+bestconf {'alpha': 0.0, 'fit_prior': True} :
+newbestscore {'helm': 0.9635294117647059}:
+bestconf {'alpha': 0.13, 'fit_prior': False} :
+final bestescore %s: {'helm': 0.9519343493552169}
+final bestconf %s: {'alpha': 0.07, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'helm': 0.9635294117647059}
+final bestconf %s: {'alpha': 0.13, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'helm': 0.9812865497076023}
+final bestconf %s: {'alpha': 0.001, 'fit_prior': True}
+DONE !!!!
+newbestscore {'helm': 0.9591836734693877}:
+bestconf {'alpha': 0.06, 'fit_prior': False} :
+final bestescore %s: {'helm': 0.9591836734693877}
+final bestconf %s: {'alpha': 0.06, 'fit_prior': False}
+DONE !!!!
+newbestscore {'helm': 0.9452054794520548}:
+bestconf {'k': 18, 'up_to_num': [1628]} :
+newbestscore {'helm': 0.9471624266144814}:
+bestconf {'k': 20, 'up_to_num': [1628]} :
+final bestescore %s: {'helm': 0.9471624266144814}
+final bestconf %s: {'k': 20, 'up_to_num': [1628]}
+DONE !!!!
+newbestscore {'helm': 0.9549902152641878}:
+bestconf {'k': 16, 'up_to_num': [613]} :
+newbestscore {'helm': 0.9510763209393346}:
+bestconf {'k': 8, 'up_to_num': [1735]} :
+final bestescore %s: {'helm': 0.9549902152641878}
+final bestconf %s: {'k': 16, 'up_to_num': [613]}
+DONE !!!!
+newbestscore {'helm': 0.9334637964774951}:
+bestconf {'k': 5, 'up_to_num': [1321]} :
+final bestescore %s: {'helm': 0.9510763209393346}
+final bestconf %s: {'k': 12, 'up_to_num': [1167]}
+DONE !!!!
+final bestescore %s: {'helm': 0.9510763209393346}
+final bestconf %s: {'k': 8, 'up_to_num': [1735]}
+DONE !!!!
+newbestscore {'helm': 0.947265625}:
+bestconf {'k': 8, 'up_to_num': [887]} :
+newbestscore {'helm': 0.94921875}:
+bestconf {'k': 3, 'up_to_num': [1615]} :
+final bestescore %s: {'helm': 0.94921875}
+final bestconf %s: {'k': 3, 'up_to_num': [1615]}
+DONE !!!!
+newbestscore {'helm': 0.9256360078277887}:
+bestconf {'k': 6, 'up_to_num': [1503]} :
+final bestescore %s: {'helm': 0.9373776908023483}
+final bestconf %s: {'k': 10, 'up_to_num': [1147]}
+DONE !!!!
+newbestscore {'helm': 0.9275929549902152}:
+bestconf {'k': 5, 'up_to_num': [1648]} :
+final bestescore %s: {'helm': 0.9334637964774951}
+final bestconf %s: {'k': 5, 'up_to_num': [1321]}
+DONE !!!!
+newbestscore {'helm': 0.9432485322896281}:
+bestconf {'k': 6, 'up_to_num': [981]} :
+final bestescore %s: {'helm': 0.9275929549902152}
+final bestconf %s: {'k': 5, 'up_to_num': [1648]}
+DONE !!!!
+newbestscore {'helm': 0.949119373776908}:
+bestconf {'k': 11, 'up_to_num': [1595]} :
+newbestscore {'helm': 0.9275929549902152}:
+bestconf {'k': 2, 'up_to_num': [1635]} :
+newbestscore {'helm': 0.9295499021526419}:
+bestconf {'k': 20, 'up_to_num': [1533]} :
+final bestescore %s: {'helm': 0.9295499021526419}
+final bestconf %s: {'k': 20, 'up_to_num': [1533]}
+DONE !!!!
+final bestescore %s: {'helm': 0.949119373776908}
+final bestconf %s: {'k': 11, 'up_to_num': [1595]}
+DONE !!!!
+final bestescore %s: {'helm': 0.9354207436399217}
+final bestconf %s: {'k': 2, 'up_to_num': [1529]}
+DONE !!!!
+newbestscore {'helm': 0.9197651663405088}:
+bestconf {'k': 5, 'up_to_num': [960]} :
+newbestscore {'helm': 0.923679060665362}:
+bestconf {'k': 8, 'up_to_num': [1090]} :
+final bestescore %s: {'helm': 0.923679060665362}
+final bestconf %s: {'k': 8, 'up_to_num': [1090]}
+DONE !!!!
+final bestescore %s: {'helm': 0.9197651663405088}
+final bestconf %s: {'k': 6, 'up_to_num': [1184]}
+DONE !!!!
+final bestescore %s: {'helm': 0.8904109589041096}
+final bestconf %s: {'k': 6, 'up_to_num': [1591]}
+DONE !!!!
+final bestescore %s: {'helm': 0.931640625}
+final bestconf %s: {'k': 7, 'up_to_num': [1687]}
+DONE !!!!
+process 1 end: Dec 02 2015 23:53:50 
+newbestscore {'helm': 0.9080234833659491}:
+bestconf {'k': 11, 'up_to_num': [1172]} :
+newbestscore {'helm': 0.9412915851272016}:
+bestconf {'k': 19, 'up_to_num': [582]} :
+newbestscore {'helm': 0.9432485322896281}:
+bestconf {'k': 2, 'up_to_num': [1095]} :
+final bestescore %s: {'helm': 0.9080234833659491}
+final bestconf %s: {'k': 11, 'up_to_num': [1172]}
+DONE !!!!
+final bestescore %s: {'helm': 0.9432485322896281}
+final bestconf %s: {'k': 2, 'up_to_num': [1095]}
+DONE !!!!
+newbestscore {'helm': 0.939453125}:
+bestconf {'k': 20, 'up_to_num': [1746]} :
+final bestescore %s: {'helm': 0.923828125}
+final bestconf %s: {'k': 5, 'up_to_num': [1427]}
+DONE !!!!
+process 2 end: Dec 03 2015 00:48:06 
+final bestescore %s: {'helm': 0.939453125}
+final bestconf %s: {'k': 20, 'up_to_num': [1746]}
+DONE !!!!
+process 3 end: Dec 03 2015 00:51:32 
+
+rank ,                                          name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,                            NB_Naive_1000_helm ,       0  ,     0 (*              |              ), 0.00,  0.00,  0.00,  0.00,  0.00
+   1 ,                            NB_Naive_4000_helm ,       0  ,     0 (*              |              ), 0.00,  0.00,  0.00,  0.00,  0.00
+   1 ,                     NB_TunedLearner_4000_helm ,       0  ,    96 (*              |              ), 0.00,  0.00,  0.00,  0.96,  0.96
+   1 ,                            NB_Naive_7000_helm ,       0  ,     0 (*              |              ), 0.00,  0.00,  0.00,  0.00,  0.00
+   1 ,                           NB_Naive_10000_helm ,       0  ,     0 (*              |              ), 0.00,  0.00,  0.00,  0.00,  0.00
+   2 ,                      NB_TunedSmote_10000_helm ,      90  ,     3 (               |           *  ), 0.89,  0.90,  0.90,  0.93,  0.93
+   2 ,                           NB_Smote_10000_helm ,      92  ,     0 (               |          --* ), 0.87,  0.92,  0.92,  0.92,  0.93
+   2 ,                            NB_Smote_7000_helm ,      93  ,     2 (               |          --* ), 0.87,  0.91,  0.93,  0.93,  0.93
+   2 ,                       NB_TunedSmote_4000_helm ,      93  ,     2 (               |           -* ), 0.90,  0.92,  0.93,  0.94,  0.94
+   2 ,                       NB_TunedSmote_7000_helm ,      93  ,     0 (               |           -* ), 0.88,  0.93,  0.93,  0.93,  0.94
+   2 ,                       NB_TunedSmote_1000_helm ,      94  ,     3 (               |             *), 0.92,  0.93,  0.94,  0.96,  0.96
+   2 ,                            NB_Smote_4000_helm ,      94  ,     1 (               |           - *), 0.90,  0.94,  0.94,  0.95,  0.95
+   2 ,                            NB_Smote_1000_helm ,      95  ,     1 (               |            -*), 0.92,  0.94,  0.95,  0.95,  0.96
+   2 ,                     NB_TunedLearner_1000_helm ,      95  ,    95 (               |             *), 0.00,  0.00,  0.95,  0.95,  0.97
+   2 ,                     NB_TunedLearner_7000_helm ,      95  ,    95 (               |             *), 0.00,  0.00,  0.95,  0.95,  0.96
+   2 ,                    NB_TunedLearner_10000_helm ,      96  ,     0 (---------------|-------------*), 0.00,  0.96,  0.96,  0.96,  0.97
+process 0 end: Dec 03 2015 00:51:32 
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n2d2-13>
+Subject: Job 502328: <mpiexec -n 4 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/emacs.txt> Done
+
+Job <mpiexec -n 4 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/emacs.txt> was submitted from host <login01.hpc.ncsu.edu> by user <wfu> in cluster <henry2>.
+Job was executed on host(s) <4*n2d2-13>, in queue <single_chassis>, as user <wfu> in cluster <henry2>.
+</home/wfu> was used as the home directory.
+</home/wfu/Github/SMOTE/src> was used as the working directory.
+Started at Wed Dec  2 22:18:22 2015
+Results reported at Thu Dec  3 00:51:32 2015
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+mpiexec -n 4 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/emacs.txt
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time   :  50853.92 sec.
+    Max Memory :      5742 MB
+    Max Swap   :      8764 MB
+
+    Max Processes  :         8
+    Max Threads    :        37
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <./err/emacs.err.502328> for stderr output of this job.
+

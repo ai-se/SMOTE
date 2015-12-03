@@ -1,0 +1,154 @@
+process 0 started: Dec 02 2015 22:18:29 
+process 3 started: Dec 02 2015 22:18:29 
+process 1 started: Dec 02 2015 22:18:29 
+process 2 started: Dec 02 2015 22:18:29 
+target_label:  apache
+target_label:  apache
+target_label:  apache
+target_label:  apache
+final bestescore %s: {'apache': 0.9748089442400226}
+final bestconf %s: {'alpha': 0.957, 'fit_prior': True}
+DONE !!!!
+final bestescore %s: {'apache': 0.976170451359686}
+final bestconf %s: {'alpha': 0.979, 'fit_prior': True}
+DONE !!!!
+final bestescore %s: {'apache': 0.976845969222081}
+final bestconf %s: {'alpha': 0.653, 'fit_prior': True}
+DONE !!!!
+final bestescore %s: {'apache': 0.9757712353852656}
+final bestconf %s: {'alpha': 0.922, 'fit_prior': True}
+DONE !!!!
+final bestescore %s: {'apache': 0.9730185497470489}
+final bestconf %s: {'alpha': 0.263, 'fit_prior': True}
+DONE !!!!
+final bestescore %s: {'apache': 0.8855547801814375}
+final bestconf %s: {'k': 12, 'up_to_num': [5183]}
+DONE !!!!
+final bestescore %s: {'apache': 0.9748231966053749}
+final bestconf %s: {'alpha': 0.797, 'fit_prior': True}
+DONE !!!!
+newbestscore {'apache': 0.9759459839639893}:
+bestconf {'alpha': 0.36, 'fit_prior': True} :
+final bestescore %s: {'apache': 0.9759459839639893}
+final bestconf %s: {'alpha': 0.36, 'fit_prior': True}
+DONE !!!!
+newbestscore {'apache': 0.9748983312298415}:
+bestconf {'alpha': 0.77, 'fit_prior': True} :
+final bestescore %s: {'apache': 0.9748983312298415}
+final bestconf %s: {'alpha': 0.77, 'fit_prior': True}
+DONE !!!!
+final bestescore %s: {'apache': 0.9776317628966867}
+final bestconf %s: {'alpha': 0.722, 'fit_prior': True}
+DONE !!!!
+newbestscore {'apache': 0.8864852291230518}:
+bestconf {'k': 2, 'up_to_num': [7956]} :
+final bestescore %s: {'apache': 0.97534516765286}
+final bestconf %s: {'alpha': 0.934, 'fit_prior': True}
+DONE !!!!
+final bestescore %s: {'apache': 0.8864852291230518}
+final bestconf %s: {'k': 2, 'up_to_num': [7956]}
+DONE !!!!
+newbestscore {'apache': 0.8999767387764597}:
+bestconf {'k': 2, 'up_to_num': [4986]} :
+final bestescore %s: {'apache': 0.8999767387764597}
+final bestconf %s: {'k': 2, 'up_to_num': [4986]}
+DONE !!!!
+newbestscore {'apache': 0.888113514770877}:
+bestconf {'k': 15, 'up_to_num': [12203]} :
+final bestescore %s: {'apache': 0.888113514770877}
+final bestconf %s: {'k': 15, 'up_to_num': [12203]}
+DONE !!!!
+newbestscore {'apache': 0.8962549430100023}:
+bestconf {'k': 4, 'up_to_num': [10866]} :
+newbestscore {'apache': 0.8971853919516166}:
+bestconf {'k': 17, 'up_to_num': [4878]} :
+newbestscore {'apache': 0.9745042492917847}:
+bestconf {'alpha': 0.54, 'fit_prior': True} :
+final bestescore %s: {'apache': 0.9745042492917847}
+final bestconf %s: {'alpha': 0.54, 'fit_prior': True}
+DONE !!!!
+final bestescore %s: {'apache': 0.9771804563908721}
+final bestconf %s: {'alpha': 0.28, 'fit_prior': True}
+DONE !!!!
+newbestscore {'apache': 0.8974180041870202}:
+bestconf {'k': 4, 'up_to_num': [7496]} :
+final bestescore %s: {'apache': 0.8974180041870202}
+final bestconf %s: {'k': 4, 'up_to_num': [7496]}
+DONE !!!!
+final bestescore %s: {'apache': 0.9773494653911086}
+final bestconf %s: {'alpha': 0.235, 'fit_prior': True}
+DONE !!!!
+newbestscore {'apache': 0.9756813417190776}:
+bestconf {'alpha': 0.36, 'fit_prior': True} :
+final bestescore %s: {'apache': 0.9756813417190776}
+final bestconf %s: {'alpha': 0.36, 'fit_prior': True}
+DONE !!!!
+final bestescore %s: {'apache': 0.9749260459219609}
+final bestconf %s: {'alpha': 0.543, 'fit_prior': True}
+DONE !!!!
+final bestescore %s: {'apache': 0.8988136775994418}
+final bestconf %s: {'k': 19, 'up_to_num': [11538]}
+DONE !!!!
+final bestescore %s: {'apache': 0.9700632466619817}
+final bestconf %s: {'alpha': 0.028, 'fit_prior': True}
+DONE !!!!
+newbestscore {'apache': 0.975548060708263}:
+bestconf {'alpha': 0.11, 'fit_prior': True} :
+final bestescore %s: {'apache': 0.975548060708263}
+final bestconf %s: {'alpha': 0.11, 'fit_prior': True}
+DONE !!!!
+final bestescore %s: {'apache': 0.9760022586109542}
+final bestconf %s: {'alpha': 0.205, 'fit_prior': True}
+DONE !!!!
+final bestescore %s: {'apache': 0.9762636135157777}
+final bestconf %s: {'alpha': 0.211, 'fit_prior': True}
+DONE !!!!
+final bestescore %s: {'apache': 0.9734822051639916}
+final bestconf %s: {'alpha': 0.262, 'fit_prior': True}
+DONE !!!!
+newbestscore {'apache': 0.9018376366596883}:
+bestconf {'k': 2, 'up_to_num': [8911]} :
+newbestscore {'apache': 0.8957897185391952}:
+bestconf {'k': 9, 'up_to_num': [14200]} :
+final bestescore %s: {'apache': 0.9018376366596883}
+final bestconf %s: {'k': 2, 'up_to_num': [8911]}
+DONE !!!!
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n2d1-3>
+Subject: Job 502332: <mpiexec -n 4 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/webmasters.txt> Exited
+
+Job <mpiexec -n 4 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/webmasters.txt> was submitted from host <login01.hpc.ncsu.edu> by user <wfu> in cluster <henry2>.
+Job was executed on host(s) <4*n2d1-3>, in queue <single_chassis>, as user <wfu> in cluster <henry2>.
+</home/wfu> was used as the home directory.
+</home/wfu/Github/SMOTE/src> was used as the working directory.
+Started at Wed Dec  2 22:18:22 2015
+Results reported at Thu Dec  3 08:18:41 2015
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+mpiexec -n 4 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/webmasters.txt
+------------------------------------------------------------
+
+TERM_RUNLIMIT: job killed after reaching LSF run time limit.
+Exited with exit code 140.
+
+Resource usage summary:
+
+    CPU time   :  64291.28 sec.
+    Max Memory :     22894 MB
+    Max Swap   :     41584 MB
+
+    Max Processes  :         8
+    Max Threads    :         9
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <./err/webmasters.err.502332> for stderr output of this job.
+

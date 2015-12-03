@@ -1,0 +1,88 @@
+process 0 started: Dec 02 2015 22:18:28 
+process 1 started: Dec 02 2015 22:18:28 
+process 2 started: Dec 02 2015 22:18:28 
+process 3 started: Dec 02 2015 22:18:28 
+target_label:  open-source
+target_label:  open-source
+target_label:  open-source
+target_label:  open-source
+final bestescore %s: {'open-source': 0.9863897355922592}
+final bestconf %s: {'alpha': 0.028, 'fit_prior': True}
+DONE !!!!
+final bestescore %s: {'open-source': 0.9848063342606462}
+final bestconf %s: {'alpha': 0.812, 'fit_prior': True}
+DONE !!!!
+final bestescore %s: {'open-source': 0.9852272727272727}
+final bestconf %s: {'alpha': 0.832, 'fit_prior': True}
+DONE !!!!
+final bestescore %s: {'open-source': 0.9827573972894345}
+final bestconf %s: {'alpha': 0.948, 'fit_prior': True}
+DONE !!!!
+final bestescore %s: {'open-source': 0.9815181985554454}
+final bestconf %s: {'alpha': 0.358, 'fit_prior': True}
+DONE !!!!
+newbestscore {'open-source': 0.9006444053895724}:
+bestconf {'k': 8, 'up_to_num': [16568]} :
+newbestscore {'open-source': 0.90099589923843}:
+bestconf {'k': 8, 'up_to_num': [16568]} :
+final bestescore %s: {'open-source': 0.90099589923843}
+final bestconf %s: {'k': 8, 'up_to_num': [16568]}
+DONE !!!!
+final bestescore %s: {'open-source': 0.90497949619215}
+final bestconf %s: {'k': 7, 'up_to_num': [17858]}
+DONE !!!!
+newbestscore {'open-source': 0.9026362038664323}:
+bestconf {'k': 17, 'up_to_num': [20078]} :
+final bestescore %s: {'open-source': 0.9026362038664323}
+final bestconf %s: {'k': 17, 'up_to_num': [20078]}
+DONE !!!!
+newbestscore {'open-source': 0.9046280023432923}:
+bestconf {'k': 12, 'up_to_num': [13756]} :
+newbestscore {'open-source': 0.904862331575864}:
+bestconf {'k': 14, 'up_to_num': [22987]} :
+newbestscore {'open-source': 0.9053309900410076}:
+bestconf {'k': 4, 'up_to_num': [15574]} :
+final bestescore %s: {'open-source': 0.9053309900410076}
+final bestconf %s: {'k': 4, 'up_to_num': [15574]}
+DONE !!!!
+newbestscore {'open-source': 0.8973637961335676}:
+bestconf {'k': 5, 'up_to_num': [9773]} :
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n2d2-14>
+Subject: Job 502327: <mpiexec -n 4 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/programmers.txt> Exited
+
+Job <mpiexec -n 4 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/programmers.txt> was submitted from host <login01.hpc.ncsu.edu> by user <wfu> in cluster <henry2>.
+Job was executed on host(s) <4*n2d2-14>, in queue <single_chassis>, as user <wfu> in cluster <henry2>.
+</home/wfu> was used as the home directory.
+</home/wfu/Github/SMOTE/src> was used as the working directory.
+Started at Wed Dec  2 22:18:22 2015
+Results reported at Thu Dec  3 08:18:45 2015
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+mpiexec -n 4 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/programmers.txt
+------------------------------------------------------------
+
+TERM_RUNLIMIT: job killed after reaching LSF run time limit.
+Exited with exit code 140.
+
+Resource usage summary:
+
+    CPU time   : 103852.66 sec.
+    Max Memory :     22800 MB
+    Max Swap   :     57684 MB
+
+    Max Processes  :         8
+    Max Threads    :         9
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <./err/programmers.err.502327> for stderr output of this job.
+

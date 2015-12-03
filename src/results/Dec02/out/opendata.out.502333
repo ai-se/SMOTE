@@ -1,0 +1,227 @@
+process 1 started: Dec 02 2015 22:18:38 
+process 2 started: Dec 02 2015 22:18:38 
+process 3 started: Dec 02 2015 22:18:38 
+process 0 started: Dec 02 2015 22:18:38 
+target_label:  best-practice
+target_label:  best-practice
+target_label:  best-practice
+target_label:  best-practice
+newbestscore {'best-practice': 0.01598173515981735}:
+bestconf {'alpha': 0.0, 'fit_prior': False} :
+final bestescore %s: {'best-practice': 0.01598173515981735}
+final bestconf %s: {'alpha': 0.0, 'fit_prior': False}
+DONE !!!!
+newbestscore {'best-practice': 0.006666666666666667}:
+bestconf {'alpha': 0.0, 'fit_prior': False} :
+final bestescore %s: {'best-practice': 0.006666666666666667}
+final bestconf %s: {'alpha': 0.0, 'fit_prior': False}
+DONE !!!!
+newbestscore {'best-practice': 0.9359823399558499}:
+bestconf {'alpha': 0.05, 'fit_prior': False} :
+final bestescore %s: {'best-practice': 0.9359823399558499}
+final bestconf %s: {'alpha': 0.05, 'fit_prior': False}
+DONE !!!!
+newbestscore {'best-practice': 0.009111617312072893}:
+bestconf {'alpha': 0.0, 'fit_prior': False} :
+final bestescore %s: {'best-practice': 0.009111617312072893}
+final bestconf %s: {'alpha': 0.0, 'fit_prior': False}
+DONE !!!!
+newbestscore {'best-practice': 0.98}:
+bestconf {'alpha': 0.016, 'fit_prior': False} :
+final bestescore %s: {'best-practice': 0.98}
+final bestconf %s: {'alpha': 0.016, 'fit_prior': False}
+DONE !!!!
+newbestscore {'best-practice': 0.9840909090909091}:
+bestconf {'alpha': 0.094, 'fit_prior': False} :
+final bestescore %s: {'best-practice': 0.9840909090909091}
+final bestconf %s: {'alpha': 0.094, 'fit_prior': False}
+DONE !!!!
+newbestscore {'best-practice': 0.011210762331838564}:
+bestconf {'alpha': 0.0, 'fit_prior': False} :
+final bestescore %s: {'best-practice': 0.011210762331838564}
+final bestconf %s: {'alpha': 0.0, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'best-practice': 0.925}
+final bestconf %s: {'alpha': 0.01, 'fit_prior': False}
+DONE !!!!
+newbestscore {'best-practice': 0.01935483870967742}:
+bestconf {'alpha': 0.0, 'fit_prior': False} :
+newbestscore {'best-practice': 0.004395604395604396}:
+bestconf {'alpha': 0.0, 'fit_prior': False} :
+final bestescore %s: {'best-practice': 0.01935483870967742}
+final bestconf %s: {'alpha': 0.0, 'fit_prior': False}
+DONE !!!!
+newbestscore {'best-practice': 0.017897091722595078}:
+bestconf {'alpha': 0.0, 'fit_prior': True} :
+final bestescore %s: {'best-practice': 0.9534368070953437}
+final bestconf %s: {'alpha': 0.025, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'best-practice': 0.004395604395604396}
+final bestconf %s: {'alpha': 0.0, 'fit_prior': False}
+DONE !!!!
+newbestscore {'best-practice': 0.0044444444444444444}:
+bestconf {'alpha': 0.0, 'fit_prior': False} :
+final bestescore %s: {'best-practice': 0.017897091722595078}
+final bestconf %s: {'alpha': 0.0, 'fit_prior': True}
+DONE !!!!
+newbestscore {'best-practice': 0.0022123893805309734}:
+bestconf {'alpha': 0.0, 'fit_prior': False} :
+final bestescore %s: {'best-practice': 0.0022123893805309734}
+final bestconf %s: {'alpha': 0.0, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'best-practice': 0.0044444444444444444}
+final bestconf %s: {'alpha': 0.0, 'fit_prior': False}
+DONE !!!!
+newbestscore {'best-practice': 0.024553571428571428}:
+bestconf {'alpha': 0.0, 'fit_prior': False} :
+final bestescore %s: {'best-practice': 0.9380733944954128}
+final bestconf %s: {'alpha': 0.01, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'best-practice': 0.024553571428571428}
+final bestconf %s: {'alpha': 0.0, 'fit_prior': False}
+DONE !!!!
+newbestscore {'best-practice': 0.013303769401330377}:
+bestconf {'alpha': 0.0, 'fit_prior': False} :
+final bestescore %s: {'best-practice': 0}
+final bestconf %s: {'k': 10, 'up_to_num': [548]}
+DONE !!!!
+newbestscore {'best-practice': 0.017777777777777778}:
+bestconf {'alpha': 0.0, 'fit_prior': True} :
+final bestescore %s: {'best-practice': 0.013303769401330377}
+final bestconf %s: {'alpha': 0.0, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'best-practice': 0.017777777777777778}
+final bestconf %s: {'alpha': 0.0, 'fit_prior': True}
+DONE !!!!
+newbestscore {'best-practice': 0.01545253863134658}:
+bestconf {'alpha': 0.0, 'fit_prior': True} :
+newbestscore {'best-practice': 0.018433179723502304}:
+bestconf {'alpha': 0.0, 'fit_prior': False} :
+final bestescore %s: {'best-practice': 0.01545253863134658}
+final bestconf %s: {'alpha': 0.0, 'fit_prior': True}
+DONE !!!!
+final bestescore %s: {'best-practice': 0.018433179723502304}
+final bestconf %s: {'alpha': 0.0, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'best-practice': 0}
+final bestconf %s: {'k': 6, 'up_to_num': [562]}
+DONE !!!!
+final bestescore %s: {'best-practice': 0.977859778597786}
+final bestconf %s: {'k': 19, 'up_to_num': [521]}
+DONE !!!!
+final bestescore %s: {'best-practice': 0}
+final bestconf %s: {'k': 7, 'up_to_num': [459]}
+DONE !!!!
+final bestescore %s: {'best-practice': 0}
+final bestconf %s: {'k': 10, 'up_to_num': [548]}
+DONE !!!!
+final bestescore %s: {'best-practice': 0}
+final bestconf %s: {'k': 15, 'up_to_num': [856]}
+DONE !!!!
+final bestescore %s: {'best-practice': 0}
+final bestconf %s: {'k': 10, 'up_to_num': [548]}
+DONE !!!!
+final bestescore %s: {'best-practice': 0}
+final bestconf %s: {'k': 10, 'up_to_num': [548]}
+DONE !!!!
+final bestescore %s: {'best-practice': 0}
+final bestconf %s: {'k': 10, 'up_to_num': [522]}
+DONE !!!!
+final bestescore %s: {'best-practice': 0}
+final bestconf %s: {'k': 11, 'up_to_num': [783]}
+DONE !!!!
+final bestescore %s: {'best-practice': 0}
+final bestconf %s: {'k': 9, 'up_to_num': [447]}
+DONE !!!!
+final bestescore %s: {'best-practice': 0}
+final bestconf %s: {'k': 11, 'up_to_num': [783]}
+DONE !!!!
+newbestscore {'best-practice': 0.981549815498155}:
+bestconf {'k': 13, 'up_to_num': [798]} :
+newbestscore {'best-practice': 0.981549815498155}:
+bestconf {'k': 13, 'up_to_num': [798]} :
+final bestescore %s: {'best-practice': 0.966789667896679}
+final bestconf %s: {'k': 9, 'up_to_num': [335]}
+DONE !!!!
+final bestescore %s: {'best-practice': 0.981549815498155}
+final bestconf %s: {'k': 13, 'up_to_num': [798]}
+DONE !!!!
+final bestescore %s: {'best-practice': 0.981549815498155}
+final bestconf %s: {'k': 13, 'up_to_num': [798]}
+DONE !!!!
+final bestescore %s: {'best-practice': 0}
+final bestconf %s: {'k': 14, 'up_to_num': [543]}
+DONE !!!!
+process 1 end: Dec 02 2015 22:54:59 
+final bestescore %s: {'best-practice': 0.966789667896679}
+final bestconf %s: {'k': 13, 'up_to_num': [375]}
+DONE !!!!
+final bestescore %s: {'best-practice': 0.966789667896679}
+final bestconf %s: {'k': 13, 'up_to_num': [375]}
+DONE !!!!
+final bestescore %s: {'best-practice': 0}
+final bestconf %s: {'k': 5, 'up_to_num': [778]}
+DONE !!!!
+process 2 end: Dec 02 2015 23:10:24 
+final bestescore %s: {'best-practice': 0}
+final bestconf %s: {'k': 5, 'up_to_num': [778]}
+DONE !!!!
+process 3 end: Dec 02 2015 23:12:57 
+
+rank ,                                          name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,                   NB_Naive_1000_best-practice ,       0  ,     0 (*              |              ), 0.00,  0.00,  0.00,  0.00,  0.00
+   1 ,                   NB_Smote_1000_best-practice ,       0  ,    97 (*              |              ), 0.00,  0.00,  0.00,  0.97,  1.00
+   1 ,              NB_TunedSmote_1000_best-practice ,       0  ,     0 (*--------------|------------- ), 0.00,  0.00,  0.00,  0.00,  0.99
+   1 ,                   NB_Naive_4000_best-practice ,       0  ,     0 (*              |              ), 0.00,  0.00,  0.00,  0.00,  0.00
+   1 ,                   NB_Smote_4000_best-practice ,       0  ,     0 (*--------------|------------  ), 0.00,  0.00,  0.00,  0.00,  0.96
+   1 ,              NB_TunedSmote_4000_best-practice ,       0  ,     0 (*--------------|------------  ), 0.00,  0.00,  0.00,  0.00,  0.95
+   1 ,                   NB_Naive_7000_best-practice ,       0  ,     0 (*              |              ), 0.00,  0.00,  0.00,  0.00,  0.00
+   1 ,                   NB_Smote_7000_best-practice ,       0  ,     0 (*--------------|------------  ), 0.00,  0.00,  0.00,  0.00,  0.96
+   1 ,              NB_TunedSmote_7000_best-practice ,       0  ,     0 (*--------------|------------- ), 0.00,  0.00,  0.00,  0.00,  0.97
+   1 ,                  NB_Naive_10000_best-practice ,       0  ,     0 (*              |              ), 0.00,  0.00,  0.00,  0.00,  0.00
+   1 ,                  NB_Smote_10000_best-practice ,       0  ,     0 (*--------------|------------  ), 0.00,  0.00,  0.00,  0.00,  0.96
+   1 ,             NB_TunedSmote_10000_best-practice ,       0  ,     0 (*--------------|------------- ), 0.00,  0.00,  0.00,  0.00,  0.97
+   1 ,            NB_TunedLearner_4000_best-practice ,       0  ,     3 (*--------------|------------  ), 0.00,  0.00,  0.00,  0.03,  0.95
+   1 ,            NB_TunedLearner_7000_best-practice ,       0  ,     1 (*              |              ), 0.00,  0.00,  0.00,  0.01,  0.03
+   1 ,            NB_TunedLearner_1000_best-practice ,       2  ,     3 (*--------------|------------  ), 0.00,  0.00,  0.02,  0.03,  0.94
+   1 ,           NB_TunedLearner_10000_best-practice ,       2  ,     3 (*--------------|------------  ), 0.00,  0.00,  0.02,  0.03,  0.94
+process 0 end: Dec 02 2015 23:12:58 
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n2c1-13>
+Subject: Job 502333: <mpiexec -n 4 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/opendata.txt> Done
+
+Job <mpiexec -n 4 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/opendata.txt> was submitted from host <login01.hpc.ncsu.edu> by user <wfu> in cluster <henry2>.
+Job was executed on host(s) <4*n2c1-13>, in queue <single_chassis>, as user <wfu> in cluster <henry2>.
+</home/wfu> was used as the home directory.
+</home/wfu/Github/SMOTE/src> was used as the working directory.
+Started at Wed Dec  2 22:18:22 2015
+Results reported at Wed Dec  2 23:12:58 2015
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+mpiexec -n 4 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/opendata.txt
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time   :  21590.01 sec.
+    Max Memory :      2871 MB
+    Max Swap   :      6529 MB
+
+    Max Processes  :         8
+    Max Threads    :        53
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <./err/opendata.err.502333> for stderr output of this job.
+

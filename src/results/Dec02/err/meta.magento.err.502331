@@ -1,0 +1,78 @@
+Traceback (most recent call last):
+  File "textMining.py", line 304, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+  File "textMining.py", line 263, in run
+    isWhat)
+  File "textMining.py", line 212, in cross_val
+    params = tune_learner(train_X) if "_TunedLearner" in isWhat else {}
+  File "textMining.py", line 161, in tune_learner
+    tuner = DE_Tune_ML(clf, clf.get_param(), target_class)
+  File "/home/wfu/Github/SMOTE/src/tuner.py", line 184, in __init__
+    repeats, f, cr, life)
+  File "/home/wfu/Github/SMOTE/src/tuner.py", line 56, in __init__
+    self.evaluate()
+  File "/home/wfu/Github/SMOTE/src/tuner.py", line 190, in evaluate
+    score_dict = self.learner.learn({}, **kwargs)
+  File "/home/wfu/Github/SMOTE/src/learner.py", line 32, in learn
+    predictresult = clf.predict(self.predict_X)
+  File "/opt/anaconda1anaconda2anaconda3/lib/python2.7/site-packages/sklearn/naive_bayes.py", line 66, in predict
+IndexError: index 1 is out of bounds for axis 1 with size 1
+Traceback (most recent call last):
+  File "textMining.py", line 304, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+  File "textMining.py", line 263, in run
+    isWhat)
+  File "textMining.py", line 212, in cross_val
+    params = tune_learner(train_X) if "_TunedLearner" in isWhat else {}
+  File "textMining.py", line 161, in tune_learner
+    tuner = DE_Tune_ML(clf, clf.get_param(), target_class)
+  File "/home/wfu/Github/SMOTE/src/tuner.py", line 184, in __init__
+    repeats, f, cr, life)
+  File "/home/wfu/Github/SMOTE/src/tuner.py", line 57, in __init__
+    self.bestconf, self.bestscore = self.best()
+  File "/home/wfu/Github/SMOTE/src/tuner.py", line 211, in best
+    key=lambda x: x[1][self.target_class])
+  File "/home/wfu/Github/SMOTE/src/tuner.py", line 211, in <lambda>
+    key=lambda x: x[1][self.target_class])
+KeyError: 'bug'
+Traceback (most recent call last):
+  File "textMining.py", line 304, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+  File "textMining.py", line 263, in run
+    isWhat)
+  File "textMining.py", line 212, in cross_val
+    params = tune_learner(train_X) if "_TunedLearner" in isWhat else {}
+  File "textMining.py", line 161, in tune_learner
+    tuner = DE_Tune_ML(clf, clf.get_param(), target_class)
+  File "/home/wfu/Github/SMOTE/src/tuner.py", line 184, in __init__
+    repeats, f, cr, life)
+  File "/home/wfu/Github/SMOTE/src/tuner.py", line 56, in __init__
+    self.evaluate()
+  File "/home/wfu/Github/SMOTE/src/tuner.py", line 190, in evaluate
+    score_dict = self.learner.learn({}, **kwargs)
+  File "/home/wfu/Github/SMOTE/src/learner.py", line 32, in learn
+    predictresult = clf.predict(self.predict_X)
+  File "/opt/anaconda1anaconda2anaconda3/lib/python2.7/site-packages/sklearn/naive_bayes.py", line 66, in predict
+IndexError: index 1 is out of bounds for axis 1 with size 1
+Traceback (most recent call last):
+  File "textMining.py", line 304, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+  File "textMining.py", line 263, in run
+    isWhat)
+  File "textMining.py", line 202, in cross_val
+    params, train_pd = tune_SMOTE(train_pd)
+  File "textMining.py", line 183, in tune_SMOTE
+    new_tune, target_class)
+  File "/home/wfu/Github/SMOTE/src/tuner.py", line 227, in __init__
+    num_population, repeats, f, cr, life)
+  File "/home/wfu/Github/SMOTE/src/tuner.py", line 57, in __init__
+    self.bestconf, self.bestscore = self.best()
+  File "/home/wfu/Github/SMOTE/src/tuner.py", line 267, in best
+    key=lambda x: x[1][self.target_class])
+  File "/home/wfu/Github/SMOTE/src/tuner.py", line 267, in <lambda>
+    key=lambda x: x[1][self.target_class])
+KeyError: 'bug'
