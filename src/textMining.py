@@ -237,7 +237,7 @@ def run(data_src, process=4, isBinary=True, target_class="mean_weighted",
   size = comm.Get_size()
   print("process", str(rank), "started:", time.strftime("%b %d %Y %H:%M:%S "))
   # different processes run different feature experiments
-  features_num = [1000 * i for i in xrange(1, 2)]
+  features_num = [1000 * i for i in xrange(1, 11, 3)]
   features_num_process = [features_num[i] for i in
                           xrange(rank, len(features_num), size)]
   # model_hash = Settings(data_src, method='hash')
