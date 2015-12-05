@@ -15,12 +15,13 @@ from tuner import *
 
 
 class Settings(object):
-  def __init__(self, src, method, isBinary):
+  def __init__(self, src, method, isBinary, isYes_label):
     self.threshold = 20
     self.data_src = src
     self.processors = 4
     self.method = method
     self.isBinary = isBinary
+    self.isYes_label = isYes_label
     self.target_class = "mean_weighted"
     # self.data = self.get_data()
     self.corpus = self.load_data()
@@ -62,7 +63,9 @@ class Settings(object):
     label_1_percent = int(sum(label_dist.values()) * 0.01)
     # pdb.set_trace()
     for key, val in label_dist.iteritems():
-      if self.isBinary:
+      if self.isYes_label:
+        self.target_class = "YES"
+      elif self.isBinary:
         if label_1_percent <= val <= label_3_percent:
           used_label.append(key)  # find the minority label for binary class
           self.target_class = key
@@ -230,7 +233,7 @@ def scott(features_num, learners, score, target_class, exp_names):
   rdivDemo(out)
 
 
-def run(data_src, process=4, isBinary=True, target_class="mean_weighted",
+def run(data_src, process=4, isBinary=True, isYes_label=True, target_class="mean_weighted",
         goal="F"):
   comm = MPI.COMM_WORLD
   rank = comm.Get_rank()
@@ -241,7 +244,7 @@ def run(data_src, process=4, isBinary=True, target_class="mean_weighted",
   features_num_process = [features_num[i] for i in
                           xrange(rank, len(features_num), size)]
   # model_hash = Settings(data_src, method='hash')
-  model_tfidf = Settings(data_src, 'tfidf', isBinary)
+  model_tfidf = Settings(data_src, 'tfidf', isBinary, isYes_label)
   methods_lst = [model_tfidf]
   # modification = ["_Naive", "_Smote", "_TunedLearner", "_TunedSmote"]  # [
   # True,False]
@@ -299,7 +302,7 @@ def cmd(com="Nothing"):
 
 if __name__ == "__main__":
   if len(sys.argv) == 1:
-    run('../data/StackExchange/anime.txt')
+    run('../data/StackExchange/SE0.txt')
   else:
     eval(cmd())
   # run('../data/StackExchange/anime.txt')
