@@ -54,10 +54,10 @@ class Settings(object):
     with open(self.data_src, 'r') as f:
       # content = f.read().splitlines()
       for line in f.readlines():
-        label = line.lower().split(' >>> ')[1].split()[0]
+        label = line.lower().split('>>>')[1].split()[0]
         # ' >>> ' the first term is selected as label.
         all_label.append(label)
-        corpus.append([label] + process(line.split(' >>> ')[0]).split())
+        corpus.append([label] + process(line.split('>>>')[0]).split())
     label_dist = Counter(all_label)
     label_3_percent = int(sum(label_dist.values()) * 0.03)
     label_1_percent = int(sum(label_dist.values()) * 0.01)
@@ -302,7 +302,7 @@ def cmd(com="Nothing"):
 
 if __name__ == "__main__":
   if len(sys.argv) == 1:
-    run('../data/StackExchange/SE0.txt')
+    run('../data/StackExchange/SE1.txt')
   else:
     eval(cmd())
   # run('../data/StackExchange/anime.txt')
