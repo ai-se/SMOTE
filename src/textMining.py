@@ -241,15 +241,15 @@ def run(data_src, process=4, isBinary=True, isYes_label=True, target_class="mean
   size = comm.Get_size()
   print("process", str(rank), "started:", time.strftime("%b %d %Y %H:%M:%S "))
   # different processes run different feature experiments
-  features_num = [100 * i for i in xrange(1, 2, 1)]
+  features_num = [100 * i for i in xrange(1, 11, 3)]
   features_num_process = [features_num[i] for i in
                           xrange(rank, len(features_num), size)]
   # model_hash = Settings(data_src, method='hash')
   model_tfidf = Settings(data_src, 'tfidf', isBinary, isYes_label)
   methods_lst = [model_tfidf]
-  # modification = ["_Naive", "_Smote", "_TunedLearner", "_TunedSmote"]  # [
+  modification = ["_Naive", "_Smote", "_TunedLearner", "_TunedSmote"]  # [
   # True,False]
-  modification = ["_Naive"]
+  # modification = ["_Naive"]
   learners = [Naive_bayes]
   F_feature = {}
   exp_names = []
@@ -263,7 +263,6 @@ def run(data_src, process=4, isBinary=True, isYes_label=True, target_class="mean
           target_class = method.target_class
           name = learner.name + isWhat
           exp_names.append(name)
-          pdb.set_trace()
           F_method[name] = cross_val(pd_data, learner, target_class, goal,
                                      isWhat)
     F_feature[f_num] = F_method
