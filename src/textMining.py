@@ -62,18 +62,19 @@ class Settings(object):
     label_3_percent = int(sum(label_dist.values()) * 0.03)
     label_1_percent = int(sum(label_dist.values()) * 0.01)
     # pdb.set_trace()
-    for key, val in label_dist.iteritems():
-      if self.isYes_label:
-        self.target_class = "YES"
-      elif self.isBinary:
-        if label_1_percent <= val <= label_3_percent:
-          used_label.append(key)  # find the minority label for binary class
-          self.target_class = key
-          print("target_label: ", self.target_class)
-          break
-      elif val > self.threshold:
-        used_label.append(key)
-    used_label.append('others')
+    if self.isYes_label:
+      used_label = ["yes","no"]
+    else:
+      for key, val in label_dist.iteritems():
+        if self.isBinary:
+          if label_1_percent <= val <= label_3_percent:
+            used_label.append(key)  # find the minority label for binary class
+            self.target_class = key
+            print("target_label: ", self.target_class)
+            break
+        elif val > self.threshold:
+          used_label.append(key)
+      used_label.append('others')
     for doc in corpus:
       if doc[0] not in used_label:
         doc[0] = 'others'
@@ -240,7 +241,7 @@ def run(data_src, process=4, isBinary=True, isYes_label=True, target_class="mean
   size = comm.Get_size()
   print("process", str(rank), "started:", time.strftime("%b %d %Y %H:%M:%S "))
   # different processes run different feature experiments
-  features_num = [100 * i for i in xrange(1, 11, 3)]
+  features_num = [100 * i for i in xrange(1, 2, 1)]
   features_num_process = [features_num[i] for i in
                           xrange(rank, len(features_num), size)]
   # model_hash = Settings(data_src, method='hash')
@@ -248,7 +249,7 @@ def run(data_src, process=4, isBinary=True, isYes_label=True, target_class="mean
   methods_lst = [model_tfidf]
   # modification = ["_Naive", "_Smote", "_TunedLearner", "_TunedSmote"]  # [
   # True,False]
-  modification = ["_Naive", "_Smote", "_TunedLearner", "_TunedSmote"]
+  modification = ["_Naive"]
   learners = [Naive_bayes]
   F_feature = {}
   exp_names = []
@@ -262,6 +263,7 @@ def run(data_src, process=4, isBinary=True, isYes_label=True, target_class="mean
           target_class = method.target_class
           name = learner.name + isWhat
           exp_names.append(name)
+          pdb.set_trace()
           F_method[name] = cross_val(pd_data, learner, target_class, goal,
                                      isWhat)
     F_feature[f_num] = F_method
@@ -302,7 +304,7 @@ def cmd(com="Nothing"):
 
 if __name__ == "__main__":
   if len(sys.argv) == 1:
-    run('../data/StackExchange/SE1.txt')
+    run('../data/StackExchange/SE_codereview.txt')
   else:
     eval(cmd())
   # run('../data/StackExchange/anime.txt')
