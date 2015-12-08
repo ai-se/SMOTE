@@ -249,7 +249,7 @@ def run(data_src, process=4, isBinary=True, isYes_label=True, target_class="mean
   methods_lst = [model_tfidf]
   modification = ["_Naive", "_Smote", "_TunedLearner", "_TunedSmote"]  # [
   # True,False]
-  # modification = ["_Naive"]
+  # modification = ["_TunedLearner"]
   learners = [Naive_bayes]
   F_feature = {}
   exp_names = []
