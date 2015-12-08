@@ -1,17 +1,14 @@
 from __future__ import print_function, division
-from sklearn.tree import DecisionTreeRegressor
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.naive_bayes import GaussianNB
-from sklearn import linear_model
+
+from collections import Counter
+import pdb
+import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.svm import LinearSVC
-from settings import *
+from sklearn.tree import DecisionTreeClassifier
+
 from newabcd import *
-from collections import Counter
-import numpy as np
-import pdb
 
 
 # __author__ = 'WeiFu'
@@ -29,11 +26,20 @@ class Learners(object):
   def learn(self, F, **kwargs):
     self.learner.set_params(**kwargs)
     clf = self.learner.fit(self.train_X, self.train_Y)
-    predictresult = clf.predict(self.predict_X)
-    scores = self._Abcd(predictresult, self.predict_Y, F)
+    predictresult = []
+    predict_Y = []
+    for predict_X, actual in zip(self.predict_X, self.predict_Y):
+      try:
+        _predictresult = clf.predict(predict_X.reshape(1,-1))
+        predictresult.append(_predictresult[0])
+        predict_Y.append(actual) # for some internal issue, we have to handle skip some bad data.
+      except:
+        print("one pass")
+        continue
+    scores = self._Abcd(predictresult, predict_Y, F)
     return scores
 
-  def _Abcd(self,predicted, actual, F):
+  def _Abcd(self, predicted, actual, F):
     """
     get performance scores. not test  yet!!! 1120
     """
@@ -48,7 +54,7 @@ class Learners(object):
       return F
 
     # pdb.set_trace()
-    _goal = {"PD":0,"PF":1,"PREC":2,"F":3,"G":4}
+    _goal = {"PD": 0, "PF": 1, "PREC": 2, "F": 3, "G": 4}
     abcd = ABCD(actual, predicted)
     uni_actual = list(set(actual))
     count_actual = Counter(actual)
@@ -58,74 +64,80 @@ class Learners(object):
   def get_param(self):
     raise NotImplementedError("You should implement get_param function")
 
+
 class CartClassifier(Learners):
   name = "CART"
+
   def __init__(self, train_x, train_y, predict_x, predict_y):
     clf = DecisionTreeClassifier()
     self.name = "CART"
-    super(CartClassifier, self).__init__(clf,train_x, train_y, predict_x, predict_y)
+    super(CartClassifier, self).__init__(clf, train_x, train_y, predict_x, predict_y)
 
   def get_param(self):
     tunelst = {
-                "max_features": [0.01, 1],
-                "max_depth": [1, 50],
-                "min_samples_split": [2, 20],
-                "min_samples_leaf": [1, 20],
-                "random_state":[1,1]
-              }
+      "max_features": [0.01, 1],
+      "max_depth": [1, 50],
+      "min_samples_split": [2, 20],
+      "min_samples_leaf": [1, 20],
+      "random_state": [1, 1]
+    }
     return tunelst
+
 
 class RfClassifier(Learners):
   name = "RF"
+
   def __init__(self, train_x, train_y, predict_x, predict_y):
-    clf =  RandomForestClassifier()
+    clf = RandomForestClassifier()
     self.name = "RF"
     super(RfClassifier, self).__init__(clf, train_x, train_y, predict_x, predict_y)
 
   def get_param(self):
     tunelst = {
-                 "min_samples_split":[1,20],
-                 "min_samples_leaf ":[2,20],
-                 "max_leaf_nodes":[10,50],
-                 "n_estimators":[50,150],
-                 "max_features":[0.01,1],
-                 "random_state":[1,1]
-              }
+      "min_samples_split": [1, 20],
+      "min_samples_leaf ": [2, 20],
+      "max_leaf_nodes": [10, 50],
+      "n_estimators": [50, 150],
+      "max_features": [0.01, 1],
+      "random_state": [1, 1]
+    }
     return tunelst
+
 
 class Naive_bayes(Learners):
   name = "NB"
-  def __init__(self,train_x, train_y, predict_x, predict_y):
+
+  def __init__(self, train_x, train_y, predict_x, predict_y):
     clf = MultinomialNB()
     self.name = "NB"
-    super(Naive_bayes, self).__init__(clf,train_x, train_y, predict_x, predict_y)
+    super(Naive_bayes, self).__init__(clf, train_x, train_y, predict_x, predict_y)
 
   def get_param(self):
     tunelst = {
-              "alpha":[0.0, 1.0],
-              "fit_prior":[False, True]
+      "alpha": [0.0, 1.0],
+      "fit_prior": [False, True]
     }
     return tunelst
+
 
 class Linear_SVM(Learners):
   name = "Linear_SVM"
-  def __init__(self,train_x, train_y, predict_x, predict_y):
+
+  def __init__(self, train_x, train_y, predict_x, predict_y):
     clf = LinearSVC(dual=False)
     self.name = "Linear_SVM"
-    super(Linear_SVM, self).__init__(clf,train_x, train_y, predict_x, predict_y)
+    super(Linear_SVM, self).__init__(clf, train_x, train_y, predict_x, predict_y)
 
   def get_param(self):
     tunelst = {
-                "C":[0.01, 5.0],
-                # "dual":[False, True],
-                # "multi_class":['ovr','crammer_singer'],
-                "penalty":['l1','l2'],
-                # "loss":['hinge','squared_hinge'],
-                "random_state":[1,1]
+      "C": [0.01, 5.0],
+      # "dual":[False, True],
+      # "multi_class":['ovr','crammer_singer'],
+      "penalty": ['l1', 'l2'],
+      # "loss":['hinge','squared_hinge'],
+      "random_state": [1, 1]
     }
     return tunelst
-
-
 
 # def linear_SVM(train_x, train_y, predict_x, predict_y, F, **kwargs):
 #   clf = LinearSVC(dual=False, **kwargs)
