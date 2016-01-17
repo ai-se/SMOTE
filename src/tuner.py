@@ -197,7 +197,7 @@ class DE_Tune_ML(DE):
   def get_target_score(self, score_dict):
     temp = {}
     for key, val in score_dict.iteritems():
-      if key in self.target_class:
+      if key == self.target_class:
         temp[key] = val[0]  # value, not list
     return temp
 
