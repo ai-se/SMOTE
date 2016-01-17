@@ -51,10 +51,11 @@ class Learners(object):
       F["mean"] = F.get("mean", []) + [np.mean(scores)]
       F["mean_weighted"] = (F.get("mean_weighted", []) + [
         np.sum(np.array(scores) * np.array(freq_actual))])
+      ### it seems something wrong here, mean is the same as mean_weighted .......Jan, 17
       return F
 
     # pdb.set_trace()
-    _goal = {"PD": 0, "PF": 1, "PREC": 2, "F": 3, "G": 4}
+    _goal = {"PD": 0, "PF": 1, "PREC": 2, "ACC":3, "F": 4, "G": 5}
     abcd = ABCD(actual, predicted)
     uni_actual = list(set(actual))
     count_actual = Counter(actual)
