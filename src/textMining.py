@@ -12,6 +12,7 @@ from learner import *
 from sk import *
 from smote import smote
 from tuner import *
+import pdb
 
 
 class Settings(object):
@@ -234,22 +235,23 @@ def scott(features_num, learners, score, target_class, exp_names):
   rdivDemo(out)
 
 
-def run(data_src, process=4, isBinary=True, isYes_label=True, target_class="mean_weighted",
+def run(data_src, process=4, isBinary=True, isYes_label=True, target_class="yes",
         goal="F"):
   comm = MPI.COMM_WORLD
   rank = comm.Get_rank()
   size = comm.Get_size()
   print("process", str(rank), "started:", time.strftime("%b %d %Y %H:%M:%S "))
   # different processes run different feature experiments
-  features_num = [100 * i for i in xrange(1, 11, 3)]
+  # features_num = [100 * i for i in xrange(1, 11, 3)]
+  features_num = [100]
   features_num_process = [features_num[i] for i in
                           xrange(rank, len(features_num), size)]
   # model_hash = Settings(data_src, method='hash')
   model_tfidf = Settings(data_src, 'tfidf', isBinary, isYes_label)
   methods_lst = [model_tfidf]
-  modification = ["_Naive", "_Smote", "_TunedLearner", "_TunedSmote"]  # [
+  # modification = ["_Naive", "_Smote", "_TunedLearner", "_TunedSmote"]  # [
   # True,False]
-  # modification = ["_TunedLearner"]
+  modification = ["_TunedLearner"]
   learners = [Naive_bayes]
   F_feature = {}
   exp_names = []
@@ -260,7 +262,7 @@ def run(data_src, process=4, isBinary=True, isYes_label=True, target_class="mean
         random.seed(1)
         for method in methods_lst:
           pd_data = method.make_feature(f_num)
-          target_class = method.target_class
+          target_class = method.target_class # here's an issue: We need to predict what????? yes or no, or mean_weighted?
           name = learner.name + isWhat
           exp_names.append(name)
           F_method[name] = cross_val(pd_data, learner, target_class, goal,
