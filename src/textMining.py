@@ -6,7 +6,7 @@ from os import listdir
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 from sklearn.feature_extraction import FeatureHasher
-from sklearn.cross_validation import KFold
+from sklearn.cross_validation import StratifiedKFold
 from mpi4py import MPI
 from learner import *
 from sk import *
@@ -16,14 +16,14 @@ import pdb
 
 
 class Settings(object):
-  def __init__(self, src, method, isBinary, isYes_label):
+  def __init__(self, src, method, isBinary, isYes_label, target_class):
     self.threshold = 20
     self.data_src = src
     self.processors = 4
     self.method = method
     self.isBinary = isBinary
     self.isYes_label = isYes_label
-    self.target_class = "mean_weighted"
+    self.target_class = target_class
     # self.data = self.get_data()
     self.corpus = self.load_data()
     # self.matrix, self.label = self.make_feature(num_features,method)
@@ -196,7 +196,7 @@ def cross_val(pd_data, learner, target_class, goal, isWhat="", fold=5,
     #   # pdb.set_trace()
     # pd_data1 = pd_data1.reindex(np.random.permutation(pd_data1.index))
     # pd_data = pd.DataFrame(pd_data1.values)
-    kf = KFold(len(pd_data), fold)
+    kf = StratifiedKFold(pd_data.ix[:,pd_data.columns[-1]].values, fold)
     for train_index, test_index in kf:
       train_pd = pd_data.ix[train_index]
       test_pd = pd_data.ix[test_index]
@@ -247,11 +247,11 @@ def run(data_src, process=4, isBinary=True, isYes_label=True, target_class="yes"
   features_num_process = [features_num[i] for i in
                           xrange(rank, len(features_num), size)]
   # model_hash = Settings(data_src, method='hash')
-  model_tfidf = Settings(data_src, 'tfidf', isBinary, isYes_label)
+  model_tfidf = Settings(data_src, 'tfidf', isBinary, isYes_label,target_class)
   methods_lst = [model_tfidf]
-  # modification = ["_Naive", "_Smote", "_TunedLearner", "_TunedSmote"]  # [
+  modification = ["_Naive", "_Smote", "_TunedLearner", "_TunedSmote"]  # [
   # True,False]
-  modification = ["_TunedLearner"]
+  # modification = ["_TunedSmote"]
   learners = [Naive_bayes]
   F_feature = {}
   exp_names = []
