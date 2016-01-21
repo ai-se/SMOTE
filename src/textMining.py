@@ -149,7 +149,7 @@ class Settings(object):
 
 
 def cross_val(pd_data, learner, target_class, goal, isWhat="", fold=5,
-              repeats=1):
+              repeats=3):
   """
   do 5-fold cross_validation
   """
@@ -196,7 +196,7 @@ def cross_val(pd_data, learner, target_class, goal, isWhat="", fold=5,
     #   # pdb.set_trace()
     # pd_data1 = pd_data1.reindex(np.random.permutation(pd_data1.index))
     # pd_data = pd.DataFrame(pd_data1.values)
-    kf = StratifiedKFold(pd_data.ix[:,pd_data.columns[-1]].values, fold)
+    kf = StratifiedKFold(pd_data.ix[:,pd_data.columns[-1]].values, fold, shuffle=True,random_state=1)
     for train_index, test_index in kf:
       train_pd = pd_data.ix[train_index]
       test_pd = pd_data.ix[test_index]
@@ -219,23 +219,28 @@ def cross_val(pd_data, learner, target_class, goal, isWhat="", fold=5,
   return F
 
 
-def scott(features_num, learners, score, target_class, exp_names):
+def scott(scores):
   """
    pass results to scott knott
   """
   out = []
-  # pdb.set_trace()
-  for num in features_num:
-    for learner in exp_names:
-      try:
-        out.append([learner + "_" + str(num) + "_" + target_class] +
-                   score[num][learner][target_class])
-      except IndexError:
-        print(target_class + " does not exist!")
+  # # pdb.set_trace()
+  # for num in features_num:
+  #   for learner in exp_names:
+  #     try:
+  #       out.append([learner + "_" + str(num) + "_" + target_class] +
+  #                  score[num][learner][target_class])
+  #     except IndexError:
+  #       print(target_class + " does not exist!")
+  for key,val in scores.iteritems():
+    try:
+      out.append([key]+val)
+    except :
+      print("Score has errors")
   rdivDemo(out)
 
 
-def run(data_src, process=4, isBinary=True, isYes_label=True, target_class="yes",
+def run(data_src, process=8, isBinary=True, isYes_label=True, target_class="yes",
         goal="F"):
   comm = MPI.COMM_WORLD
   rank = comm.Get_rank()
@@ -246,33 +251,52 @@ def run(data_src, process=4, isBinary=True, isYes_label=True, target_class="yes"
   # features_num = [100]
   features_num_process = [features_num[i] for i in
                           xrange(rank, len(features_num), size)]
+  # pdb.set_trace()
   # model_hash = Settings(data_src, method='hash')
   model_tfidf = Settings(data_src, 'tfidf', isBinary, isYes_label,target_class)
   methods_lst = [model_tfidf]
-  modification = ["_Naive", "_Smote", "_TunedLearner", "_TunedSmote"]  # [
+  # modification = ["_Naive", "_Smote", "_TunedLearner", "_TunedSmote"]  # [
   # True,False]
-  # modification = ["_TunedSmote"]
+  modification = ["_Naive"]
   learners = [Naive_bayes]
   F_feature = {}
-  exp_names = []
-  for f_num in features_num_process:
-    F_method = {}
-    for learner in learners:
-      for isWhat in modification:
-        random.seed(1)
-        for method in methods_lst:
-          pd_data = method.make_feature(f_num)
-          target_class = method.target_class # here's an issue: We need to predict what????? yes or no, or mean_weighted?
-          name = learner.name + isWhat
-          exp_names.append(name)
-          F_method[name] = cross_val(pd_data, learner, target_class, goal,
-                                     isWhat)
-    F_feature[f_num] = F_method
+  ## Way1: each processor run all variants of learner in different feature_numbers
+  # for f_num in features_num_process:
+  #   F_method = {}
+  #   for learner in learners:
+  #     for isWhat in modification:
+  #       random.seed(1)
+  #       for method in methods_lst:
+  #         pd_data = method.make_feature(f_num)
+  #         target_class = method.target_class # here's an issue: We need to predict what????? yes or no, or mean_weighted?
+  #         name = learner.name + isWhat
+  #         exp_names.append(name)
+  #         F_method[name] = cross_val(pd_data, learner, target_class, goal,
+  #                                    isWhat)
+  #   F_feature[f_num] = F_method
+
+
+  ## Way2: distribute all jobs to different processors.
+  jobs =[(num,trick,learner,m) for learner in learners for m in methods_lst for trick in modification for num in features_num]
+  jobs_processor = [ jobs[i] for i in xrange(rank, len(jobs),size)]
+  for f_num, isWhat, learner,method in jobs_processor:
+    random.seed(1)
+    pd_data = method.make_feature(f_num)
+    target_class = method.target_class # here's an issue: We need to predict what????? yes or no, or mean_weighted?
+    name = learner.name + isWhat
+    key_name = name+"_"+str(f_num)+"_"+target_class
+    F_feature[key_name] =  cross_val(pd_data, learner, target_class, goal,isWhat)[target_class]
+
+
+
+  # pdb.set_trace()
+
+
   if rank == 0:
     for i in xrange(1, size):
       temp = comm.recv(source=i)
       F_feature.update(temp)  # receive data from other process
-    scott(features_num, learners, F_feature, target_class, exp_names)
+    scott(F_feature)
     file_name = data_src[data_src.rindex('/') + 1:data_src.rindex('.')]
     with open('../pickles/' + file_name + '.pickle', 'wb') as mypickle:
       pickle.dump(F_feature, mypickle)
