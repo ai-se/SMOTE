@@ -249,8 +249,8 @@ def run(data_src, process=8, isBinary=True, isYes_label=True, target_class="yes"
   # different processes run different feature experiments
   features_num = [100 * i for i in xrange(1, 11, 3)]
   # features_num = [100]
-  features_num_process = [features_num[i] for i in
-                          xrange(rank, len(features_num), size)]
+  # features_num_process = [features_num[i] for i in
+  #                         xrange(rank, len(features_num), size)]
   # pdb.set_trace()
   # model_hash = Settings(data_src, method='hash')
   model_tfidf = Settings(data_src, 'tfidf', isBinary, isYes_label,target_class)
@@ -286,11 +286,6 @@ def run(data_src, process=8, isBinary=True, isYes_label=True, target_class="yes"
     name = learner.name + isWhat
     key_name = name+"_"+str(f_num)+"_"+target_class
     F_feature[key_name] =  cross_val(pd_data, learner, target_class, goal,isWhat)[target_class]
-
-
-
-  # pdb.set_trace()
-
 
   if rank == 0:
     for i in xrange(1, size):
