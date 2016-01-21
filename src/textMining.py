@@ -196,7 +196,7 @@ def cross_val(pd_data, learner, target_class, goal, isWhat="", fold=5,
     #   # pdb.set_trace()
     # pd_data1 = pd_data1.reindex(np.random.permutation(pd_data1.index))
     # pd_data = pd.DataFrame(pd_data1.values)
-    kf = StratifiedKFold(pd_data.ix[:,pd_data.columns[-1]].values, fold, shuffle=True,random_state=1)
+    kf = StratifiedKFold(pd_data.ix[:,pd_data.columns[-1]].values, fold, shuffle=True)
     for train_index, test_index in kf:
       train_pd = pd_data.ix[train_index]
       test_pd = pd_data.ix[test_index]
