@@ -1,0 +1,232 @@
+process 3 started: Jan 19 2016 10:16:36 
+process 1 started: Jan 19 2016 10:16:36 
+process 2 started: Jan 19 2016 10:16:36 
+process 0 started: Jan 19 2016 10:16:36 
+newbestscore {'yes': 0.061021897810218974}:
+bestconf {'alpha': 0.12, 'fit_prior': False} :
+final bestescore %s: {'yes': 0.061021897810218974}
+final bestconf %s: {'alpha': 0.12, 'fit_prior': False}
+DONE !!!!
+newbestscore {'yes': 0.05797244580514543}:
+bestconf {'alpha': 0.02, 'fit_prior': False} :
+newbestscore {'yes': 0.05808430635266179}:
+bestconf {'alpha': 0.008, 'fit_prior': False} :
+final bestescore %s: {'yes': 0.10968370691946486}
+final bestconf %s: {'alpha': 0.025, 'fit_prior': False}
+DONE !!!!
+newbestscore {'yes': 0.08292453464148916}:
+bestconf {'alpha': 0.066, 'fit_prior': False} :
+newbestscore {'yes': 0.08376464178697902}:
+bestconf {'alpha': 0.003, 'fit_prior': False} :
+final bestescore %s: {'yes': 0.05808430635266179}
+final bestconf %s: {'alpha': 0.008, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'yes': 0.08376464178697902}
+final bestconf %s: {'alpha': 0.003, 'fit_prior': False}
+DONE !!!!
+newbestscore {'yes': 0.052021025919883994}:
+bestconf {'alpha': 0.02, 'fit_prior': False} :
+final bestescore %s: {'yes': 0.13541666666666669}
+final bestconf %s: {'alpha': 0.025, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'yes': 0.052021025919883994}
+final bestconf %s: {'alpha': 0.02, 'fit_prior': False}
+DONE !!!!
+newbestscore {'yes': 0.10361067503924647}:
+bestconf {'alpha': 0.066, 'fit_prior': False} :
+newbestscore {'yes': 0.05035203755067207}:
+bestconf {'alpha': 0.443, 'fit_prior': False} :
+newbestscore {'yes': 0.10668038761684247}:
+bestconf {'alpha': 0.003, 'fit_prior': False} :
+final bestescore %s: {'yes': 0.08231353858044571}
+final bestconf %s: {'alpha': 0.01, 'fit_prior': False}
+DONE !!!!
+newbestscore {'yes': 0.08148696881944911}:
+bestconf {'alpha': 0.01, 'fit_prior': False} :
+final bestescore %s: {'yes': 0.05035203755067207}
+final bestconf %s: {'alpha': 0.443, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'yes': 0.10668038761684247}
+final bestconf %s: {'alpha': 0.003, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'yes': 0.1541745730550285}
+final bestconf %s: {'alpha': 0.025, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'yes': 0.08148696881944911}
+final bestconf %s: {'alpha': 0.01, 'fit_prior': False}
+DONE !!!!
+newbestscore {'yes': 0.11649808161841645}:
+bestconf {'alpha': 0.066, 'fit_prior': False} :
+final bestescore %s: {'yes': 0.048881911146942764}
+final bestconf %s: {'alpha': 0.006, 'fit_prior': False}
+DONE !!!!
+newbestscore {'yes': 0.08613386049138662}:
+bestconf {'alpha': 0.032, 'fit_prior': False} :
+newbestscore {'yes': 0.12220676866017616}:
+bestconf {'alpha': 0.003, 'fit_prior': False} :
+final bestescore %s: {'yes': 0.1032564228440517}
+final bestconf %s: {'alpha': 0.01, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'yes': 0.08613386049138662}
+final bestconf %s: {'alpha': 0.032, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'yes': 0.12220676866017616}
+final bestconf %s: {'alpha': 0.003, 'fit_prior': False}
+DONE !!!!
+newbestscore {'yes': 0.11026516145970071}:
+bestconf {'alpha': 0.01, 'fit_prior': False} :
+final bestescore %s: {'yes': 0.11026516145970071}
+final bestconf %s: {'alpha': 0.01, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'yes': 0.11484131352045496}
+final bestconf %s: {'alpha': 0.01, 'fit_prior': False}
+DONE !!!!
+newbestscore {'yes': 0.12744904017415398}:
+bestconf {'alpha': 0.01, 'fit_prior': False} :
+final bestescore %s: {'yes': 0.11115063133558598}
+final bestconf %s: {'alpha': 0.028, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'yes': 0.05838822477026918}
+final bestconf %s: {'k': 6, 'up_to_num': [70338]}
+DONE !!!!
+final bestescore %s: {'yes': 0.12744904017415398}
+final bestconf %s: {'alpha': 0.01, 'fit_prior': False}
+DONE !!!!
+newbestscore {'yes': 0.13252634874256497}:
+bestconf {'alpha': 0.032, 'fit_prior': False} :
+newbestscore {'yes': 0.10874111250522793}:
+bestconf {'k': 4, 'up_to_num': [98358]} :
+newbestscore {'yes': 0.056421910508580836}:
+bestconf {'k': 12, 'up_to_num': [86608]} :
+newbestscore {'yes': 0.1330390920554855}:
+bestconf {'alpha': 0.02, 'fit_prior': False} :
+newbestscore {'yes': 0.05648568299170709}:
+bestconf {'k': 13, 'up_to_num': [105479]} :
+final bestescore %s: {'yes': 0.1330390920554855}
+final bestconf %s: {'alpha': 0.02, 'fit_prior': False}
+DONE !!!!
+newbestscore {'yes': 0.05665236051502146}:
+bestconf {'k': 7, 'up_to_num': [105479]} :
+newbestscore {'yes': 0.10880178546519739}:
+bestconf {'k': 3, 'up_to_num': [43460]} :
+final bestescore %s: {'yes': 0.05665236051502146}
+final bestconf %s: {'k': 7, 'up_to_num': [105479]}
+DONE !!!!
+newbestscore {'yes': 0.05222190772714407}:
+bestconf {'k': 9, 'up_to_num': [119968]} :
+newbestscore {'yes': 0.1361526560082517}:
+bestconf {'k': 13, 'up_to_num': [124731]} :
+newbestscore {'yes': 0.05231074567621208}:
+bestconf {'k': 20, 'up_to_num': [127131]} :
+newbestscore {'yes': 0.13628561620322693}:
+bestconf {'k': 2, 'up_to_num': [48230]} :
+final bestescore %s: {'yes': 0.05231074567621208}
+final bestconf %s: {'k': 20, 'up_to_num': [127131]}
+DONE !!!!
+final bestescore %s: {'yes': 0.10880178546519739}
+final bestconf %s: {'k': 3, 'up_to_num': [43460]}
+DONE !!!!
+newbestscore {'yes': 0.04647686349120065}:
+bestconf {'k': 3, 'up_to_num': [54168]} :
+newbestscore {'yes': 0.04650211373244238}:
+bestconf {'k': 19, 'up_to_num': [84054]} :
+newbestscore {'yes': 0.1363558303280096}:
+bestconf {'k': 2, 'up_to_num': [48230]} :
+newbestscore {'yes': 0.08240103270223752}:
+bestconf {'k': 10, 'up_to_num': [101766]} :
+final bestescore %s: {'yes': 0.04650211373244238}
+final bestconf %s: {'k': 19, 'up_to_num': [84054]}
+DONE !!!!
+newbestscore {'yes': 0.13640267995189828}:
+bestconf {'k': 19, 'up_to_num': [67338]} :
+newbestscore {'yes': 0.04903581267217631}:
+bestconf {'k': 18, 'up_to_num': [95962]} :
+final bestescore %s: {'yes': 0.04903581267217631}
+final bestconf %s: {'k': 18, 'up_to_num': [95962]}
+DONE !!!!
+final bestescore %s: {'yes': 0.08240103270223752}
+final bestconf %s: {'k': 10, 'up_to_num': [101766]}
+DONE !!!!
+newbestscore {'yes': 0.07466722129783694}:
+bestconf {'k': 12, 'up_to_num': [126757]} :
+final bestescore %s: {'yes': 0.15234075211051423}
+final bestconf %s: {'k': 12, 'up_to_num': [67338]}
+DONE !!!!
+final bestescore %s: {'yes': 0.13640267995189828}
+final bestconf %s: {'k': 19, 'up_to_num': [67338]}
+DONE !!!!
+final bestescore %s: {'yes': 0.07466722129783694}
+final bestconf %s: {'k': 12, 'up_to_num': [126757]}
+DONE !!!!
+newbestscore {'yes': 0.1040273037542662}:
+bestconf {'k': 14, 'up_to_num': [112822]} :
+newbestscore {'yes': 0.10683362195284402}:
+bestconf {'k': 6, 'up_to_num': [52385]} :
+newbestscore {'yes': 0.08435617049765677}:
+bestconf {'k': 10, 'up_to_num': [66921]} :
+final bestescore %s: {'yes': 0.08435617049765677}
+final bestconf %s: {'k': 10, 'up_to_num': [66921]}
+DONE !!!!
+final bestescore %s: {'yes': 0.10683362195284402}
+final bestconf %s: {'k': 6, 'up_to_num': [52385]}
+DONE !!!!
+final bestescore %s: {'yes': 0.0789892769933114}
+final bestconf %s: {'k': 13, 'up_to_num': [55985]}
+DONE !!!!
+process 1 end: Jan 20 2016 15:55:33 
+final bestescore %s: {'yes': 0.1040273037542662}
+final bestconf %s: {'k': 14, 'up_to_num': [112822]}
+DONE !!!!
+newbestscore {'yes': 0.09775762156714538}:
+bestconf {'k': 6, 'up_to_num': [122682]} :
+newbestscore {'yes': 0.0978013646702047}:
+bestconf {'k': 18, 'up_to_num': [63885]} :
+newbestscore {'yes': 0.1109573879358052}:
+bestconf {'k': 4, 'up_to_num': [125676]} :
+final bestescore %s: {'yes': 0.0978013646702047}
+final bestconf %s: {'k': 18, 'up_to_num': [63885]}
+DONE !!!!
+newbestscore {'yes': 0.11112654535352132}:
+bestconf {'k': 2, 'up_to_num': [127720]} :
+final bestescore %s: {'yes': 0.10820435556773045}
+final bestconf %s: {'k': 9, 'up_to_num': [100087]}
+DONE !!!!
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n2e2-9>
+Subject: Job 957692: <mpiexec -n 4 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/SE_softwarerecs.txt> Exited
+
+Job <mpiexec -n 4 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/SE_softwarerecs.txt> was submitted from host <login03.hpc.ncsu.edu> by user <wfu> in cluster <henry2>.
+Job was executed on host(s) <4*n2e2-9>, in queue <single_chassis>, as user <wfu> in cluster <henry2>.
+</home/wfu> was used as the home directory.
+</home/wfu/Github/SMOTE/src> was used as the working directory.
+Started at Tue Jan 19 10:16:08 2016
+Results reported at Thu Jan 21 02:16:27 2016
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+mpiexec -n 4 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/SE_softwarerecs.txt
+------------------------------------------------------------
+
+TERM_RUNLIMIT: job killed after reaching LSF run time limit.
+Exited with exit code 140.
+
+Resource usage summary:
+
+    CPU time   :  49215.37 sec.
+    Max Memory :     22958 MB
+    Max Swap   :     38364 MB
+
+    Max Processes  :         8
+    Max Threads    :         9
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <./err/SE_softwarerecs.err.957692> for stderr output of this job.
+
