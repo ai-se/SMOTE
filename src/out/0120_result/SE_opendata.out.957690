@@ -1,0 +1,305 @@
+process 0 started: Jan 19 2016 10:16:53 
+process 1 started: Jan 19 2016 10:16:53 
+process 3 started: Jan 19 2016 10:16:53 
+process 2 started: Jan 19 2016 10:16:53 
+final bestescore %s: {'yes': 0.17755054613060656}
+final bestconf %s: {'alpha': 0.025, 'fit_prior': False}
+DONE !!!!
+newbestscore {'yes': 0.18929845422116526}:
+bestconf {'alpha': 0.066, 'fit_prior': False} :
+newbestscore {'yes': 0.1911870936672285}:
+bestconf {'alpha': 0.003, 'fit_prior': False} :
+final bestescore %s: {'yes': 0.24439332949971249}
+final bestconf %s: {'alpha': 0.025, 'fit_prior': False}
+DONE !!!!
+newbestscore {'yes': 0.24732736203409417}:
+bestconf {'alpha': 0.066, 'fit_prior': False} :
+final bestescore %s: {'yes': 0.1911870936672285}
+final bestconf %s: {'alpha': 0.003, 'fit_prior': False}
+DONE !!!!
+newbestscore {'yes': 0.25402504472271914}:
+bestconf {'alpha': 0.003, 'fit_prior': False} :
+final bestescore %s: {'yes': 0.26285366595679954}
+final bestconf %s: {'alpha': 0.025, 'fit_prior': False}
+DONE !!!!
+newbestscore {'yes': 0.18504107220060528}:
+bestconf {'alpha': 0.08, 'fit_prior': False} :
+newbestscore {'yes': 0.25875190258751907}:
+bestconf {'alpha': 0.066, 'fit_prior': False} :
+newbestscore {'yes': 0.2783128528727997}:
+bestconf {'alpha': 0.003, 'fit_prior': False} :
+final bestescore %s: {'yes': 0.25402504472271914}
+final bestconf %s: {'alpha': 0.003, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'yes': 0.2981236970118138}
+final bestconf %s: {'alpha': 0.025, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'yes': 0.18504107220060528}
+final bestconf %s: {'alpha': 0.08, 'fit_prior': False}
+DONE !!!!
+newbestscore {'yes': 0.2801682303461663}:
+bestconf {'alpha': 0.066, 'fit_prior': False} :
+newbestscore {'yes': 0.31598375784422295}:
+bestconf {'alpha': 0.003, 'fit_prior': False} :
+final bestescore %s: {'yes': 0.2783128528727997}
+final bestconf %s: {'alpha': 0.003, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'yes': 0.24329896907216494}
+final bestconf %s: {'alpha': 0.01, 'fit_prior': False}
+DONE !!!!
+newbestscore {'yes': 0.2850291195614937}:
+bestconf {'alpha': 0.037, 'fit_prior': False} :
+final bestescore %s: {'yes': 0.2850291195614937}
+final bestconf %s: {'alpha': 0.037, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'yes': 0.31598375784422295}
+final bestconf %s: {'alpha': 0.003, 'fit_prior': False}
+DONE !!!!
+newbestscore {'yes': 0.3462028001697073}:
+bestconf {'alpha': 0.01, 'fit_prior': False} :
+newbestscore {'yes': 0.21609076843733885}:
+bestconf {'alpha': 0.016, 'fit_prior': False} :
+final bestescore %s: {'yes': 0.27217419148254884}
+final bestconf %s: {'alpha': 0.01, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'yes': 0.3462028001697073}
+final bestconf %s: {'alpha': 0.01, 'fit_prior': False}
+DONE !!!!
+newbestscore {'yes': 0.40018357044515834}:
+bestconf {'alpha': 0.01, 'fit_prior': False} :
+newbestscore {'yes': 0.21636973922024272}:
+bestconf {'alpha': 0.01, 'fit_prior': False} :
+final bestescore %s: {'yes': 0.3010595542564852}
+final bestconf %s: {'alpha': 0.01, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'yes': 0.21636973922024272}
+final bestconf %s: {'alpha': 0.01, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'yes': 0.40018357044515834}
+final bestconf %s: {'alpha': 0.01, 'fit_prior': False}
+DONE !!!!
+newbestscore {'yes': 0.4380574826560951}:
+bestconf {'alpha': 0.01, 'fit_prior': False} :
+final bestescore %s: {'yes': 0.26031377106333525}
+final bestconf %s: {'alpha': 0.028, 'fit_prior': False}
+DONE !!!!
+newbestscore {'yes': 0.16326530612244897}:
+bestconf {'k': 5, 'up_to_num': [20216]} :
+final bestescore %s: {'yes': 0.4380574826560951}
+final bestconf %s: {'alpha': 0.01, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'yes': 0.28599735799207393}
+final bestconf %s: {'alpha': 0.028, 'fit_prior': False}
+DONE !!!!
+newbestscore {'yes': 0.16372160115398485}:
+bestconf {'k': 8, 'up_to_num': [54743]} :
+final bestescore %s: {'yes': 0.27472868217054264}
+final bestconf %s: {'alpha': 0.028, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'yes': 0.16372160115398485}
+final bestconf %s: {'k': 8, 'up_to_num': [54743]}
+DONE !!!!
+newbestscore {'yes': 0.2113606340819022}:
+bestconf {'k': 4, 'up_to_num': [50797]} :
+newbestscore {'yes': 0.18215752146323255}:
+bestconf {'k': 17, 'up_to_num': [20228]} :
+newbestscore {'yes': 0.18297712785901762}:
+bestconf {'k': 7, 'up_to_num': [42975]} :
+newbestscore {'yes': 0.21150442477876108}:
+bestconf {'k': 12, 'up_to_num': [54743]} :
+newbestscore {'yes': 0.18491852974611594}:
+bestconf {'k': 4, 'up_to_num': [20645]} :
+newbestscore {'yes': 0.22579121398205004}:
+bestconf {'k': 14, 'up_to_num': [46419]} :
+newbestscore {'yes': 0.2118270079435128}:
+bestconf {'k': 6, 'up_to_num': [35046]} :
+final bestescore %s: {'yes': 0.18491852974611594}
+final bestconf %s: {'k': 4, 'up_to_num': [20645]}
+DONE !!!!
+newbestscore {'yes': 0.18201754385964913}:
+bestconf {'k': 13, 'up_to_num': [20254]} :
+newbestscore {'yes': 0.22580645161290322}:
+bestconf {'k': 14, 'up_to_num': [29149]} :
+newbestscore {'yes': 0.21257750221434896}:
+bestconf {'k': 12, 'up_to_num': [54743]} :
+final bestescore %s: {'yes': 0.18201754385964913}
+final bestconf %s: {'k': 13, 'up_to_num': [20254]}
+DONE !!!!
+newbestscore {'yes': 0.23658751099384345}:
+bestconf {'k': 12, 'up_to_num': [41163]} :
+newbestscore {'yes': 0.24986985944820403}:
+bestconf {'k': 2, 'up_to_num': [52938]} :
+newbestscore {'yes': 0.2265402843601896}:
+bestconf {'k': 11, 'up_to_num': [50797]} :
+newbestscore {'yes': 0.23706324635117204}:
+bestconf {'k': 16, 'up_to_num': [35163]} :
+final bestescore %s: {'yes': 0.21257750221434896}
+final bestconf %s: {'k': 12, 'up_to_num': [54743]}
+DONE !!!!
+final bestescore %s: {'yes': 0.23706324635117204}
+final bestconf %s: {'k': 16, 'up_to_num': [35163]}
+DONE !!!!
+newbestscore {'yes': 0.22688274547187798}:
+bestconf {'k': 8, 'up_to_num': [50797]} :
+newbestscore {'yes': 0.21704781704781706}:
+bestconf {'k': 18, 'up_to_num': [23434]} :
+newbestscore {'yes': 0.25503943908851884}:
+bestconf {'k': 3, 'up_to_num': [23832]} :
+newbestscore {'yes': 0.21724709784411278}:
+bestconf {'k': 16, 'up_to_num': [60693]} :
+newbestscore {'yes': 0.21731890091590342}:
+bestconf {'k': 6, 'up_to_num': [23834]} :
+newbestscore {'yes': 0.21813623067279564}:
+bestconf {'k': 18, 'up_to_num': [46367]} :
+final bestescore %s: {'yes': 0.21813623067279564}
+final bestconf %s: {'k': 18, 'up_to_num': [46367]}
+DONE !!!!
+final bestescore %s: {'yes': 0.25503943908851884}
+final bestconf %s: {'k': 3, 'up_to_num': [23832]}
+DONE !!!!
+final bestescore %s: {'yes': 0.22688274547187798}
+final bestconf %s: {'k': 8, 'up_to_num': [50797]}
+DONE !!!!
+final bestescore %s: {'yes': 0.24986985944820403}
+final bestconf %s: {'k': 2, 'up_to_num': [52938]}
+DONE !!!!
+newbestscore {'yes': 0.24147465437788015}:
+bestconf {'k': 3, 'up_to_num': [31058]} :
+newbestscore {'yes': 0.24158598432457354}:
+bestconf {'k': 12, 'up_to_num': [20308]} :
+newbestscore {'yes': 0.2665310274669379}:
+bestconf {'k': 6, 'up_to_num': [55391]} :
+newbestscore {'yes': 0.26871794871794874}:
+bestconf {'k': 15, 'up_to_num': [31723]} :
+newbestscore {'yes': 0.2635243706480986}:
+bestconf {'k': 9, 'up_to_num': [30842]} :
+final bestescore %s: {'yes': 0.24158598432457354}
+final bestconf %s: {'k': 12, 'up_to_num': [20308]}
+DONE !!!!
+newbestscore {'yes': 0.3237704918032787}:
+bestconf {'k': 7, 'up_to_num': [28507]} :
+newbestscore {'yes': 0.32510288065843623}:
+bestconf {'k': 6, 'up_to_num': [58634]} :
+final bestescore %s: {'yes': 0.26871794871794874}
+final bestconf %s: {'k': 15, 'up_to_num': [31723]}
+DONE !!!!
+newbestscore {'yes': 0.2641509433962264}:
+bestconf {'k': 10, 'up_to_num': [38172]} :
+final bestescore %s: {'yes': 0.32510288065843623}
+final bestconf %s: {'k': 6, 'up_to_num': [58634]}
+DONE !!!!
+newbestscore {'yes': 0.2549317147192716}:
+bestconf {'k': 16, 'up_to_num': [44710]} :
+newbestscore {'yes': 0.2575024201355276}:
+bestconf {'k': 4, 'up_to_num': [37948]} :
+final bestescore %s: {'yes': 0.2641509433962264}
+final bestconf %s: {'k': 10, 'up_to_num': [38172]}
+DONE !!!!
+newbestscore {'yes': 0.255578093306288}:
+bestconf {'k': 4, 'up_to_num': [50704]} :
+final bestescore %s: {'yes': 0.2575024201355276}
+final bestconf %s: {'k': 4, 'up_to_num': [37948]}
+DONE !!!!
+process 1 end: Jan 19 2016 21:03:08 
+newbestscore {'yes': 0.26955074875207985}:
+bestconf {'k': 17, 'up_to_num': [35092]} :
+final bestescore %s: {'yes': 0.255578093306288}
+final bestconf %s: {'k': 4, 'up_to_num': [50704]}
+DONE !!!!
+newbestscore {'yes': 0.3822878228782287}:
+bestconf {'k': 9, 'up_to_num': [44059]} :
+newbestscore {'yes': 0.38291605301914583}:
+bestconf {'k': 17, 'up_to_num': [37975]} :
+final bestescore %s: {'yes': 0.26955074875207985}
+final bestconf %s: {'k': 17, 'up_to_num': [35092]}
+DONE !!!!
+newbestscore {'yes': 0.3834808259587021}:
+bestconf {'k': 19, 'up_to_num': [48967]} :
+final bestescore %s: {'yes': 0.3834808259587021}
+final bestconf %s: {'k': 19, 'up_to_num': [48967]}
+DONE !!!!
+newbestscore {'yes': 0.3550561797752809}:
+bestconf {'k': 16, 'up_to_num': [43193]} :
+newbestscore {'yes': 0.3558558558558559}:
+bestconf {'k': 9, 'up_to_num': [58105]} :
+newbestscore {'yes': 0.29821882951653944}:
+bestconf {'k': 11, 'up_to_num': [46042]} :
+newbestscore {'yes': 0.2985685071574642}:
+bestconf {'k': 11, 'up_to_num': [46042]} :
+final bestescore %s: {'yes': 0.2985685071574642}
+final bestconf %s: {'k': 11, 'up_to_num': [46042]}
+DONE !!!!
+process 2 end: Jan 20 2016 03:43:14 
+final bestescore %s: {'yes': 0.3558558558558559}
+final bestconf %s: {'k': 9, 'up_to_num': [58105]}
+DONE !!!!
+newbestscore {'yes': 0.3134405812143228}:
+bestconf {'k': 5, 'up_to_num': [39360]} :
+newbestscore {'yes': 0.31360332294911736}:
+bestconf {'k': 17, 'up_to_num': [49021]} :
+newbestscore {'yes': 0.31409256370254807}:
+bestconf {'k': 13, 'up_to_num': [60733]} :
+newbestscore {'yes': 0.31425598335067634}:
+bestconf {'k': 15, 'up_to_num': [54283]} :
+final bestescore %s: {'yes': 0.31425598335067634}
+final bestconf %s: {'k': 15, 'up_to_num': [54283]}
+DONE !!!!
+process 3 end: Jan 20 2016 08:25:52 
+
+rank ,                                          name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,                              NB_Naive_100_yes ,       0  ,     0 (*              |              ), 0.00,  0.00,  0.00,  0.00,  0.00
+   2 ,                              NB_Naive_400_yes ,       6  ,     4 (- *-           |              ), 0.03,  0.04,  0.06,  0.08,  0.14
+   2 ,                              NB_Naive_700_yes ,      12  ,     9 ( -  *-         |              ), 0.03,  0.07,  0.12,  0.16,  0.18
+   2 ,                             NB_Naive_1000_yes ,      13  ,     7 (    *-         |              ), 0.08,  0.09,  0.13,  0.16,  0.18
+   3 ,                              NB_Smote_100_yes ,      60  ,    56 ( -             |    *-        ), 0.06,  0.07,  0.60,  0.63,  0.66
+   3 ,                         NB_TunedSmote_100_yes ,      61  ,    58 ( -             |    *         ), 0.06,  0.07,  0.61,  0.65,  0.65
+   3 ,                       NB_TunedLearner_100_yes ,      62  ,    58 ( -             |     *        ), 0.06,  0.07,  0.62,  0.65,  0.66
+   3 ,                       NB_TunedLearner_400_yes ,      76  ,    72 (               |         *    ), 0.09,  0.09,  0.76,  0.81,  0.81
+   3 ,                         NB_TunedSmote_400_yes ,      76  ,    70 (               |         *--  ), 0.09,  0.09,  0.76,  0.79,  0.82
+   3 ,                              NB_Smote_400_yes ,      77  ,    71 (  -            |          *   ), 0.09,  0.09,  0.77,  0.80,  0.81
+   3 ,                              NB_Smote_700_yes ,      78  ,    74 (  -            |          *   ), 0.09,  0.10,  0.78,  0.84,  0.84
+   3 ,                       NB_TunedLearner_700_yes ,      79  ,    75 (  -            |          * - ), 0.09,  0.09,  0.79,  0.84,  0.86
+   3 ,                         NB_TunedSmote_700_yes ,      79  ,    74 (               |          *   ), 0.09,  0.10,  0.79,  0.84,  0.84
+   3 ,                      NB_TunedLearner_1000_yes ,      80  ,    76 (               |           *  ), 0.09,  0.10,  0.80,  0.86,  0.88
+   3 ,                             NB_Smote_1000_yes ,      81  ,    75 (               |           *  ), 0.09,  0.10,  0.81,  0.85,  0.86
+   3 ,                        NB_TunedSmote_1000_yes ,      81  ,    75 (               |           *  ), 0.09,  0.10,  0.81,  0.85,  0.85
+process 0 end: Jan 20 2016 08:25:53 
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n2e2-6>
+Subject: Job 957690: <mpiexec -n 4 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/SE_opendata.txt> Done
+
+Job <mpiexec -n 4 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/SE_opendata.txt> was submitted from host <login03.hpc.ncsu.edu> by user <wfu> in cluster <henry2>.
+Job was executed on host(s) <4*n2e2-6>, in queue <single_chassis>, as user <wfu> in cluster <henry2>.
+</home/wfu> was used as the home directory.
+</home/wfu/Github/SMOTE/src> was used as the working directory.
+Started at Tue Jan 19 10:16:08 2016
+Results reported at Wed Jan 20 08:25:54 2016
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+mpiexec -n 4 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/SE_opendata.txt
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time   : 317699.44 sec.
+    Max Memory :     15768 MB
+    Max Swap   :     19051 MB
+
+    Max Processes  :         8
+    Max Threads    :        37
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <./err/SE_opendata.err.957690> for stderr output of this job.
+
