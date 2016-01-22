@@ -255,9 +255,9 @@ def run(data_src, process=8, isBinary=True, isYes_label=True, target_class="yes"
   # model_hash = Settings(data_src, method='hash')
   model_tfidf = Settings(data_src, 'tfidf', isBinary, isYes_label,target_class)
   methods_lst = [model_tfidf]
-  # modification = ["_Naive", "_Smote", "_TunedLearner", "_TunedSmote"]  # [
+  modification = ["_Naive", "_Smote", "_TunedLearner", "_TunedSmote"]  # [
   # True,False]
-  modification = ["_Naive"]
+  # modification = ["_Naive"]
   learners = [Naive_bayes]
   F_feature = {}
   ## Way1: each processor run all variants of learner in different feature_numbers
