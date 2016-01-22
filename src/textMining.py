@@ -240,7 +240,7 @@ def scott(scores):
   rdivDemo(out)
 
 
-def run(data_src, process=8, isBinary=True, isYes_label=True, target_class="yes",
+def run(data_src, process, isBinary=True, isYes_label=True, target_class="yes",
         goal="F"):
   comm = MPI.COMM_WORLD
   rank = comm.Get_rank()
