@@ -14,5 +14,5 @@ rm err_hash/*
 
 ##### this is only for testing on HPC
 foreach VAR (SE_codereview SE_datascience SE_emacs SE_opendata SE_programmers SE_softwarerecs SE_unix SE_webapps SE_webmasters SE_windowsphone SE_wordpress)
-  bsub -W 3600 -n 16 -o ./out_hash/$VAR.out.%J -e ./err_hash/$VAR.err.%J mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/$VAR.txt 16
+  bsub -W 3600 -n 16 -o ./out_hash/$VAR.out.%J -e ./err_hash/$VAR.err.%J mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_hash.py run /share3/wfu/Datasets/StackExchange/$VAR.txt 16
 end
