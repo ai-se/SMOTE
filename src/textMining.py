@@ -149,7 +149,7 @@ class Settings(object):
 
 
 def cross_val(pd_data, learner, target_class, goal, isWhat="", fold=5,
-              repeats=3):
+              repeats=2):
   """
   do 5-fold cross_validation
   """
