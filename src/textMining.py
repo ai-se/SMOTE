@@ -120,9 +120,9 @@ class Settings(object):
 
     def hash(mat, num_features):
       """
-      hashing trick, why need this hash function ????
+      hashing trick
       """
-      hasher = FeatureHasher(n_features=num_features)
+      hasher = FeatureHasher(n_features=num_features, non_negative=True)
       X = hasher.transform(mat)
       X = X.toarray()
       return X
@@ -139,7 +139,7 @@ class Settings(object):
         matrix_selected.append([row[each] for each in features_selected])
       matrix_selected = np.array(matrix_selected)
       matrix_selected = norm(matrix_selected)
-    else:  # tf
+    else:  # hash
       mat = [Counter(row[1:]) for row in self.corpus]
       matrix_selected = hash(mat, num_features)
       matrix_selected = norm(matrix_selected)
@@ -241,8 +241,10 @@ def run(data_src, process, isBinary=True, isYes_label=True, target_class="yes",
   # different processes run different feature experiments
   features_num = [100 * i for i in xrange(1, 11, 3)]
   model_tfidf = Settings(data_src, 'tfidf', isBinary, isYes_label,target_class)
+  # model_hash = Settings(data_src, 'hash', isBinary, isYes_label,target_class)
   methods_lst = [model_tfidf]
   modification = ["_Naive", "_Smote", "_TunedLearner", "_TunedSmote"]  # [
+  # modification = ["_Naive"]  # [
   learners = [Naive_bayes]
   F_feature = {}
 
@@ -268,6 +270,7 @@ def run(data_src, process, isBinary=True, isYes_label=True, target_class="yes",
   else:
     comm.send(F_feature, dest=0)
   print("process", str(rank),"last job is",jobs_processor[-1][1] ,"end:", time.strftime("%b %d %Y %H:%M:%S "))
+
 
 
 def atom(x):
