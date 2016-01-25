@@ -224,14 +224,6 @@ def scott(scores):
    pass results to scott knott
   """
   out = []
-  # # pdb.set_trace()
-  # for num in features_num:
-  #   for learner in exp_names:
-  #     try:
-  #       out.append([learner + "_" + str(num) + "_" + target_class] +
-  #                  score[num][learner][target_class])
-  #     except IndexError:
-  #       print(target_class + " does not exist!")
   for key,val in scores.iteritems():
     try:
       out.append([key]+val)
@@ -248,33 +240,11 @@ def run(data_src, process, isBinary=True, isYes_label=True, target_class="yes",
   print("process", str(rank), "started:", time.strftime("%b %d %Y %H:%M:%S "))
   # different processes run different feature experiments
   features_num = [100 * i for i in xrange(1, 11, 3)]
-  # features_num = [100]
-  # features_num_process = [features_num[i] for i in
-  #                         xrange(rank, len(features_num), size)]
-  # pdb.set_trace()
-  # model_hash = Settings(data_src, method='hash')
   model_tfidf = Settings(data_src, 'tfidf', isBinary, isYes_label,target_class)
   methods_lst = [model_tfidf]
   modification = ["_Naive", "_Smote", "_TunedLearner", "_TunedSmote"]  # [
-  # True,False]
-  # modification = ["_Naive"]
   learners = [Naive_bayes]
   F_feature = {}
-  ## Way1: each processor run all variants of learner in different feature_numbers
-  # for f_num in features_num_process:
-  #   F_method = {}
-  #   for learner in learners:
-  #     for isWhat in modification:
-  #       random.seed(1)
-  #       for method in methods_lst:
-  #         pd_data = method.make_feature(f_num)
-  #         target_class = method.target_class # here's an issue: We need to predict what????? yes or no, or mean_weighted?
-  #         name = learner.name + isWhat
-  #         exp_names.append(name)
-  #         F_method[name] = cross_val(pd_data, learner, target_class, goal,
-  #                                    isWhat)
-  #   F_feature[f_num] = F_method
-
 
   ## Way2: distribute all jobs to different processors.
   jobs =[(num,trick,learner,m) for learner in learners for m in methods_lst for trick in modification for num in features_num]
@@ -297,7 +267,7 @@ def run(data_src, process, isBinary=True, isYes_label=True, target_class="yes",
       pickle.dump(F_feature, mypickle)
   else:
     comm.send(F_feature, dest=0)
-  print("process", str(rank), "end:", time.strftime("%b %d %Y %H:%M:%S "))
+  print("process", str(rank),"last job is",jobs_processor[-1][1] ,"end:", time.strftime("%b %d %Y %H:%M:%S "))
 
 
 def atom(x):
@@ -324,7 +294,7 @@ def cmd(com="Nothing"):
 
 if __name__ == "__main__":
   if len(sys.argv) == 1:
-    run('../data/StackExchange/SE_codereview.txt')
+    run('../data/StackExchange/SE_codereview.txt',1)
   else:
     eval(cmd())
   # run('../data/StackExchange/anime.txt')
