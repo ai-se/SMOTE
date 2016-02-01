@@ -16,12 +16,11 @@ import pdb
 
 
 class Settings(object):
-  def __init__(self, src, method, isBinary, isYes_label, target_class):
-    self.threshold = 20
+  def __init__(self, src, method, isYes_label, target_class):
+    self.total_class = 20
     self.data_src = src
     self.processors = 4
     self.method = method
-    self.isBinary = isBinary
     self.isYes_label = isYes_label
     self.target_class = target_class
     # self.data = self.get_data()
@@ -60,22 +59,10 @@ class Settings(object):
         all_label.append(label)
         corpus.append([label] + process(line.split('>>>')[0]).split())
     label_dist = Counter(all_label)
-    label_3_percent = int(sum(label_dist.values()) * 0.03)
-    label_1_percent = int(sum(label_dist.values()) * 0.01)
-    # pdb.set_trace()
     if self.isYes_label:
       used_label = ["yes","no"]
     else:
-      for key, val in label_dist.iteritems():
-        if self.isBinary:
-          if label_1_percent <= val <= label_3_percent:
-            used_label.append(key)  # find the minority label for binary class
-            self.target_class = key
-            print("target_label: ", self.target_class)
-            break
-        elif val > self.threshold:
-          used_label.append(key)
-      used_label.append('others')
+      used_label = [iterm[0] for iterm in label_dist.most_common(self.total_class)]
     for doc in corpus:
       if doc[0] not in used_label:
         doc[0] = 'others'
@@ -148,8 +135,8 @@ class Settings(object):
     return data
 
 
-def cross_val(pd_data, learner, target_class, goal, isWhat="", fold=5,
-              repeats=2):
+def cross_val(pd_data, learner, target_class, goal, isWhat="", fold=2,
+              repeats=1):
   """
   do 5-fold cross_validation
   """
@@ -232,7 +219,7 @@ def scott(scores):
   rdivDemo(out)
 
 
-def run(data_src, process, isBinary=True, isYes_label=True, target_class="yes",
+def run(data_src, process, isYes_label=False, target_class="mean",
         goal="F"):
   comm = MPI.COMM_WORLD
   rank = comm.Get_rank()
@@ -240,11 +227,11 @@ def run(data_src, process, isBinary=True, isYes_label=True, target_class="yes",
   print("process", str(rank), "started:", time.strftime("%b %d %Y %H:%M:%S "))
   # different processes run different feature experiments
   features_num = [100 * i for i in xrange(1, 11, 3)]
-  model_tfidf = Settings(data_src, 'tfidf', isBinary, isYes_label,target_class)
+  model_tfidf = Settings(data_src, 'tfidf', isYes_label,target_class)
   # model_hash = Settings(data_src, 'hash', isBinary, isYes_label,target_class)
   methods_lst = [model_tfidf]
-  modification = ["_Naive", "_Smote", "_TunedLearner", "_TunedSmote"]  # [
-  # modification = ["_Naive"]  # [
+  modification = ["_Naive", "_Smote", "_TunedLearner"]  # [
+  # modification = ["_Smote"]  # [
   learners = [Naive_bayes]
   F_feature = {}
 
@@ -297,7 +284,7 @@ def cmd(com="Nothing"):
 
 if __name__ == "__main__":
   if len(sys.argv) == 1:
-    run('../data/StackExchange/SE_codereview.txt',1)
+    run('../data/StackExchange/android.txt',1)
   else:
     eval(cmd())
   # run('../data/StackExchange/anime.txt')
