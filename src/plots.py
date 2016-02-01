@@ -9,7 +9,7 @@ import numpy as np
 from matplotlib import colors
 
 
-def read_pickles(src = "../pickles/"):
+def read_pickles(src = "../pickles_HPC_0127/"):
   pickle_folders = [ i for i in listdir(src) if not isfile(join(src, i))]
   all_scores_dist = {}
   for folder in pickle_folders: # folder will be hash, tfidf, or Lienar SVM
@@ -52,19 +52,23 @@ def plot(data):
   x_aix = [0,1,2,3]
   color = {"_Naive":"r","_Smote":"g","_TunedLearner":"b","_TunedSmote":"k"}
   method_mark = ["-","^-","s-"]
+  iqr_mark = ["--","^","s"]
   data_set = data.values()[0].keys()
+  # data_set = ['SE_codereview.pickle', 'SE_webmasters.pickle', 'SE_unix.pickle', 'SE_opendata.pickle']
+  # pdb.set_trace()
   for i, each in enumerate(data_set):
     plt.figure(i+1)
     to_plot = [] # all the plots for this one dataset
     for key, val in data.iteritems():
+      if each not in val.keys():
+        continue
       method_data = val[each]
       to_plot.append(median_ipr(key,method_data))
-
     for n_index, method in enumerate(to_plot):
       count = 0
       for name,median_iqr in method.iteritems():
         plt.plot(x_aix,median_iqr[0], method_mark[n_index],color = color[name[name.rindex("_"):]], label =name+"_median")
-        plt.plot(x_aix,median_iqr[1],"--", color = color[name[name.rindex("_"):]],label =name+"_iqr")
+        plt.plot(x_aix,median_iqr[1],iqr_mark[n_index], color = color[name[name.rindex("_"):]],label =name+"_iqr")
         count+=1
     plt.xticks([0,1,2,3],["100","400","700","1000"])
     plt.xlabel("Number of features")
