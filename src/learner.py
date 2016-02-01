@@ -14,7 +14,7 @@ from newabcd import *
 # __author__ = 'WeiFu'
 
 class Learners(object):
-  def __init__(self, clf, train_X, train_Y, predict_X, predict_Y, goal="F"):
+  def __init__(self, clf, train_X, train_Y, predict_X, predict_Y, goal):
     self.train_X = train_X
     self.train_Y = train_Y
     self.predict_X = predict_X
@@ -30,9 +30,9 @@ class Learners(object):
     predict_Y = []
     for predict_X, actual in zip(self.predict_X, self.predict_Y):
       try:
-        _predictresult = clf.predict(predict_X.reshape(1,-1))
+        _predictresult = clf.predict(predict_X.reshape(1, -1))
         predictresult.append(_predictresult[0])
-        predict_Y.append(actual) # for some internal issue, we have to handle skip some bad data.
+        predict_Y.append(actual)  # for some internal issue, we have to handle skip some bad data.
       except:
         print("one pass")
         continue
@@ -54,13 +54,41 @@ class Learners(object):
       ### it seems something wrong here, mean is the same as mean_weighted .......Jan, 17
       return F
 
-    # pdb.set_trace()
-    _goal = {"PD": 0, "PF": 1, "PREC": 2, "ACC":3, "F": 4, "G": 5}
+    def micro_cal(goal="Micro_F"):
+      TP, FN, FP = 0, 0, 0
+      for each in confusion_matrix_all_class:
+        TP += each.TP
+        FN += each.FN
+        FP += each.FP
+      PREC = TP / (TP + FP)
+      PD = TP / (TP + FN)
+      F[goal] = F.get(goal, []) + [2.0 * PREC / (PD + PREC)]
+      return F
+
+    def macro_cal(goal="Macro_F"):
+      PREC_sum, PD_sum = 0, 0
+      for each in confusion_matrix_all_class:
+        PD_sum += each.stats()[0]
+        PREC_sum += each.stats()[2]
+      PD_avg = PD_sum/len(uni_actual)
+      PREC_avg = PREC_sum/len(uni_actual)
+      F[goal] = F.get(goal, []) + [2.0 * PREC_avg * PD_avg / (PREC_avg + PD_avg)]
+      return F
+
+    pdb.set_trace()
+    _goal = {"PD": 0, "PF": 1, "PREC": 2, "ACC": 3, "F": 4, "G": 5}
     abcd = ABCD(actual, predicted)
     uni_actual = list(set(actual))
     count_actual = Counter(actual)
-    score_each_klass = [k.stats()[_goal[self.goal]] for k in abcd()]  # -2 is F measure
-    return calculate(score_each_klass)
+    if "Micro" in self.goal or "Macro" in self.goal:
+      confusion_matrix_all_class = [each for each in abcd()]
+      if "Micro" in self.goal:
+        return micro_cal()
+      else:
+        return macro_cal()
+    else:
+      score_each_klass = [k.stats()[_goal[self.goal]] for k in abcd()]  # -2 is F measure
+      return calculate(score_each_klass)
 
   def get_param(self):
     raise NotImplementedError("You should implement get_param function")
@@ -69,10 +97,10 @@ class Learners(object):
 class CartClassifier(Learners):
   name = "CART"
 
-  def __init__(self, train_x, train_y, predict_x, predict_y):
+  def __init__(self, train_x, train_y, predict_x, predict_y, goal):
     clf = DecisionTreeClassifier()
     self.name = "CART"
-    super(CartClassifier, self).__init__(clf, train_x, train_y, predict_x, predict_y)
+    super(CartClassifier, self).__init__(clf, train_x, train_y, predict_x, predict_y, goal)
 
   def get_param(self):
     tunelst = {
@@ -88,10 +116,10 @@ class CartClassifier(Learners):
 class RfClassifier(Learners):
   name = "RF"
 
-  def __init__(self, train_x, train_y, predict_x, predict_y):
+  def __init__(self, train_x, train_y, predict_x, predict_y, goal):
     clf = RandomForestClassifier()
     self.name = "RF"
-    super(RfClassifier, self).__init__(clf, train_x, train_y, predict_x, predict_y)
+    super(RfClassifier, self).__init__(clf, train_x, train_y, predict_x, predict_y, goal)
 
   def get_param(self):
     tunelst = {
@@ -108,10 +136,10 @@ class RfClassifier(Learners):
 class Naive_bayes(Learners):
   name = "NB"
 
-  def __init__(self, train_x, train_y, predict_x, predict_y):
+  def __init__(self, train_x, train_y, predict_x, predict_y, goal):
     clf = MultinomialNB()
     self.name = "NB"
-    super(Naive_bayes, self).__init__(clf, train_x, train_y, predict_x, predict_y)
+    super(Naive_bayes, self).__init__(clf, train_x, train_y, predict_x, predict_y, goal)
 
   def get_param(self):
     tunelst = {
@@ -124,10 +152,10 @@ class Naive_bayes(Learners):
 class Linear_SVM(Learners):
   name = "Linear_SVM"
 
-  def __init__(self, train_x, train_y, predict_x, predict_y):
+  def __init__(self, train_x, train_y, predict_x, predict_y, goal):
     clf = LinearSVC(dual=False)
     self.name = "Linear_SVM"
-    super(Linear_SVM, self).__init__(clf, train_x, train_y, predict_x, predict_y)
+    super(Linear_SVM, self).__init__(clf, train_x, train_y, predict_x, predict_y,goal)
 
   def get_param(self):
     tunelst = {

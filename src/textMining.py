@@ -17,7 +17,7 @@ import pdb
 
 class Settings(object):
   def __init__(self, src, method, isYes_label, target_class):
-    self.total_class = 20
+    self.total_class = 10
     self.data_src = src
     self.processors = 4
     self.method = method
@@ -60,7 +60,7 @@ class Settings(object):
         corpus.append([label] + process(line.split('>>>')[0]).split())
     label_dist = Counter(all_label)
     if self.isYes_label:
-      used_label = ["yes","no"]
+      used_label = ["yes", "no"]
     else:
       used_label = [iterm[0] for iterm in label_dist.most_common(self.total_class)]
     for doc in corpus:
@@ -149,8 +149,8 @@ def cross_val(pd_data, learner, target_class, goal, isWhat="", fold=2,
     new_train_Y = train_Y[new_train_index]
     new_tune_X = train_X[new_tune_index]
     new_tune_Y = train_Y[new_tune_index]
-    clf = learner(new_train_X, new_train_Y, new_tune_X, new_tune_Y)
-    tuner = DE_Tune_ML(clf, clf.get_param(), target_class)
+    clf = learner(new_train_X, new_train_Y, new_tune_X, new_tune_Y, goal)
+    tuner = DE_Tune_ML(clf, clf.get_param(), target_class, goal)
     return tuner.Tune()
 
   def tune_SMOTE(train_pd):
@@ -172,7 +172,7 @@ def cross_val(pd_data, learner, target_class, goal, isWhat="", fold=2,
       params_to_tune = {"k": [2, 20], "up_to_num": num_range}
       # pdb.set_trace()
       tuner = DE_Tune_SMOTE(learner, smote, params_to_tune, new_train,
-                            new_tune, target_class)
+                            new_tune, target_class, goal)
       params = tuner.Tune()
       return params, new_train
 
@@ -183,7 +183,7 @@ def cross_val(pd_data, learner, target_class, goal, isWhat="", fold=2,
     #   # pdb.set_trace()
     # pd_data1 = pd_data1.reindex(np.random.permutation(pd_data1.index))
     # pd_data = pd.DataFrame(pd_data1.values)
-    kf = StratifiedKFold(pd_data.ix[:,pd_data.columns[-1]].values, fold, shuffle=True)
+    kf = StratifiedKFold(pd_data.ix[:, pd_data.columns[-1]].values, fold, shuffle=True)
     for train_index, test_index in kf:
       train_pd = pd_data.ix[train_index]
       test_pd = pd_data.ix[test_index]
@@ -202,7 +202,8 @@ def cross_val(pd_data, learner, target_class, goal, isWhat="", fold=2,
       test_X = test_pd.ix[:, test_pd.columns[:-1]].values
       test_Y = test_pd.ix[:, test_pd.columns[-1]].values
       params = tune_learner(train_X) if "_TunedLearner" in isWhat else {}
-      F = learner(train_X, train_Y, test_X, test_Y).learn(F, **params)
+      F = learner(train_X, train_Y, test_X, test_Y, goal).learn(F, **params)
+  pdb.set_trace()
   return F
 
 
@@ -211,40 +212,42 @@ def scott(scores):
    pass results to scott knott
   """
   out = []
-  for key,val in scores.iteritems():
+  for key, val in scores.iteritems():
     try:
-      out.append([key]+val)
-    except :
+      out.append([key] + val)
+    except:
       print("Score has errors")
   rdivDemo(out)
 
 
-def run(data_src, process, isYes_label=False, target_class="mean",
-        goal="F"):
+def run(data_src, process, isYes_label=False, target_class="Macro_F",
+        goal="Macro_F"):
   comm = MPI.COMM_WORLD
   rank = comm.Get_rank()
   size = comm.Get_size()
+  goal = {0: "PD", 1: "PF", 2: "PREC", 3: "ACC", 4: "F", 5: "G", 6: "Macro_F", 7: "Micro_F"}[6]
   print("process", str(rank), "started:", time.strftime("%b %d %Y %H:%M:%S "))
   # different processes run different feature experiments
   features_num = [100 * i for i in xrange(1, 11, 3)]
-  model_tfidf = Settings(data_src, 'tfidf', isYes_label,target_class)
+  model_tfidf = Settings(data_src, 'tfidf', isYes_label, target_class)
   # model_hash = Settings(data_src, 'hash', isBinary, isYes_label,target_class)
   methods_lst = [model_tfidf]
-  modification = ["_Naive", "_Smote", "_TunedLearner"]  # [
+  modification = ["_Smote"]  # [
   # modification = ["_Smote"]  # [
   learners = [Naive_bayes]
   F_feature = {}
 
   ## Way2: distribute all jobs to different processors.
-  jobs =[(num,trick,learner,m) for learner in learners for m in methods_lst for trick in modification for num in features_num]
-  jobs_processor = [ jobs[i] for i in xrange(rank, len(jobs),size)]
-  for f_num, isWhat, learner,method in jobs_processor:
+  jobs = [(num, trick, learner, m) for learner in learners for m in methods_lst for trick in modification for num in
+          features_num]
+  jobs_processor = [jobs[i] for i in xrange(rank, len(jobs), size)]
+  for f_num, isWhat, learner, method in jobs_processor:
     random.seed(1)
     pd_data = method.make_feature(f_num)
-    target_class = method.target_class # here's an issue: We need to predict what????? yes or no, or mean_weighted?
+    target_class = method.target_class  # here's an issue: We need to predict what????? yes or no, or mean_weighted?
     name = learner.name + isWhat
-    key_name = name+"_"+str(f_num)+"_"+target_class
-    F_feature[key_name] =  cross_val(pd_data, learner, target_class, goal,isWhat)[target_class]
+    key_name = name + "_" + str(f_num) + "_" + target_class
+    F_feature[key_name] = cross_val(pd_data, learner, target_class, goal, isWhat)[target_class]
 
   if rank == 0:
     for i in xrange(1, size):
@@ -252,12 +255,11 @@ def run(data_src, process, isYes_label=False, target_class="mean",
       F_feature.update(temp)  # receive data from other process
     scott(F_feature)
     file_name = data_src[data_src.rindex('/') + 1:data_src.rindex('.')]
-    with open('../pickles/' + file_name + '.pickle', 'wb') as mypickle:
+    with open('../pickles/tfidf/' + file_name + '.pickle', 'wb') as mypickle:
       pickle.dump(F_feature, mypickle)
   else:
     comm.send(F_feature, dest=0)
-  print("process", str(rank),"last job is",jobs_processor[-1][1] ,"end:", time.strftime("%b %d %Y %H:%M:%S "))
-
+  print("process", str(rank), "last job is", jobs_processor[-1][1], "end:", time.strftime("%b %d %Y %H:%M:%S "))
 
 
 def atom(x):
@@ -284,7 +286,7 @@ def cmd(com="Nothing"):
 
 if __name__ == "__main__":
   if len(sys.argv) == 1:
-    run('../data/StackExchange/android.txt',1)
+    run('../data/StackExchange/android.txt', 1)
   else:
     eval(cmd())
-  # run('../data/StackExchange/anime.txt')
+    # run('../data/StackExchange/anime.txt')
