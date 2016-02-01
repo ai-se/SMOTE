@@ -17,7 +17,7 @@ import pdb
 
 class Settings(object):
   def __init__(self, src, method, isYes_label, target_class):
-    self.total_class = 10
+    self.total_class = 20
     self.data_src = src
     self.processors = 4
     self.method = method
@@ -232,7 +232,7 @@ def run(data_src, process, isYes_label=False, target_class="Macro_F",
   model_tfidf = Settings(data_src, 'tfidf', isYes_label, target_class)
   # model_hash = Settings(data_src, 'hash', isBinary, isYes_label,target_class)
   methods_lst = [model_tfidf]
-  modification = ["_Smote"]  # [
+  modification = ["_Naive", "_Smote", "_TunedLearner", "_TunedSmote"] # [
   # modification = ["_Smote"]  # [
   learners = [Naive_bayes]
   F_feature = {}
