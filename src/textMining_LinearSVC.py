@@ -135,8 +135,8 @@ class Settings(object):
     return data
 
 
-def cross_val(pd_data, learner, target_class, goal, isWhat="", fold=2,
-              repeats=1):
+def cross_val(pd_data, learner, target_class, goal, isWhat="", fold=5,
+              repeats=3):
   """
   do 5-fold cross_validation
   """
