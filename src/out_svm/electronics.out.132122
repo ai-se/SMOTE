@@ -1,0 +1,68 @@
+process 8 started: Feb 01 2016 23:50:52 
+process 12 started: Feb 01 2016 23:50:52 
+process 13 started: Feb 01 2016 23:50:52 
+process 15 started: Feb 01 2016 23:50:52 
+process 10 started: Feb 01 2016 23:50:52 
+process 14 started: Feb 01 2016 23:50:52 
+process 6 started: Feb 01 2016 23:50:52 
+process 11 started: Feb 01 2016 23:50:52 
+process 4 started: Feb 01 2016 23:50:52 
+process 7 started: Feb 01 2016 23:50:52 
+process 5 started: Feb 01 2016 23:50:52 
+process 9 started: Feb 01 2016 23:50:52 
+process 3 started: Feb 01 2016 23:50:52 
+process 2 started: Feb 01 2016 23:50:52 
+process 0 started: Feb 01 2016 23:50:52 
+process 1 started: Feb 01 2016 23:50:52 
+process 1 last job is _Naive end: Feb 01 2016 23:55:22 
+process 2 last job is _Naive end: Feb 01 2016 23:55:38 
+process 3 last job is _Naive end: Feb 01 2016 23:55:57 
+
+rank ,                                          name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,                  Linear_SVM_Naive_100_Macro_F ,      27  ,     0 ( *             |              ), 0.27,  0.27,  0.28,  0.28,  0.28
+   1 ,                  Linear_SVM_Naive_400_Macro_F ,      40  ,     0 (               |         *    ), 0.40,  0.40,  0.41,  0.41,  0.41
+   1 ,                  Linear_SVM_Naive_700_Macro_F ,      42  ,     0 (               |             *), 0.42,  0.42,  0.43,  0.43,  0.43
+   1 ,                 Linear_SVM_Naive_1000_Macro_F ,      42  ,     0 (               |             *), 0.42,  0.42,  0.43,  0.43,  0.43
+process 0 last job is _Naive end: Feb 01 2016 23:55:57 
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n2e5-4>
+Subject: Job 132122: <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_LinearSVC.py run /share3/wfu/Datasets/StackExchange/electronics.txt 16> Exited
+
+Job <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_LinearSVC.py run /share3/wfu/Datasets/StackExchange/electronics.txt 16> was submitted from host <login01.hpc.ncsu.edu> by user <wfu> in cluster <henry2>.
+Job was executed on host(s) <5*n2e5-4>, in queue <single_chassis>, as user <wfu> in cluster <henry2>.
+                            <5*n2e5-10>
+                            <2*n2e5-12>
+                            <4*n2e5-2>
+</home/wfu> was used as the home directory.
+</home/wfu/Github/SMOTE/src> was used as the working directory.
+Started at Mon Feb  1 23:50:49 2016
+Results reported at Mon Feb  1 23:55:58 2016
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_LinearSVC.py run /share3/wfu/Datasets/StackExchange/electronics.txt 16
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time   :   4824.83 sec.
+    Max Memory :      9115 MB
+    Max Swap   :     20846 MB
+
+    Max Processes  :        27
+    Max Threads    :        42
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <./err_svm/electronics.err.132122> for stderr output of this job.
+

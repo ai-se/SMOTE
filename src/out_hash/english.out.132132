@@ -1,0 +1,114 @@
+process 8 started: Feb 01 2016 23:56:11 
+process 11 started: Feb 01 2016 23:56:11 
+process 14 started: Feb 01 2016 23:56:11 
+process 9 started: Feb 01 2016 23:56:11 
+process 10 started: Feb 01 2016 23:56:11 
+process 12 started: Feb 01 2016 23:56:11 
+process 13 started: Feb 01 2016 23:56:11 
+process 15 started: Feb 01 2016 23:56:11 
+process 1 started: Feb 01 2016 23:56:19 
+process 2 started: Feb 01 2016 23:56:19 
+process 3 started: Feb 01 2016 23:56:19 
+process 4 started: Feb 01 2016 23:56:19 
+process 0 started: Feb 01 2016 23:56:19 
+process 5 started: Feb 01 2016 23:56:19 
+process 6 started: Feb 01 2016 23:56:19 
+process 7 started: Feb 01 2016 23:56:19 
+process 1 last job is _Naive end: Feb 01 2016 23:58:44 
+process 2 last job is _Naive end: Feb 01 2016 23:58:54 
+process 3 last job is _Naive end: Feb 01 2016 23:59:04 
+process 4 last job is _Smote end: Feb 02 2016 00:01:06 
+newbestscore {'Macro_F': 0.20359566552173483}:
+bestconf {'alpha': 1.0, 'fit_prior': False} :
+process 5 last job is _Smote end: Feb 02 2016 00:04:59 
+process 6 last job is _Smote end: Feb 02 2016 00:08:52 
+final bestescore %s: {'Macro_F': 0.15812194700252327}
+final bestconf %s: {'alpha': 0.861, 'fit_prior': False}
+DONE !!!!
+newbestscore {'Macro_F': 0.2199180514630568}:
+bestconf {'alpha': 0.72, 'fit_prior': False} :
+process 7 last job is _Smote end: Feb 02 2016 00:12:44 
+newbestscore {'Macro_F': 0.1509182593509483}:
+bestconf {'alpha': 0.066, 'fit_prior': False} :
+final bestescore %s: {'Macro_F': 0.20359566552173483}
+final bestconf %s: {'alpha': 1.0, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.2199180514630568}
+final bestconf %s: {'alpha': 0.72, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.1998238601940538}
+final bestconf %s: {'alpha': 0.809, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.1509182593509483}
+final bestconf %s: {'alpha': 0.066, 'fit_prior': False}
+DONE !!!!
+process 8 last job is _TunedLearner end: Feb 02 2016 00:25:16 
+final bestescore %s: {'Macro_F': 0.1976787543350215}
+final bestconf %s: {'alpha': 0.955, 'fit_prior': False}
+DONE !!!!
+process 9 last job is _TunedLearner end: Feb 02 2016 00:29:28 
+newbestscore {'Macro_F': 0.22103838995431618}:
+bestconf {'alpha': 0.36, 'fit_prior': False} :
+final bestescore %s: {'Macro_F': 0.2064390953398953}
+final bestconf %s: {'alpha': 0.66, 'fit_prior': False}
+DONE !!!!
+process 10 last job is _TunedLearner end: Feb 02 2016 00:40:42 
+final bestescore %s: {'Macro_F': 0.22103838995431618}
+final bestconf %s: {'alpha': 0.36, 'fit_prior': False}
+DONE !!!!
+
+process 11 last job is _TunedLearner end: Feb 02 2016 00:42:07 
+rank ,                                          name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,                          NB_Naive_100_Macro_F ,       5  ,     0 ( *             |              ), 0.05,  0.05,  0.06,  0.06,  0.06
+   1 ,                          NB_Naive_400_Macro_F ,       8  ,     0 (     *         |              ), 0.08,  0.08,  0.08,  0.08,  0.08
+   1 ,                          NB_Naive_700_Macro_F ,       9  ,     0 (      *        |              ), 0.09,  0.09,  0.09,  0.09,  0.09
+   1 ,                         NB_Naive_1000_Macro_F ,      10  ,     0 (        *      |              ), 0.10,  0.10,  0.10,  0.10,  0.10
+   2 ,                          NB_Smote_100_Macro_F ,      15  ,     0 (               |*             ), 0.15,  0.15,  0.15,  0.15,  0.15
+   2 ,                   NB_TunedLearner_100_Macro_F ,      16  ,     0 (               |  *           ), 0.16,  0.16,  0.17,  0.17,  0.17
+   3 ,                          NB_Smote_400_Macro_F ,      20  ,     0 (               |        *     ), 0.20,  0.20,  0.21,  0.21,  0.21
+   3 ,                          NB_Smote_700_Macro_F ,      20  ,     0 (               |        *     ), 0.20,  0.20,  0.20,  0.20,  0.20
+   4 ,                         NB_Smote_1000_Macro_F ,      21  ,     0 (               |          *   ), 0.21,  0.21,  0.22,  0.22,  0.22
+   4 ,                   NB_TunedLearner_400_Macro_F ,      22  ,     0 (               |           *  ), 0.22,  0.22,  0.22,  0.22,  0.22
+   4 ,                   NB_TunedLearner_700_Macro_F ,      22  ,     0 (               |           *  ), 0.22,  0.22,  0.23,  0.23,  0.23
+   4 ,                  NB_TunedLearner_1000_Macro_F ,      23  ,     0 (               |             *), 0.23,  0.23,  0.24,  0.24,  0.24
+process 0 last job is _Naive end: Feb 02 2016 00:42:07 
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n2j1-9>
+Subject: Job 132132: <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_hash.py run /share3/wfu/Datasets/StackExchange/english.txt 16> Exited
+
+Job <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_hash.py run /share3/wfu/Datasets/StackExchange/english.txt 16> was submitted from host <login01.hpc.ncsu.edu> by user <wfu> in cluster <henry2>.
+Job was executed on host(s) <8*n2j1-9>, in queue <single_chassis>, as user <wfu> in cluster <henry2>.
+                            <8*n2l4-3>
+</home/wfu> was used as the home directory.
+</home/wfu/Github/SMOTE/src> was used as the working directory.
+Started at Mon Feb  1 23:55:46 2016
+Results reported at Tue Feb  2 00:42:09 2016
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_hash.py run /share3/wfu/Datasets/StackExchange/english.txt 16
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time   :  43988.69 sec.
+    Max Memory :     17970 MB
+    Max Swap   :     31106 MB
+
+    Max Processes  :        23
+    Max Threads    :       112
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <./err_hash/english.err.132132> for stderr output of this job.
+
