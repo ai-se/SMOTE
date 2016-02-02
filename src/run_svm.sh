@@ -12,5 +12,5 @@ rm err_svm/*
 
 ##### this is only for testing on HPC
 foreach VAR (androidd rupal academia apple gamedev rpg english electronics physics tex scifi)
-  bsub -W 3600 -n 16 -o ./out_svm/$VAR.out.%J -e ./err_svm/$VAR.err.%J mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_hash.py run /share3/wfu/Datasets/StackExchange/$VAR.txt 16
+  bsub -W 3600 -n 16 -o ./out_svm/$VAR.out.%J -e ./err_svm/$VAR.err.%J mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_LinearSVC.py run /share3/wfu/Datasets/StackExchange/$VAR.txt 16
 end
