@@ -203,7 +203,7 @@ def cross_val(pd_data, learner, target_class, goal, isWhat="", fold=2,
       test_Y = test_pd.ix[:, test_pd.columns[-1]].values
       params = tune_learner(train_X) if "_TunedLearner" in isWhat else {}
       F = learner(train_X, train_Y, test_X, test_Y, goal).learn(F, **params)
-  pdb.set_trace()
+  # pdb.set_trace()
   return F
 
 
@@ -232,8 +232,8 @@ def run(data_src, process, isYes_label=False, target_class="Macro_F",
   model_tfidf = Settings(data_src, 'tfidf', isYes_label, target_class)
   # model_hash = Settings(data_src, 'hash', isBinary, isYes_label,target_class)
   methods_lst = [model_tfidf]
-  modification = ["_Naive", "_Smote", "_TunedLearner", "_TunedSmote"]
-  # modification = ["_Smote"]  # [
+  # modification = ["_Naive", "_Smote", "_TunedLearner", "_TunedSmote"]
+  modification = ["_TunedLearner"]  # [
   learners = [Naive_bayes]
   F_feature = {}
 

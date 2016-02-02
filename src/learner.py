@@ -75,7 +75,7 @@ class Learners(object):
       F[goal] = F.get(goal, []) + [2.0 * PREC_avg * PD_avg / (PREC_avg + PD_avg)]
       return F
 
-    pdb.set_trace()
+    # pdb.set_trace()
     _goal = {"PD": 0, "PF": 1, "PREC": 2, "ACC": 3, "F": 4, "G": 5}
     abcd = ABCD(actual, predicted)
     uni_actual = list(set(actual))
