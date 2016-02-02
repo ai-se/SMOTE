@@ -1,4 +1,3 @@
-
 #! /bin/tcsh
 
 rm out_svm/*
