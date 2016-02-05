@@ -17,7 +17,7 @@ import pdb
 
 class Settings(object):
   def __init__(self, src, method, isYes_label, target_class):
-    self.total_class = 10
+    self.total_class = 5
     self.data_src = src
     self.processors = 4
     self.method = method
