@@ -161,8 +161,8 @@ class DE(object):
       self.frontier = nextgeneration[:]
       newbestconf, newbestscore = self.best()
       if isBetter(newbestscore, self.bestscore):
-        print("newbestscore %s:" % str(newbestscore))
-        print("bestconf %s :" % str(newbestconf))
+        # print("newbestscore %s:" % str(newbestscore))
+        # print("bestconf %s :" % str(newbestconf))
         self.bestscore = newbestscore
         self.bestconf = newbestconf
         changed = True
@@ -172,7 +172,7 @@ class DE(object):
     print("final bestescore %s: " + str(self.bestscore))
     print("final bestconf %s: " + str(self.bestconf))
     print("DONE !!!!")
-    return self.bestconf
+    return (self.bestconf, self.evaluation)
 
 
 class DE_Tune_ML(DE):
