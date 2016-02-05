@@ -199,6 +199,7 @@ def cross_val(pd_data, learner, target_class, goal, isWhat="", fold=5,
       test_Y = test_pd.ix[:, test_pd.columns[-1]].values
       params, evaluation = tune_learner(train_X) if "_TunedLearner" in isWhat else ({},0)
       F = learner(train_X, train_Y, test_X, test_Y, goal).learn(F, **params)
+      total_evaluation +=evaluation
   # pdb.set_trace()
   avg_evaluation = total_evaluation / (repeats * fold)
   return avg_evaluation, F
