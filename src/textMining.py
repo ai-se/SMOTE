@@ -229,7 +229,7 @@ def run(data_src, process, isYes_label=False, target_class="Macro_F",
   model_tfidf = Settings(data_src, 'tfidf', isYes_label, target_class)
   # model_hash = Settings(data_src, 'hash', isBinary, isYes_label,target_class)
   methods_lst = [model_tfidf]
-  modification = [ "_Naive"]
+  modification = [ "_Naive","_Smote","_TunedLearner"]
   # modification = ["_TunedLearner"]  # [
   learners = [Naive_bayes]
   F_feature = {}
