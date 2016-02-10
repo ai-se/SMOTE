@@ -169,9 +169,9 @@ class DE(object):
       if not changed:
         self.life -= 1
       changed = False
-    print("final bestescore %s: " + str(self.bestscore))
-    print("final bestconf %s: " + str(self.bestconf))
-    print("DONE !!!!")
+    # print("final bestescore %s: " + str(self.bestscore))
+    # print("final bestconf %s: " + str(self.bestconf))
+    # print("DONE !!!!")
     return (self.bestconf, self.evaluation)
 
 
