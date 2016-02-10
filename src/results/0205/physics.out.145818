@@ -1,0 +1,85 @@
+process 6 started: Feb 05 2016 13:23:52 
+process 8 started: Feb 05 2016 13:23:52 
+process 9 started: Feb 05 2016 13:23:52 
+process 7 started: Feb 05 2016 13:23:52 
+process 10 started: Feb 05 2016 13:23:52 
+process 11 started: Feb 05 2016 13:23:52 
+process 14 started: Feb 05 2016 13:23:52 
+process 15 started: Feb 05 2016 13:23:52 
+process 13 started: Feb 05 2016 13:23:52 
+process 12 started: Feb 05 2016 13:23:52 
+process 1 started: Feb 05 2016 13:23:53 
+process 2 started: Feb 05 2016 13:23:53 
+process 3 started: Feb 05 2016 13:23:53 
+process 4 started: Feb 05 2016 13:23:53 
+process 5 started: Feb 05 2016 13:23:53 
+process 0 started: Feb 05 2016 13:23:53 
+NB_Naive_100_Macro_F run:  124.084455967 sec
+NB_Naive_400_Macro_F run:  218.980777025 sec
+NB_Naive_1900_Macro_F run:  730.385298967 sec
+NB_Naive_1000_Macro_F run:  770.145704031 sec
+final bestescore %s: {'Macro_F': 0.46471919239583176}
+final bestconf %s: {'alpha': 0.642, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5198518917790299}
+final bestconf %s: {'alpha': 0.134, 'fit_prior': False}
+DONE !!!!
+NB_Naive_1600_Macro_F run:  1056.60320878 sec
+process 5 last job is _Naive end: Feb 05 2016 13:45:31 
+final bestescore %s: {'Macro_F': 0.5415721316923721}
+final bestconf %s: {'alpha': 0.01, 'fit_prior': False}
+DONE !!!!
+NB_Naive_700_Macro_F run:  1851.35243392 sec
+final bestescore %s: {'Macro_F': 0.5232335787821243}
+final bestconf %s: {'alpha': 0.311, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.4646687512008542}
+final bestconf %s: {'alpha': 0.61, 'fit_prior': False}
+DONE !!!!
+
+=====================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   EXIT CODE: 9
+=   CLEANING UP REMAINING PROCESSES
+=   YOU CAN IGNORE THE BELOW CLEANUP MESSAGES
+=====================================================================================
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n3l2-12>
+Subject: Job 145818: <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/physics.txt 16> Exited
+
+Job <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/physics.txt 16> was submitted from host <login01.hpc.ncsu.edu> by user <wfu> in cluster <henry2>.
+Job was executed on host(s) <6*n3l2-12>, in queue <single_chassis>, as user <wfu> in cluster <henry2>.
+                            <6*n3l2-1>
+                            <4*n3l2-7>
+</home/wfu> was used as the home directory.
+</home/wfu/Github/SMOTE/src> was used as the working directory.
+Started at Fri Feb  5 13:23:38 2016
+Results reported at Fri Feb  5 14:07:42 2016
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/physics.txt 16
+------------------------------------------------------------
+
+Exited with exit code 255.
+
+Resource usage summary:
+
+    CPU time   :  20768.08 sec.
+    Max Memory :     31988 MB
+    Max Swap   :     61545 MB
+
+    Max Processes  :        25
+    Max Threads    :        40
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <./err/physics.err.145818> for stderr output of this job.
+

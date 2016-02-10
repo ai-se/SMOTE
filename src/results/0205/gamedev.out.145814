@@ -1,0 +1,342 @@
+process 15 started: Feb 05 2016 13:23:48 
+process 14 started: Feb 05 2016 13:23:51 
+process 9 started: Feb 05 2016 13:23:51 
+process 10 started: Feb 05 2016 13:23:51 
+process 11 started: Feb 05 2016 13:23:51 
+process 2 started: Feb 05 2016 13:23:51 
+process 3 started: Feb 05 2016 13:23:51 
+process 7 started: Feb 05 2016 13:23:51 
+process 8 started: Feb 05 2016 13:23:51 
+process 12 started: Feb 05 2016 13:23:52 
+process 13 started: Feb 05 2016 13:23:52 
+process 6 started: Feb 05 2016 13:23:52 
+process 5 started: Feb 05 2016 13:23:52 
+process 0 started: Feb 05 2016 13:23:52 
+process 1 started: Feb 05 2016 13:23:52 
+process 4 started: Feb 05 2016 13:23:52 
+NB_Naive_100_Macro_F run:  107.727557182 sec
+NB_Naive_400_Macro_F run:  116.261966944 sec
+NB_Naive_700_Macro_F run:  127.349436045 sec
+NB_Naive_1000_Macro_F run:  135.19498992 sec
+final bestescore %s: {'Macro_F': 0.36714837182267857}
+final bestconf %s: {'alpha': 0.217, 'fit_prior': False}
+DONE !!!!
+NB_Naive_1300_Macro_F run:  236.013295889 sec
+NB_Naive_1600_Macro_F run:  245.158679962 sec
+NB_Naive_1900_Macro_F run:  262.360677958 sec
+final bestescore %s: {'Macro_F': 0.4875648295641285}
+final bestconf %s: {'alpha': 0.04, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.4964372508032113}
+final bestconf %s: {'alpha': 0.025, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5118150837765764}
+final bestconf %s: {'alpha': 0.025, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.36879889009400757}
+final bestconf %s: {'alpha': 0.41, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5226535347909774}
+final bestconf %s: {'alpha': 0.035, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5208883079210876}
+final bestconf %s: {'alpha': 0.028, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.4856797989750922}
+final bestconf %s: {'alpha': 0.012, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.3794687630918423}
+final bestconf %s: {'alpha': 0.318, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5165797741270728}
+final bestconf %s: {'alpha': 0.003, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5044239207631676}
+final bestconf %s: {'alpha': 0.003, 'fit_prior': False}
+DONE !!!!
+NB_Smote_100_Macro_F run:  962.810299873 sec
+final bestescore %s: {'Macro_F': 0.5000455112083175}
+final bestconf %s: {'alpha': 0.02, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.3693507098939524}
+final bestconf %s: {'alpha': 0.16, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5200092079422421}
+final bestconf %s: {'alpha': 0.008, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.499078026722513}
+final bestconf %s: {'alpha': 0.01, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.519667032798846}
+final bestconf %s: {'alpha': 0.056, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5196325757129516}
+final bestconf %s: {'alpha': 0.01, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5103481884250766}
+final bestconf %s: {'alpha': 0.02, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.4878301742401272}
+final bestconf %s: {'alpha': 0.01, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.3728908332454033}
+final bestconf %s: {'alpha': 0.0, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5012782127171886}
+final bestconf %s: {'alpha': 0.071, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.484063904127117}
+final bestconf %s: {'alpha': 0.001, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.37320775363071146}
+final bestconf %s: {'alpha': 0.719, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5219661503957116}
+final bestconf %s: {'alpha': 0.01, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.511425765492444}
+final bestconf %s: {'alpha': 0.002, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5222884580390071}
+final bestconf %s: {'alpha': 0.005, 'fit_prior': False}
+DONE !!!!
+NB_Smote_700_Macro_F run:  1998.61614418 sec
+final bestescore %s: {'Macro_F': 0.3715781293890473}
+final bestconf %s: {'alpha': 0.669, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.4921613593444233}
+final bestconf %s: {'alpha': 0.008, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5007857709288676}
+final bestconf %s: {'alpha': 0.03, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.3697841713398663}
+final bestconf %s: {'alpha': 0.228, 'fit_prior': False}
+DONE !!!!
+NB_Smote_400_Macro_F run:  2177.69234705 sec
+final bestescore %s: {'Macro_F': 0.48955996750554615}
+final bestconf %s: {'alpha': 0.004, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5156836073224397}
+final bestconf %s: {'alpha': 0.02, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5165305175558381}
+final bestconf %s: {'alpha': 0.01, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5220424710879061}
+final bestconf %s: {'alpha': 0.04, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5262257031822444}
+final bestconf %s: {'alpha': 0.017, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.3765154534099096}
+final bestconf %s: {'alpha': 0.98, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5051748092127212}
+final bestconf %s: {'alpha': 0.003, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.48933219893727353}
+final bestconf %s: {'alpha': 0.091, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5317120746195616}
+final bestconf %s: {'alpha': 0.038, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5142179242233851}
+final bestconf %s: {'alpha': 0.22, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.3718693120493279}
+final bestconf %s: {'alpha': 0.9, 'fit_prior': False}
+DONE !!!!
+NB_TunedLearner_100_Macro_F evaluation:354.0
+NB_TunedLearner_100_Macro_F run:  2843.23112702 sec
+final bestescore %s: {'Macro_F': 0.5272509309191225}
+final bestconf %s: {'alpha': 0.04, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.49757842963137916}
+final bestconf %s: {'alpha': 0.04, 'fit_prior': False}
+DONE !!!!
+NB_Smote_1000_Macro_F run:  2976.70386195 sec
+final bestescore %s: {'Macro_F': 0.5092588405049578}
+final bestconf %s: {'alpha': 0.01, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5222519172627167}
+final bestconf %s: {'alpha': 0.003, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.4879611453999832}
+final bestconf %s: {'alpha': 0.01, 'fit_prior': False}
+DONE !!!!
+NB_TunedLearner_400_Macro_F evaluation:372.0
+NB_TunedLearner_400_Macro_F run:  3249.21898484 sec
+final bestescore %s: {'Macro_F': 0.5237626072621857}
+final bestconf %s: {'alpha': 0.008, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5248531220847189}
+final bestconf %s: {'alpha': 0.042, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5011261645400793}
+final bestconf %s: {'alpha': 0.003, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5317017541682579}
+final bestconf %s: {'alpha': 0.01, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5144616295957541}
+final bestconf %s: {'alpha': 0.003, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5128926481809502}
+final bestconf %s: {'alpha': 0.004, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5301798407017202}
+final bestconf %s: {'alpha': 0.007, 'fit_prior': False}
+DONE !!!!
+NB_Smote_1300_Macro_F run:  3829.46112013 sec
+final bestescore %s: {'Macro_F': 0.514603469514309}
+final bestconf %s: {'alpha': 0.003, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5036782809219745}
+final bestconf %s: {'alpha': 0.05, 'fit_prior': False}
+DONE !!!!
+NB_TunedLearner_700_Macro_F evaluation:348.0
+NB_TunedLearner_700_Macro_F run:  4069.20047522 sec
+process 15 last job is _TunedLearner end: Feb 05 2016 14:33:59 
+process 14 last job is _TunedLearner end: Feb 05 2016 14:33:59 
+process 9 last job is _Smote end: Feb 05 2016 14:33:59 
+process 10 last job is _Smote end: Feb 05 2016 14:33:59 
+process 11 last job is _Smote end: Feb 05 2016 14:33:59 
+process 8 last job is _Smote end: Feb 05 2016 14:33:59 
+process 6 last job is _Naive end: Feb 05 2016 14:33:59 
+process 7 last job is _Smote end: Feb 05 2016 14:33:59 
+process 5 last job is _Naive end: Feb 05 2016 14:33:59 
+final bestescore %s: {'Macro_F': 0.5166657680237103}
+final bestconf %s: {'alpha': 0.05, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5187501760490782}
+final bestconf %s: {'alpha': 0.016, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5228220068567052}
+final bestconf %s: {'alpha': 0.002, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5250280596785464}
+final bestconf %s: {'alpha': 0.026, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.516782986340946}
+final bestconf %s: {'alpha': 0.017, 'fit_prior': False}
+DONE !!!!
+NB_TunedLearner_1000_Macro_F evaluation:348.0
+NB_TunedLearner_1000_Macro_F run:  4473.12387896 sec
+process 1 last job is _TunedLearner end: Feb 05 2016 14:40:43 
+final bestescore %s: {'Macro_F': 0.5196652082527423}
+final bestconf %s: {'alpha': 0.004, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5157404190872805}
+final bestconf %s: {'alpha': 0.002, 'fit_prior': False}
+DONE !!!!
+NB_Smote_1600_Macro_F run:  4922.10602713 sec
+process 12 last job is _Smote end: Feb 05 2016 14:48:09 
+final bestescore %s: {'Macro_F': 0.5148858043469223}
+final bestconf %s: {'alpha': 0.002, 'fit_prior': False}
+DONE !!!!
+NB_TunedLearner_1600_Macro_F evaluation:354.0
+NB_TunedLearner_1600_Macro_F run:  4937.54480696 sec
+process 3 last job is _TunedLearner end: Feb 05 2016 14:48:26 
+final bestescore %s: {'Macro_F': 0.5215282258920888}
+final bestconf %s: {'alpha': 0.05, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5209690397341485}
+final bestconf %s: {'alpha': 0.029, 'fit_prior': False}
+DONE !!!!
+NB_TunedLearner_1300_Macro_F evaluation:396.0
+NB_TunedLearner_1300_Macro_F run:  5185.54871702 sec
+process 2 last job is _TunedLearner end: Feb 05 2016 14:52:35 
+NB_Smote_1900_Macro_F run:  5567.46244311 sec
+process 13 last job is _Smote end: Feb 05 2016 14:58:54 
+final bestescore %s: {'Macro_F': 0.5224374728045035}
+final bestconf %s: {'alpha': 0.003, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.534132846499252}
+final bestconf %s: {'alpha': 0.002, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5324440522308246}
+final bestconf %s: {'alpha': 0.01, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.5230696675437604}
+final bestconf %s: {'alpha': 0.002, 'fit_prior': False}
+DONE !!!!
+final bestescore %s: {'Macro_F': 0.527388455471254}
+final bestconf %s: {'alpha': 0.003, 'fit_prior': False}
+DONE !!!!
+NB_TunedLearner_1900_Macro_F evaluation:342.0
+NB_TunedLearner_1900_Macro_F run:  9265.669276 sec
+process 4 last job is _TunedLearner end: Feb 05 2016 16:02:32 
+
+rank ,                                          name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,                          NB_Naive_100_Macro_F ,      30  ,     1 ( *-            |              ), 0.30,  0.30,  0.31,  0.32,  0.33
+   2 ,                          NB_Naive_400_Macro_F ,      37  ,     2 (      -  *     |              ), 0.35,  0.36,  0.37,  0.37,  0.38
+   2 ,                          NB_Smote_100_Macro_F ,      37  ,     1 (       - *     |              ), 0.36,  0.37,  0.37,  0.38,  0.38
+   2 ,                   NB_TunedLearner_100_Macro_F ,      37  ,     1 (         *     |              ), 0.37,  0.37,  0.38,  0.38,  0.39
+   3 ,                          NB_Naive_700_Macro_F ,      39  ,     0 (           *   |              ), 0.38,  0.39,  0.39,  0.39,  0.40
+   3 ,                         NB_Naive_1000_Macro_F ,      39  ,     2 (         - *   |              ), 0.38,  0.38,  0.40,  0.40,  0.40
+   3 ,                         NB_Naive_1900_Macro_F ,      39  ,     1 (          -* - |              ), 0.38,  0.39,  0.40,  0.41,  0.42
+   3 ,                         NB_Naive_1300_Macro_F ,      40  ,     1 (          -*-  |              ), 0.39,  0.39,  0.40,  0.40,  0.41
+   3 ,                         NB_Naive_1600_Macro_F ,      40  ,     1 (            *- |              ), 0.39,  0.39,  0.40,  0.41,  0.41
+   4 ,                          NB_Smote_400_Macro_F ,      48  ,     0 (               |     -*       ), 0.48,  0.48,  0.48,  0.49,  0.49
+   5 ,                          NB_Smote_700_Macro_F ,      50  ,     0 (               |       -*     ), 0.49,  0.50,  0.50,  0.50,  0.51
+   5 ,                   NB_TunedLearner_400_Macro_F ,      50  ,     1 (               |      - *     ), 0.49,  0.50,  0.50,  0.50,  0.51
+   6 ,                         NB_Smote_1000_Macro_F ,      51  ,     1 (               |        -*-   ), 0.50,  0.51,  0.51,  0.52,  0.52
+   6 ,                   NB_TunedLearner_700_Macro_F ,      51  ,     1 (               |        -*-   ), 0.50,  0.51,  0.51,  0.52,  0.52
+   6 ,                         NB_Smote_1300_Macro_F ,      52  ,     0 (               |         -*-  ), 0.51,  0.52,  0.52,  0.52,  0.53
+   6 ,                         NB_Smote_1600_Macro_F ,      52  ,     0 (               |         -*   ), 0.51,  0.52,  0.52,  0.52,  0.53
+   6 ,                  NB_TunedLearner_1000_Macro_F ,      52  ,     0 (               |           *  ), 0.52,  0.52,  0.52,  0.52,  0.53
+   6 ,                         NB_Smote_1900_Macro_F ,      52  ,     1 (               |          -*  ), 0.52,  0.52,  0.53,  0.53,  0.53
+   6 ,                  NB_TunedLearner_1300_Macro_F ,      53  ,     0 (               |            * ), 0.52,  0.53,  0.53,  0.54,  0.54
+   6 ,                  NB_TunedLearner_1600_Macro_F ,      53  ,     1 (               |           -* ), 0.53,  0.53,  0.53,  0.54,  0.55
+   6 ,                  NB_TunedLearner_1900_Macro_F ,      54  ,     1 (               |           -* ), 0.52,  0.54,  0.54,  0.54,  0.55
+process 0 last job is _TunedLearner end: Feb 05 2016 16:02:33 
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n2j1-1>
+Subject: Job 145814: <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/gamedev.txt 16> Done
+
+Job <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/gamedev.txt 16> was submitted from host <login01.hpc.ncsu.edu> by user <wfu> in cluster <henry2>.
+Job was executed on host(s) <2*n2j1-1>, in queue <single_chassis>, as user <wfu> in cluster <henry2>.
+                            <2*n2j1-11>
+                            <1*n2j1-13>
+                            <1*n2j1-6>
+                            <1*n2j1-7>
+                            <1*n2j1-14>
+                            <1*n2j1-5>
+                            <3*n2l6-4>
+                            <2*n2l6-5>
+                            <1*n2l6-7>
+                            <1*n2l5-12>
+</home/wfu> was used as the home directory.
+</home/wfu/Github/SMOTE/src> was used as the working directory.
+Started at Fri Feb  5 13:23:38 2016
+Results reported at Fri Feb  5 16:02:36 2016
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/gamedev.txt 16
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time   : 143007.56 sec.
+    Max Memory :     45456 MB
+    Max Swap   :     59476 MB
+
+    Max Processes  :        41
+    Max Threads    :       108
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <./err/gamedev.err.145814> for stderr output of this job.
+
