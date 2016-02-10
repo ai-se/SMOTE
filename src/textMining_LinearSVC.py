@@ -17,7 +17,7 @@ import pdb
 
 class Settings(object):
   def __init__(self, src, method, isYes_label, target_class):
-    self.total_class = 20
+    self.total_class = 5
     self.data_src = src
     self.processors = 4
     self.method = method
@@ -136,7 +136,7 @@ class Settings(object):
 
 
 def cross_val(pd_data, learner, target_class, goal, isWhat="", fold=5,
-              repeats=3):
+              repeats=2):
   """
   do 5-fold cross_validation
   """
@@ -177,12 +177,8 @@ def cross_val(pd_data, learner, target_class, goal, isWhat="", fold=5,
       return params, new_train
 
   F = {}
+  total_evaluation = 0
   for i in xrange(repeats):  # repeat 5 times here
-    # if isWhat == "_Smote":
-    #   pd_data1 = smote(pd_data1).run()
-    #   # pdb.set_trace()
-    # pd_data1 = pd_data1.reindex(np.random.permutation(pd_data1.index))
-    # pd_data = pd.DataFrame(pd_data1.values)
     kf = StratifiedKFold(pd_data.ix[:, pd_data.columns[-1]].values, fold, shuffle=True)
     for train_index, test_index in kf:
       train_pd = pd_data.ix[train_index]
@@ -201,10 +197,12 @@ def cross_val(pd_data, learner, target_class, goal, isWhat="", fold=5,
       train_Y = train_pd.ix[:, train_pd.columns[-1]].values
       test_X = test_pd.ix[:, test_pd.columns[:-1]].values
       test_Y = test_pd.ix[:, test_pd.columns[-1]].values
-      params = tune_learner(train_X) if "_TunedLearner" in isWhat else {}
+      params, evaluation = tune_learner(train_X) if "_TunedLearner" in isWhat else ({},0)
       F = learner(train_X, train_Y, test_X, test_Y, goal).learn(F, **params)
+      total_evaluation +=evaluation
   # pdb.set_trace()
-  return F
+  avg_evaluation = total_evaluation / (repeats * fold)
+  return avg_evaluation, F
 
 
 def scott(scores):
@@ -228,7 +226,7 @@ def run(data_src, process, isYes_label=False, target_class="Macro_F",
   goal = {0: "PD", 1: "PF", 2: "PREC", 3: "ACC", 4: "F", 5: "G", 6: "Macro_F", 7: "Micro_F"}[6]
   print("process", str(rank), "started:", time.strftime("%b %d %Y %H:%M:%S "))
   # different processes run different feature experiments
-  features_num = [100 * i for i in xrange(1, 11, 3)]
+  features_num = [100 * i for i in xrange(1, 22, 3)]
   model_tfidf = Settings(data_src, 'tfidf', isYes_label, target_class)
   # model_hash = Settings(data_src, 'hash', isBinary, isYes_label,target_class)
   methods_lst = [model_tfidf]
@@ -236,18 +234,23 @@ def run(data_src, process, isYes_label=False, target_class="Macro_F",
   # modification = ["_TunedLearner"]  # [
   learners = [Linear_SVM]
   F_feature = {}
-
+  start_time = time.time()
   ## Way2: distribute all jobs to different processors.
   jobs = [(num, trick, learner, m) for learner in learners for m in methods_lst for trick in modification for num in
           features_num]
   jobs_processor = [jobs[i] for i in xrange(rank, len(jobs), size)]
   for f_num, isWhat, learner, method in jobs_processor:
     random.seed(1)
+    avg_evaluation = 0
     pd_data = method.make_feature(f_num)
     target_class = method.target_class  # here's an issue: We need to predict what????? yes or no, or mean_weighted?
     name = learner.name + isWhat
     key_name = name + "_" + str(f_num) + "_" + target_class
-    F_feature[key_name] = cross_val(pd_data, learner, target_class, goal, isWhat)[target_class]
+    avg_evaluation, score = cross_val(pd_data, learner, target_class, goal, isWhat)
+    F_feature[key_name] =score[target_class]
+    if isWhat == "_TunedLearner":
+      print(key_name + " evaluation:" + str(avg_evaluation))
+    print (key_name+" run: ",str(time.time()-start_time), "sec")
 
   if rank == 0:
     for i in xrange(1, size):
