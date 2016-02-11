@@ -1,0 +1,80 @@
+process 8 started: Feb 10 2016 04:34:12 
+process 13 started: Feb 10 2016 04:34:12 
+process 12 started: Feb 10 2016 04:34:12 
+process 14 started: Feb 10 2016 04:34:12 
+process 11 started: Feb 10 2016 04:34:12 
+process 9 started: Feb 10 2016 04:34:12 
+process 10 started: Feb 10 2016 04:34:12 
+process 15 started: Feb 10 2016 04:34:13 
+process 5 started: Feb 10 2016 04:34:14 
+process 3 started: Feb 10 2016 04:34:14 
+process 6 started: Feb 10 2016 04:34:14 
+process 4 started: Feb 10 2016 04:34:14 
+process 1 started: Feb 10 2016 04:34:14 
+process 0 started: Feb 10 2016 04:34:14 
+process 7 started: Feb 10 2016 04:34:14 
+process 2 started: Feb 10 2016 04:34:14 
+Linear_SVM_Naive_100_Macro_F run:  78.4460799694 sec
+Linear_SVM_Naive_400_Macro_F run:  105.854276896 sec
+process 1 last job is _Naive end: Feb 10 2016 04:39:12 
+Linear_SVM_Naive_700_Macro_F run:  150.082291842 sec
+process 2 last job is _Naive end: Feb 10 2016 04:39:49 
+Linear_SVM_Naive_1000_Macro_F run:  211.005600929 sec
+process 3 last job is _Naive end: Feb 10 2016 04:40:54 
+Linear_SVM_Naive_1300_Macro_F run:  246.257835865 sec
+process 4 last job is _Naive end: Feb 10 2016 04:41:31 
+Linear_SVM_Naive_1600_Macro_F run:  286.378262043 sec
+process 5 last job is _Naive end: Feb 10 2016 04:42:07 
+Linear_SVM_Naive_1900_Macro_F run:  487.911239862 sec
+process 6 last job is _Naive end: Feb 10 2016 04:45:30 
+
+rank ,                                          name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,                  Linear_SVM_Naive_100_Macro_F ,      44  ,     1 (-- *-          |              ), 0.43,  0.44,  0.45,  0.45,  0.46
+   2 ,                  Linear_SVM_Naive_400_Macro_F ,      53  ,     1 (              -*-             ), 0.52,  0.53,  0.53,  0.54,  0.54
+   3 ,                  Linear_SVM_Naive_700_Macro_F ,      56  ,     0 (               |    - *       ), 0.56,  0.57,  0.57,  0.57,  0.58
+   4 ,                 Linear_SVM_Naive_1000_Macro_F ,      59  ,     2 (               |       -*-    ), 0.58,  0.59,  0.59,  0.59,  0.60
+   4 ,                 Linear_SVM_Naive_1600_Macro_F ,      60  ,     1 (               |        -*--- ), 0.59,  0.60,  0.60,  0.60,  0.63
+   4 ,                 Linear_SVM_Naive_1300_Macro_F ,      60  ,     1 (               |        -*    ), 0.59,  0.60,  0.60,  0.60,  0.60
+   4 ,                 Linear_SVM_Naive_1900_Macro_F ,      61  ,     1 (               |           *  ), 0.60,  0.60,  0.61,  0.61,  0.62
+process 0 last job is _Naive end: Feb 10 2016 04:45:32 
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n3o3-11>
+Subject: Job 150326: <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_LinearSVC.py run /share3/wfu/Datasets/StackExchange/physics.txt 16> Exited
+
+Job <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_LinearSVC.py run /share3/wfu/Datasets/StackExchange/physics.txt 16> was submitted from host <login01.hpc.ncsu.edu> by user <wfu> in cluster <henry2>.
+Job was executed on host(s) <8*n3o3-11>, in queue <single_chassis>, as user <wfu> in cluster <henry2>.
+                            <4*n3o3-3>
+                            <4*n3o3-6>
+</home/wfu> was used as the home directory.
+</home/wfu/Github/SMOTE/src> was used as the working directory.
+Started at Wed Feb 10 04:34:01 2016
+Results reported at Wed Feb 10 04:46:09 2016
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_LinearSVC.py run /share3/wfu/Datasets/StackExchange/physics.txt 16
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time   :  10340.27 sec.
+    Max Memory :     24993 MB
+    Max Swap   :     39695 MB
+
+    Max Processes  :        25
+    Max Threads    :        40
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <./err_svm/physics.err.150326> for stderr output of this job.
+

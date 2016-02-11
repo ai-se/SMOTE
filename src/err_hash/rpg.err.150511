@@ -1,0 +1,63 @@
+Traceback (most recent call last):
+  File "textMining_hash.py", line 294, in <module>
+Traceback (most recent call last):
+  File "textMining_hash.py", line 294, in <module>
+Traceback (most recent call last):
+  File "textMining_hash.py", line 294, in <module>
+Traceback (most recent call last):
+  File "textMining_hash.py", line 294, in <module>
+Traceback (most recent call last):
+  File "textMining_hash.py", line 294, in <module>
+    eval(cmd())
+Traceback (most recent call last):
+  File "textMining_hash.py", line 294, in <module>
+Traceback (most recent call last):
+  File "textMining_hash.py", line 294, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+Traceback (most recent call last):
+  File "textMining_hash.py", line 294, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+  File "textMining_hash.py", line 265, in run
+  File "<string>", line 1, in <module>
+Traceback (most recent call last):
+  File "textMining_hash.py", line 294, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+    print("process", str(rank), "last job is", jobs_processor[-1][1], "end:", time.strftime("%b %d %Y %H:%M:%S "))
+  File "textMining_hash.py", line 265, in run
+    eval(cmd())
+  File "<string>", line 1, in <module>
+  File "textMining_hash.py", line 265, in run
+IndexError: list index out of range
+  File "textMining_hash.py", line 265, in run
+    eval(cmd())
+  File "<string>", line 1, in <module>
+    eval(cmd())
+    eval(cmd())
+  File "<string>", line 1, in <module>
+  File "<string>", line 1, in <module>
+  File "textMining_hash.py", line 265, in run
+  File "textMining_hash.py", line 265, in run
+  File "textMining_hash.py", line 265, in run
+    print("process", str(rank), "last job is", jobs_processor[-1][1], "end:", time.strftime("%b %d %Y %H:%M:%S "))
+IndexError: list index out of range
+    print("process", str(rank), "last job is", jobs_processor[-1][1], "end:", time.strftime("%b %d %Y %H:%M:%S "))
+IndexError: list index out of range
+    print("process", str(rank), "last job is", jobs_processor[-1][1], "end:", time.strftime("%b %d %Y %H:%M:%S "))
+    print("process", str(rank), "last job is", jobs_processor[-1][1], "end:", time.strftime("%b %d %Y %H:%M:%S "))
+IndexError: IndexError: list index out of range
+list index out of range
+  File "textMining_hash.py", line 265, in run
+  File "textMining_hash.py", line 265, in run
+    print("process", str(rank), "last job is", jobs_processor[-1][1], "end:", time.strftime("%b %d %Y %H:%M:%S "))
+IndexError: list index out of range
+    print("process", str(rank), "last job is", jobs_processor[-1][1], "end:", time.strftime("%b %d %Y %H:%M:%S "))
+IndexError: list index out of range
+    print("process", str(rank), "last job is", jobs_processor[-1][1], "end:", time.strftime("%b %d %Y %H:%M:%S "))
+    print("process", str(rank), "last job is", jobs_processor[-1][1], "end:", time.strftime("%b %d %Y %H:%M:%S "))
+IndexError: list index out of range
+IndexError: list index out of range

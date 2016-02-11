@@ -1,0 +1,47 @@
+process 13 started: Feb 10 2016 04:27:38 
+process 15 started: Feb 10 2016 04:27:38 
+process 10 started: Feb 10 2016 04:27:38 
+process 14 started: Feb 10 2016 04:27:38 
+process 8 started: Feb 10 2016 04:27:38 
+process 11 started: Feb 10 2016 04:27:38 
+process 9 started: Feb 10 2016 04:27:38 
+process 12 started: Feb 10 2016 04:27:38 
+process 6 started: Feb 10 2016 04:27:39 
+process 4 started: Feb 10 2016 04:27:39 
+process 2 started: Feb 10 2016 04:27:39 
+process 0 started: Feb 10 2016 04:27:39 
+process 3 started: Feb 10 2016 04:27:39 
+process 7 started: Feb 10 2016 04:27:39 
+process 1 started: Feb 10 2016 04:27:39 
+process 5 started: Feb 10 2016 04:27:39 
+NB_Naive_100_Macro_F run:  1302.32539392 sec
+NB_Naive_1000_Macro_F run:  1541.51817703 sec
+NB_Naive_400_Macro_F run:  1772.4417069 sec
+NB_Naive_700_Macro_F run:  2081.85551286 sec
+NB_Naive_1300_Macro_F run:  13284.122134 sec
+NB_Smote_100_Macro_F run:  17729.383136 sec
+process 7 last job is _Smote end: Feb 10 2016 09:30:29 
+NB_TunedLearner_100_Macro_F evaluation:348.0
+NB_TunedLearner_100_Macro_F run:  19669.179621 sec
+NB_TunedLearner_400_Macro_F evaluation:366.0
+NB_TunedLearner_400_Macro_F run:  24762.298142 sec
+NB_Naive_1600_Macro_F run:  51293.8641419 sec
+process 5 last job is _Naive end: Feb 10 2016 18:49:55 
+NB_TunedLearner_700_Macro_F evaluation:348.0
+NB_TunedLearner_700_Macro_F run:  54922.6688051 sec
+process 14 last job is _TunedLearner end: Feb 10 2016 19:50:24 
+process 15 last job is _TunedLearner end: Feb 10 2016 19:50:24 
+NB_Naive_1900_Macro_F run:  66127.4670169 sec
+process 6 last job is _Naive end: Feb 10 2016 22:57:07 
+NB_TunedLearner_1000_Macro_F evaluation:366.0
+NB_TunedLearner_1000_Macro_F run:  72751.8030758 sec
+process 1 last job is _TunedLearner end: Feb 11 2016 00:47:32 
+NB_TunedLearner_1300_Macro_F evaluation:348.0
+NB_TunedLearner_1300_Macro_F run:  77161.6930349 sec
+process 2 last job is _TunedLearner end: Feb 11 2016 02:01:05 
+NB_TunedLearner_1600_Macro_F evaluation:354.0
+NB_TunedLearner_1600_Macro_F run:  95148.693882 sec
+process 3 last job is _TunedLearner end: Feb 11 2016 07:00:49 
+NB_TunedLearner_1900_Macro_F evaluation:366.0
+NB_TunedLearner_1900_Macro_F run:  97034.603091 sec
+process 4 last job is _TunedLearner end: Feb 11 2016 07:32:20 

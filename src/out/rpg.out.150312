@@ -1,0 +1,124 @@
+process 8 started: Feb 10 2016 04:27:38 
+process 9 started: Feb 10 2016 04:27:38 
+process 10 started: Feb 10 2016 04:27:38 
+process 11 started: Feb 10 2016 04:27:38 
+process 12 started: Feb 10 2016 04:27:38 
+process 14 started: Feb 10 2016 04:27:38 
+process 15 started: Feb 10 2016 04:27:38 
+process 13 started: Feb 10 2016 04:27:38 
+process 6 started: Feb 10 2016 04:27:38 
+process 7 started: Feb 10 2016 04:27:38 
+process 1 started: Feb 10 2016 04:27:38 
+process 2 started: Feb 10 2016 04:27:38 
+process 0 started: Feb 10 2016 04:27:38 
+process 4 started: Feb 10 2016 04:27:38 
+process 5 started: Feb 10 2016 04:27:38 
+process 3 started: Feb 10 2016 04:27:38 
+NB_Naive_100_Macro_F run:  11.4938468933 sec
+NB_Naive_400_Macro_F run:  16.272988081 sec
+NB_Naive_700_Macro_F run:  19.8256881237 sec
+NB_Naive_1000_Macro_F run:  23.1374838352 sec
+NB_Naive_1300_Macro_F run:  28.0907461643 sec
+NB_Naive_1600_Macro_F run:  32.0033090115 sec
+process 5 last job is _Naive end: Feb 10 2016 04:28:56 
+NB_Naive_1900_Macro_F run:  36.1432800293 sec
+process 6 last job is _Naive end: Feb 10 2016 04:29:00 
+NB_Smote_100_Macro_F run:  100.743884087 sec
+process 7 last job is _Smote end: Feb 10 2016 04:30:05 
+NB_Smote_400_Macro_F run:  239.296918869 sec
+NB_Smote_700_Macro_F run:  445.41130209 sec
+NB_Smote_1000_Macro_F run:  602.47113204 sec
+NB_Smote_1300_Macro_F run:  743.80268693 sec
+NB_Smote_1600_Macro_F run:  935.391190052 sec
+NB_Smote_1900_Macro_F run:  1083.3590641 sec
+NB_TunedLearner_100_Macro_F evaluation:348.0
+NB_TunedLearner_100_Macro_F run:  1482.22541094 sec
+NB_TunedLearner_400_Macro_F evaluation:354.0
+NB_TunedLearner_400_Macro_F run:  1627.81534481 sec
+NB_TunedLearner_700_Macro_F evaluation:330.0
+NB_TunedLearner_700_Macro_F run:  1664.70473981 sec
+process 8 last job is _Smote end: Feb 10 2016 04:56:08 
+process 12 last job is _Smote end: Feb 10 2016 04:56:08 
+process 9 last job is _Smote end: Feb 10 2016 04:56:08 
+process 13 last job is _Smote end: Feb 10 2016 04:56:08 
+process 10 last job is _Smote end: Feb 10 2016 04:56:08 
+process 14 last job is _TunedLearner end: Feb 10 2016 04:56:08 
+process 11 last job is _Smote end: Feb 10 2016 04:56:08 
+process 15 last job is _TunedLearner end: Feb 10 2016 04:56:08 
+NB_TunedLearner_1000_Macro_F evaluation:354.0
+NB_TunedLearner_1000_Macro_F run:  1885.46704602 sec
+process 1 last job is _TunedLearner end: Feb 10 2016 04:59:50 
+NB_TunedLearner_1300_Macro_F evaluation:348.0
+NB_TunedLearner_1300_Macro_F run:  1918.042557 sec
+process 2 last job is _TunedLearner end: Feb 10 2016 05:00:22 
+NB_TunedLearner_1600_Macro_F evaluation:372.0
+NB_TunedLearner_1600_Macro_F run:  2125.73890591 sec
+process 3 last job is _TunedLearner end: Feb 10 2016 05:03:48 
+NB_TunedLearner_1900_Macro_F evaluation:360.0
+NB_TunedLearner_1900_Macro_F run:  2126.5890131 sec
+process 4 last job is _TunedLearner end: Feb 10 2016 05:03:51 
+
+rank ,                                          name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,                          NB_Naive_100_Macro_F ,      30  ,     0 (*              |              ), 0.29,  0.30,  0.30,  0.30,  0.31
+   2 ,                          NB_Naive_400_Macro_F ,      39  ,     2 (         -*    |              ), 0.38,  0.39,  0.39,  0.40,  0.41
+   2 ,                          NB_Smote_100_Macro_F ,      40  ,     1 (           *-  |              ), 0.39,  0.39,  0.40,  0.41,  0.42
+   3 ,                   NB_TunedLearner_100_Macro_F ,      41  ,     2 (          - *- |              ), 0.40,  0.40,  0.41,  0.42,  0.43
+   3 ,                          NB_Naive_700_Macro_F ,      42  ,     1 (           - * |              ), 0.40,  0.41,  0.42,  0.42,  0.43
+   3 ,                         NB_Naive_1000_Macro_F ,      43  ,     3 (            - *|---           ), 0.41,  0.42,  0.43,  0.44,  0.48
+   3 ,                         NB_Naive_1300_Macro_F ,      43  ,     1 (              -*-             ), 0.43,  0.43,  0.44,  0.44,  0.46
+   4 ,                         NB_Naive_1600_Macro_F ,      44  ,     1 (               |* --          ), 0.43,  0.44,  0.45,  0.47,  0.49
+   4 ,                         NB_Naive_1900_Macro_F ,      45  ,     2 (               | *            ), 0.44,  0.44,  0.45,  0.46,  0.46
+   5 ,                          NB_Smote_400_Macro_F ,      47  ,     0 (               |  *--         ), 0.47,  0.47,  0.47,  0.48,  0.49
+   5 ,                   NB_TunedLearner_400_Macro_F ,      47  ,     1 (               |  -*-         ), 0.47,  0.47,  0.48,  0.48,  0.50
+   6 ,                          NB_Smote_700_Macro_F ,      50  ,     2 (               |      *-      ), 0.49,  0.50,  0.50,  0.51,  0.52
+   6 ,                   NB_TunedLearner_700_Macro_F ,      51  ,     1 (               |     - *      ), 0.50,  0.51,  0.51,  0.52,  0.52
+   7 ,                         NB_Smote_1000_Macro_F ,      52  ,     1 (               |        *-    ), 0.52,  0.52,  0.53,  0.53,  0.54
+   7 ,                  NB_TunedLearner_1000_Macro_F ,      53  ,     2 (               |        -*-   ), 0.52,  0.53,  0.53,  0.54,  0.55
+   7 ,                         NB_Smote_1300_Macro_F ,      53  ,     1 (               |         *-   ), 0.53,  0.53,  0.53,  0.54,  0.55
+   8 ,                         NB_Smote_1600_Macro_F ,      54  ,     1 (               |         - *  ), 0.53,  0.54,  0.55,  0.55,  0.55
+   8 ,                  NB_TunedLearner_1300_Macro_F ,      55  ,     1 (               |         - *  ), 0.54,  0.54,  0.55,  0.55,  0.55
+   8 ,                         NB_Smote_1900_Macro_F ,      55  ,     1 (               |          -*  ), 0.54,  0.55,  0.55,  0.56,  0.56
+   8 ,                  NB_TunedLearner_1600_Macro_F ,      55  ,     0 (               |          -*- ), 0.55,  0.55,  0.55,  0.55,  0.57
+   8 ,                  NB_TunedLearner_1900_Macro_F ,      55  ,     1 (               |            * ), 0.55,  0.55,  0.56,  0.57,  0.57
+process 0 last job is _TunedLearner end: Feb 10 2016 05:03:53 
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n2c2-14>
+Subject: Job 150312: <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/rpg.txt 16> Done
+
+Job <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/rpg.txt 16> was submitted from host <login01.hpc.ncsu.edu> by user <wfu> in cluster <henry2>.
+Job was executed on host(s) <8*n2c2-14>, in queue <single_chassis>, as user <wfu> in cluster <henry2>.
+                            <4*n2c2-12>
+                            <4*n2c2-6>
+</home/wfu> was used as the home directory.
+</home/wfu/Github/SMOTE/src> was used as the working directory.
+Started at Wed Feb 10 04:27:24 2016
+Results reported at Wed Feb 10 05:03:53 2016
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/rpg.txt 16
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time   :  38907.09 sec.
+    Max Memory :     16974 MB
+    Max Swap   :     31078 MB
+
+    Max Processes  :        25
+    Max Threads    :        92
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <./err/rpg.err.150312> for stderr output of this job.
+

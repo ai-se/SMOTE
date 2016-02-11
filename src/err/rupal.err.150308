@@ -1,0 +1,176 @@
+Traceback (most recent call last):
+  File "textMining.py", line 294, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+  File "textMining.py", line 230, in run
+    model_tfidf = Settings(data_src, 'tfidf', isYes_label, target_class)
+  File "textMining.py", line 27, in __init__
+    self.corpus = self.load_data()
+  File "textMining.py", line 54, in load_data
+    with open(self.data_src, 'r') as f:
+IOError: [Errno 2] No such file or directory: '/share3/wfu/Datasets/StackExchange/rupal.txt'
+Traceback (most recent call last):
+  File "textMining.py", line 294, in <module>
+Traceback (most recent call last):
+  File "textMining.py", line 294, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+  File "textMining.py", line 230, in run
+  File "textMining.py", line 230, in run
+    model_tfidf = Settings(data_src, 'tfidf', isYes_label, target_class)
+    model_tfidf = Settings(data_src, 'tfidf', isYes_label, target_class)
+  File "textMining.py", line 27, in __init__
+  File "textMining.py", line 27, in __init__
+    self.corpus = self.load_data()
+    self.corpus = self.load_data()
+  File "textMining.py", line 54, in load_data
+  File "textMining.py", line 54, in load_data
+    with open(self.data_src, 'r') as f:
+IOError: [Errno 2] No such file or directory: '/share3/wfu/Datasets/StackExchange/rupal.txt'
+    with open(self.data_src, 'r') as f:
+IOError: [Errno 2] No such file or directory: '/share3/wfu/Datasets/StackExchange/rupal.txt'
+Traceback (most recent call last):
+  File "textMining.py", line 294, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+  File "textMining.py", line 230, in run
+    model_tfidf = Settings(data_src, 'tfidf', isYes_label, target_class)
+  File "textMining.py", line 27, in __init__
+    self.corpus = self.load_data()
+  File "textMining.py", line 54, in load_data
+    with open(self.data_src, 'r') as f:
+IOError: [Errno 2] No such file or directory: '/share3/wfu/Datasets/StackExchange/rupal.txt'
+Traceback (most recent call last):
+  File "textMining.py", line 294, in <module>
+Traceback (most recent call last):
+  File "textMining.py", line 294, in <module>
+Traceback (most recent call last):
+  File "textMining.py", line 294, in <module>
+    eval(cmd())
+    eval(cmd())
+  File "<string>", line 1, in <module>
+  File "<string>", line 1, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+  File "textMining.py", line 230, in run
+  File "textMining.py", line 230, in run
+  File "textMining.py", line 230, in run
+    model_tfidf = Settings(data_src, 'tfidf', isYes_label, target_class)
+  File "textMining.py", line 27, in __init__
+    model_tfidf = Settings(data_src, 'tfidf', isYes_label, target_class)
+  File "textMining.py", line 27, in __init__
+    model_tfidf = Settings(data_src, 'tfidf', isYes_label, target_class)
+  File "textMining.py", line 27, in __init__
+    self.corpus = self.load_data()
+  File "textMining.py", line 54, in load_data
+    self.corpus = self.load_data()
+    self.corpus = self.load_data()
+  File "textMining.py", line 54, in load_data
+  File "textMining.py", line 54, in load_data
+    with open(self.data_src, 'r') as f:
+IOError: [Errno 2] No such file or directory: '/share3/wfu/Datasets/StackExchange/rupal.txt'
+    with open(self.data_src, 'r') as f:
+IOError: [Errno 2] No such file or directory: '/share3/wfu/Datasets/StackExchange/rupal.txt'
+    with open(self.data_src, 'r') as f:
+IOError: [Errno 2] No such file or directory: '/share3/wfu/Datasets/StackExchange/rupal.txt'
+Traceback (most recent call last):
+  File "textMining.py", line 294, in <module>
+Traceback (most recent call last):
+  File "textMining.py", line 294, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+  File "textMining.py", line 230, in run
+  File "textMining.py", line 230, in run
+    model_tfidf = Settings(data_src, 'tfidf', isYes_label, target_class)
+    model_tfidf = Settings(data_src, 'tfidf', isYes_label, target_class)
+  File "textMining.py", line 27, in __init__
+  File "textMining.py", line 27, in __init__
+    self.corpus = self.load_data()
+  File "textMining.py", line 54, in load_data
+    self.corpus = self.load_data()
+  File "textMining.py", line 54, in load_data
+    with open(self.data_src, 'r') as f:
+    with open(self.data_src, 'r') as f:
+IOError: [Errno 2] No such file or directory: '/share3/wfu/Datasets/StackExchange/rupal.txt'
+IOError: [Errno 2] No such file or directory: '/share3/wfu/Datasets/StackExchange/rupal.txt'
+Traceback (most recent call last):
+  File "textMining.py", line 294, in <module>
+Traceback (most recent call last):
+  File "textMining.py", line 294, in <module>
+Traceback (most recent call last):
+  File "textMining.py", line 294, in <module>
+Traceback (most recent call last):
+  File "textMining.py", line 294, in <module>
+Traceback (most recent call last):
+  File "textMining.py", line 294, in <module>
+Traceback (most recent call last):
+  File "textMining.py", line 294, in <module>
+Traceback (most recent call last):
+  File "textMining.py", line 294, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+  File "textMining.py", line 230, in run
+  File "textMining.py", line 230, in run
+  File "textMining.py", line 230, in run
+  File "textMining.py", line 230, in run
+  File "textMining.py", line 230, in run
+  File "textMining.py", line 230, in run
+  File "textMining.py", line 230, in run
+    model_tfidf = Settings(data_src, 'tfidf', isYes_label, target_class)
+  File "textMining.py", line 27, in __init__
+    model_tfidf = Settings(data_src, 'tfidf', isYes_label, target_class)
+  File "textMining.py", line 27, in __init__
+    model_tfidf = Settings(data_src, 'tfidf', isYes_label, target_class)
+  File "textMining.py", line 27, in __init__
+    model_tfidf = Settings(data_src, 'tfidf', isYes_label, target_class)
+  File "textMining.py", line 27, in __init__
+    model_tfidf = Settings(data_src, 'tfidf', isYes_label, target_class)
+  File "textMining.py", line 27, in __init__
+    model_tfidf = Settings(data_src, 'tfidf', isYes_label, target_class)
+  File "textMining.py", line 27, in __init__
+    model_tfidf = Settings(data_src, 'tfidf', isYes_label, target_class)
+  File "textMining.py", line 27, in __init__
+    self.corpus = self.load_data()
+  File "textMining.py", line 54, in load_data
+    self.corpus = self.load_data()
+  File "textMining.py", line 54, in load_data
+    self.corpus = self.load_data()
+  File "textMining.py", line 54, in load_data
+    self.corpus = self.load_data()
+  File "textMining.py", line 54, in load_data
+    self.corpus = self.load_data()
+  File "textMining.py", line 54, in load_data
+    self.corpus = self.load_data()
+  File "textMining.py", line 54, in load_data
+    with open(self.data_src, 'r') as f:
+IOError: [Errno 2] No such file or directory: '/share3/wfu/Datasets/StackExchange/rupal.txt'    self.corpus = self.load_data()
+  File "textMining.py", line 54, in load_data
+
+    with open(self.data_src, 'r') as f:
+    with open(self.data_src, 'r') as f:
+IOError: [Errno 2] No such file or directory: '/share3/wfu/Datasets/StackExchange/rupal.txt'
+IOError: [Errno 2] No such file or directory: '/share3/wfu/Datasets/StackExchange/rupal.txt'
+    with open(self.data_src, 'r') as f:
+    with open(self.data_src, 'r') as f:
+IOError: [Errno 2] No such file or directory: '/share3/wfu/Datasets/StackExchange/rupal.txt'
+IOError: [Errno 2] No such file or directory: '/share3/wfu/Datasets/StackExchange/rupal.txt'
+    with open(self.data_src, 'r') as f:
+    with open(self.data_src, 'r') as f:
+IOError: [Errno 2] No such file or directory: '/share3/wfu/Datasets/StackExchange/rupal.txt'
+IOError: [Errno 2] No such file or directory: '/share3/wfu/Datasets/StackExchange/rupal.txt'

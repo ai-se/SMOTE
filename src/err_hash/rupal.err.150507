@@ -1,0 +1,176 @@
+Traceback (most recent call last):
+  File "textMining_hash.py", line 294, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+  File "textMining_hash.py", line 231, in run
+Traceback (most recent call last):
+  File "textMining_hash.py", line 294, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+    model_hash = Settings(data_src, 'hash',isYes_label,target_class)
+  File "textMining_hash.py", line 27, in __init__
+  File "textMining_hash.py", line 231, in run
+    model_hash = Settings(data_src, 'hash',isYes_label,target_class)
+  File "textMining_hash.py", line 27, in __init__
+    self.corpus = self.load_data()
+  File "textMining_hash.py", line 54, in load_data
+    self.corpus = self.load_data()
+    with open(self.data_src, 'r') as f:
+IOError: [Errno 2] No such file or directory: '/share3/wfu/Datasets/StackExchange/rupal.txt'
+  File "textMining_hash.py", line 54, in load_data
+    with open(self.data_src, 'r') as f:
+IOError: [Errno 2] No such file or directory: '/share3/wfu/Datasets/StackExchange/rupal.txt'
+Traceback (most recent call last):
+  File "textMining_hash.py", line 294, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+  File "textMining_hash.py", line 231, in run
+Traceback (most recent call last):
+  File "textMining_hash.py", line 294, in <module>
+    model_hash = Settings(data_src, 'hash',isYes_label,target_class)
+  File "textMining_hash.py", line 27, in __init__
+    eval(cmd())
+    self.corpus = self.load_data()
+  File "textMining_hash.py", line 54, in load_data
+  File "<string>", line 1, in <module>
+  File "textMining_hash.py", line 231, in run
+    model_hash = Settings(data_src, 'hash',isYes_label,target_class)
+    with open(self.data_src, 'r') as f:
+IOError: [Errno 2] No such file or directory: '/share3/wfu/Datasets/StackExchange/rupal.txt'
+  File "textMining_hash.py", line 27, in __init__
+    self.corpus = self.load_data()
+  File "textMining_hash.py", line 54, in load_data
+    with open(self.data_src, 'r') as f:
+IOError: [Errno 2] No such file or directory: '/share3/wfu/Datasets/StackExchange/rupal.txt'
+Traceback (most recent call last):
+  File "textMining_hash.py", line 294, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+  File "textMining_hash.py", line 231, in run
+    model_hash = Settings(data_src, 'hash',isYes_label,target_class)
+  File "textMining_hash.py", line 27, in __init__
+    self.corpus = self.load_data()
+  File "textMining_hash.py", line 54, in load_data
+    with open(self.data_src, 'r') as f:
+IOError: [Errno 2] No such file or directory: '/share3/wfu/Datasets/StackExchange/rupal.txt'
+Traceback (most recent call last):
+  File "textMining_hash.py", line 294, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+  File "textMining_hash.py", line 231, in run
+    model_hash = Settings(data_src, 'hash',isYes_label,target_class)
+  File "textMining_hash.py", line 27, in __init__
+    self.corpus = self.load_data()
+  File "textMining_hash.py", line 54, in load_data
+    with open(self.data_src, 'r') as f:
+IOError: [Errno 2] No such file or directory: '/share3/wfu/Datasets/StackExchange/rupal.txt'
+Traceback (most recent call last):
+  File "textMining_hash.py", line 294, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+  File "textMining_hash.py", line 231, in run
+    model_hash = Settings(data_src, 'hash',isYes_label,target_class)
+  File "textMining_hash.py", line 27, in __init__
+    self.corpus = self.load_data()
+  File "textMining_hash.py", line 54, in load_data
+    with open(self.data_src, 'r') as f:
+IOError: [Errno 2] No such file or directory: '/share3/wfu/Datasets/StackExchange/rupal.txt'
+Traceback (most recent call last):
+  File "textMining_hash.py", line 294, in <module>
+Traceback (most recent call last):
+  File "textMining_hash.py", line 294, in <module>
+Traceback (most recent call last):
+  File "textMining_hash.py", line 294, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+  File "textMining_hash.py", line 231, in run
+  File "textMining_hash.py", line 231, in run
+  File "textMining_hash.py", line 231, in run
+    model_hash = Settings(data_src, 'hash',isYes_label,target_class)
+  File "textMining_hash.py", line 27, in __init__
+    model_hash = Settings(data_src, 'hash',isYes_label,target_class)
+  File "textMining_hash.py", line 27, in __init__
+    model_hash = Settings(data_src, 'hash',isYes_label,target_class)
+  File "textMining_hash.py", line 27, in __init__
+    self.corpus = self.load_data()
+  File "textMining_hash.py", line 54, in load_data
+    self.corpus = self.load_data()
+  File "textMining_hash.py", line 54, in load_data
+    self.corpus = self.load_data()
+  File "textMining_hash.py", line 54, in load_data
+    with open(self.data_src, 'r') as f:
+IOError: [Errno 2] No such file or directory: '/share3/wfu/Datasets/StackExchange/rupal.txt'
+    with open(self.data_src, 'r') as f:
+IOError: [Errno 2] No such file or directory: '/share3/wfu/Datasets/StackExchange/rupal.txt'
+    with open(self.data_src, 'r') as f:
+IOError: [Errno 2] No such file or directory: '/share3/wfu/Datasets/StackExchange/rupal.txt'
+Traceback (most recent call last):
+  File "textMining_hash.py", line 294, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+  File "textMining_hash.py", line 231, in run
+    model_hash = Settings(data_src, 'hash',isYes_label,target_class)
+  File "textMining_hash.py", line 27, in __init__
+    self.corpus = self.load_data()
+  File "textMining_hash.py", line 54, in load_data
+    with open(self.data_src, 'r') as f:
+IOError: [Errno 2] No such file or directory: '/share3/wfu/Datasets/StackExchange/rupal.txt'
+Traceback (most recent call last):
+  File "textMining_hash.py", line 294, in <module>
+Traceback (most recent call last):
+  File "textMining_hash.py", line 294, in <module>
+Traceback (most recent call last):
+  File "textMining_hash.py", line 294, in <module>
+Traceback (most recent call last):
+  File "textMining_hash.py", line 294, in <module>
+Traceback (most recent call last):
+  File "textMining_hash.py", line 294, in <module>
+    eval(cmd())
+    eval(cmd())
+  File "<string>", line 1, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+  File "<string>", line 1, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+    eval(cmd())
+  File "<string>", line 1, in <module>
+  File "textMining_hash.py", line 231, in run
+  File "textMining_hash.py", line 231, in run
+  File "textMining_hash.py", line 231, in run
+  File "textMining_hash.py", line 231, in run
+  File "textMining_hash.py", line 231, in run
+    model_hash = Settings(data_src, 'hash',isYes_label,target_class)
+  File "textMining_hash.py", line 27, in __init__
+    model_hash = Settings(data_src, 'hash',isYes_label,target_class)
+  File "textMining_hash.py", line 27, in __init__
+    model_hash = Settings(data_src, 'hash',isYes_label,target_class)
+  File "textMining_hash.py", line 27, in __init__
+    model_hash = Settings(data_src, 'hash',isYes_label,target_class)
+  File "textMining_hash.py", line 27, in __init__
+    model_hash = Settings(data_src, 'hash',isYes_label,target_class)
+  File "textMining_hash.py", line 27, in __init__
+    self.corpus = self.load_data()
+  File "textMining_hash.py", line 54, in load_data
+    self.corpus = self.load_data()
+    self.corpus = self.load_data()
+  File "textMining_hash.py", line 54, in load_data
+    self.corpus = self.load_data()
+  File "textMining_hash.py", line 54, in load_data
+  File "textMining_hash.py", line 54, in load_data
+    self.corpus = self.load_data()
+  File "textMining_hash.py", line 54, in load_data
+    with open(self.data_src, 'r') as f:
+IOError: [Errno 2] No such file or directory: '/share3/wfu/Datasets/StackExchange/rupal.txt'
+    with open(self.data_src, 'r') as f:
+IOError: [Errno 2] No such file or directory: '/share3/wfu/Datasets/StackExchange/rupal.txt'
+    with open(self.data_src, 'r') as f:
+IOError: [Errno 2] No such file or directory: '/share3/wfu/Datasets/StackExchange/rupal.txt'
+    with open(self.data_src, 'r') as f:
+IOError: [Errno 2] No such file or directory: '/share3/wfu/Datasets/StackExchange/rupal.txt'
+    with open(self.data_src, 'r') as f:
+IOError: [Errno 2] No such file or directory: '/share3/wfu/Datasets/StackExchange/rupal.txt'

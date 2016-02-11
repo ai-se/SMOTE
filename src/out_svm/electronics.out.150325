@@ -1,0 +1,81 @@
+process 1 started: Feb 10 2016 04:30:53 
+process 15 started: Feb 10 2016 04:30:53 
+process 3 started: Feb 10 2016 04:30:53 
+process 9 started: Feb 10 2016 04:30:53 
+process 4 started: Feb 10 2016 04:30:53 
+process 6 started: Feb 10 2016 04:30:53 
+process 7 started: Feb 10 2016 04:30:53 
+process 5 started: Feb 10 2016 04:30:53 
+process 14 started: Feb 10 2016 04:30:53 
+process 10 started: Feb 10 2016 04:30:53 
+process 12 started: Feb 10 2016 04:30:53 
+process 13 started: Feb 10 2016 04:30:53 
+process 0 started: Feb 10 2016 04:30:53 
+process 2 started: Feb 10 2016 04:30:53 
+process 8 started: Feb 10 2016 04:30:53 
+process 11 started: Feb 10 2016 04:30:53 
+Linear_SVM_Naive_100_Macro_F run:  121.349214077 sec
+Linear_SVM_Naive_400_Macro_F run:  204.826204062 sec
+process 1 last job is _Naive end: Feb 10 2016 04:38:01 
+Linear_SVM_Naive_1000_Macro_F run:  250.332141876 sec
+process 3 last job is _Naive end: Feb 10 2016 04:38:46 
+Linear_SVM_Naive_700_Macro_F run:  256.688452005 sec
+process 2 last job is _Naive end: Feb 10 2016 04:38:52 
+Linear_SVM_Naive_1300_Macro_F run:  284.404950857 sec
+process 4 last job is _Naive end: Feb 10 2016 04:39:13 
+Linear_SVM_Naive_1600_Macro_F run:  347.775570154 sec
+process 5 last job is _Naive end: Feb 10 2016 04:40:19 
+Linear_SVM_Naive_1900_Macro_F run:  386.729685068 sec
+
+process 6 last job is _Naive end: Feb 10 2016 04:41:00 
+rank ,                                          name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,                  Linear_SVM_Naive_100_Macro_F ,      43  ,     5 (-          *-- |              ), 0.41,  0.42,  0.47,  0.47,  0.48
+   2 ,                  Linear_SVM_Naive_400_Macro_F ,      50  ,     2 (            ---|   *---       ), 0.47,  0.49,  0.50,  0.51,  0.52
+   3 ,                  Linear_SVM_Naive_700_Macro_F ,      51  ,     1 (               |   --  *-     ), 0.50,  0.51,  0.52,  0.53,  0.53
+   3 ,                 Linear_SVM_Naive_1900_Macro_F ,      52  ,     2 (               |   --  *  --- ), 0.51,  0.51,  0.52,  0.54,  0.55
+   3 ,                 Linear_SVM_Naive_1600_Macro_F ,      52  ,     1 (               |       * -    ), 0.51,  0.52,  0.52,  0.53,  0.53
+   3 ,                 Linear_SVM_Naive_1300_Macro_F ,      52  ,     1 (               |     --*  -   ), 0.51,  0.52,  0.52,  0.53,  0.54
+   3 ,                 Linear_SVM_Naive_1000_Macro_F ,      52  ,     1 (               |     -- *---  ), 0.51,  0.52,  0.52,  0.53,  0.55
+process 0 last job is _Naive end: Feb 10 2016 04:41:00 
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n3l1-6>
+Subject: Job 150325: <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_LinearSVC.py run /share3/wfu/Datasets/StackExchange/electronics.txt 16> Exited
+
+Job <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_LinearSVC.py run /share3/wfu/Datasets/StackExchange/electronics.txt 16> was submitted from host <login01.hpc.ncsu.edu> by user <wfu> in cluster <henry2>.
+Job was executed on host(s) <4*n3l1-6>, in queue <single_chassis>, as user <wfu> in cluster <henry2>.
+                            <4*n3l1-10>
+                            <4*n3l1-3>
+                            <4*n3l1-5>
+</home/wfu> was used as the home directory.
+</home/wfu/Github/SMOTE/src> was used as the working directory.
+Started at Wed Feb 10 04:30:50 2016
+Results reported at Wed Feb 10 04:41:13 2016
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_LinearSVC.py run /share3/wfu/Datasets/StackExchange/electronics.txt 16
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time   :   9454.79 sec.
+    Max Memory :     19168 MB
+    Max Swap   :     33498 MB
+
+    Max Processes  :        27
+    Max Threads    :        42
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <./err_svm/electronics.err.150325> for stderr output of this job.
+

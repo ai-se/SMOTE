@@ -1,0 +1,82 @@
+process 10 started: Feb 10 2016 14:48:05 
+process 8 started: Feb 10 2016 14:48:05 
+process 9 started: Feb 10 2016 14:48:05 
+process 4 started: Feb 10 2016 14:48:05 
+process 6 started: Feb 10 2016 14:48:05 
+process 5 started: Feb 10 2016 14:48:05 
+process 7 started: Feb 10 2016 14:48:05 
+process 12 started: Feb 10 2016 14:48:05 
+process 13 started: Feb 10 2016 14:48:05 
+process 11 started: Feb 10 2016 14:48:05 
+process 14 started: Feb 10 2016 14:48:05 
+process 15 started: Feb 10 2016 14:48:05 
+process 0 started: Feb 10 2016 14:48:15 
+process 1 started: Feb 10 2016 14:48:15 
+process 2 started: Feb 10 2016 14:48:15 
+process 3 started: Feb 10 2016 14:48:15 
+NB_Naive_1300_Macro_F run:  19.5824139118 sec
+NB_Naive_1600_Macro_F run:  21.5207300186 sec
+NB_Naive_100_Macro_F run:  9.90491485596 sec
+process 5 last job is _Naive end: Feb 10 2016 14:49:24 
+process 4 last job is _Naive end: Feb 10 2016 14:49:24 
+NB_Naive_1900_Macro_F run:  24.5796260834 sec
+process 6 last job is _Naive end: Feb 10 2016 14:49:27 
+NB_Naive_400_Macro_F run:  16.2804050446 sec
+process 1 last job is _Naive end: Feb 10 2016 14:49:30 
+NB_Naive_700_Macro_F run:  19.7981190681 sec
+process 2 last job is _Naive end: Feb 10 2016 14:49:34 
+NB_Naive_1000_Macro_F run:  23.1985280514 sec
+process 3 last job is _Naive end: Feb 10 2016 14:49:37 
+
+rank ,                                          name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,                          NB_Naive_100_Macro_F ,      23  ,     3 ( -   *--       |              ), 0.21,  0.21,  0.24,  0.24,  0.26
+   2 ,                          NB_Naive_400_Macro_F ,      30  ,     0 (             *-|--            ), 0.29,  0.30,  0.30,  0.30,  0.35
+   3 ,                          NB_Naive_700_Macro_F ,      32  ,     1 (               |*-------      ), 0.32,  0.32,  0.33,  0.33,  0.39
+   4 ,                         NB_Naive_1000_Macro_F ,      34  ,     0 (               | -*-------    ), 0.34,  0.34,  0.34,  0.35,  0.41
+   4 ,                         NB_Naive_1300_Macro_F ,      35  ,     1 (               |  - *-        ), 0.34,  0.35,  0.36,  0.36,  0.38
+   4 ,                         NB_Naive_1900_Macro_F ,      36  ,     1 (               |   -*-------  ), 0.35,  0.36,  0.36,  0.37,  0.42
+   5 ,                         NB_Naive_1600_Macro_F ,      42  ,     6 (               |           *- ), 0.36,  0.36,  0.42,  0.42,  0.44
+process 0 last job is _Naive end: Feb 10 2016 14:49:38 
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n3n2-14>
+Subject: Job 150511: <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_hash.py run /share3/wfu/Datasets/StackExchange/rpg.txt 16> Exited
+
+Job <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_hash.py run /share3/wfu/Datasets/StackExchange/rpg.txt 16> was submitted from host <login01.hpc.ncsu.edu> by user <wfu> in cluster <henry2>.
+Job was executed on host(s) <4*n3n2-14>, in queue <single_chassis>, as user <wfu> in cluster <henry2>.
+                            <4*n3n2-3>
+                            <2*n3n2-10>
+                            <4*n3n2-13>
+                            <2*n3n2-8>
+</home/wfu> was used as the home directory.
+</home/wfu/Github/SMOTE/src> was used as the working directory.
+Started at Wed Feb 10 14:47:45 2016
+Results reported at Wed Feb 10 14:49:39 2016
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_hash.py run /share3/wfu/Datasets/StackExchange/rpg.txt 16
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time   :   1440.10 sec.
+    Max Memory :      1817 MB
+    Max Swap   :     12084 MB
+
+    Max Processes  :        26
+    Max Threads    :        42
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <./err_hash/rpg.err.150511> for stderr output of this job.
+

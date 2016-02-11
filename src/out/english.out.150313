@@ -1,0 +1,73 @@
+process 4 started: Feb 10 2016 04:27:40 
+process 5 started: Feb 10 2016 04:27:40 
+process 2 started: Feb 10 2016 04:27:40 
+process 3 started: Feb 10 2016 04:27:40 
+process 7 started: Feb 10 2016 04:27:40 
+process 6 started: Feb 10 2016 04:27:40 
+process 0 started: Feb 10 2016 04:27:40 
+process 1 started: Feb 10 2016 04:27:40 
+process 10 started: Feb 10 2016 04:27:40 
+process 8 started: Feb 10 2016 04:27:40 
+process 12 started: Feb 10 2016 04:27:40 
+process 13 started: Feb 10 2016 04:27:40 
+process 11 started: Feb 10 2016 04:27:40 
+process 9 started: Feb 10 2016 04:27:40 
+process 14 started: Feb 10 2016 04:27:40 
+process 15 started: Feb 10 2016 04:27:40 
+NB_Naive_100_Macro_F run:  158.443553925 sec
+NB_Naive_400_Macro_F run:  188.320559025 sec
+NB_Naive_700_Macro_F run:  487.692325115 sec
+NB_Naive_1900_Macro_F run:  818.85789299 sec
+process 6 last job is _Naive end: Feb 10 2016 04:43:53 
+NB_Naive_1300_Macro_F run:  855.660919905 sec
+NB_Naive_1600_Macro_F run:  1667.48871493 sec
+process 5 last job is _Naive end: Feb 10 2016 04:58:01 
+NB_Naive_1000_Macro_F run:  2705.30782318 sec
+NB_Smote_100_Macro_F run:  3281.38371301 sec
+process 7 last job is _Smote end: Feb 10 2016 05:24:54 
+
+=====================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   EXIT CODE: 9
+=   CLEANING UP REMAINING PROCESSES
+=   YOU CAN IGNORE THE BELOW CLEANUP MESSAGES
+=====================================================================================
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n3l2-14>
+Subject: Job 150313: <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/english.txt 16> Exited
+
+Job <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/english.txt 16> was submitted from host <login01.hpc.ncsu.edu> by user <wfu> in cluster <henry2>.
+Job was executed on host(s) <8*n3l2-14>, in queue <single_chassis>, as user <wfu> in cluster <henry2>.
+                            <8*n3l2-13>
+</home/wfu> was used as the home directory.
+</home/wfu/Github/SMOTE/src> was used as the working directory.
+Started at Wed Feb 10 04:27:24 2016
+Results reported at Wed Feb 10 06:40:31 2016
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/english.txt 16
+------------------------------------------------------------
+
+Exited with exit code 255.
+
+Resource usage summary:
+
+    CPU time   :  37539.38 sec.
+    Max Memory :     30006 MB
+    Max Swap   :     62287 MB
+
+    Max Processes  :        23
+    Max Threads    :        52
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <./err/english.err.150313> for stderr output of this job.
+

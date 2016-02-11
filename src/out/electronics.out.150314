@@ -1,0 +1,102 @@
+process 9 started: Feb 10 2016 04:27:38 
+process 8 started: Feb 10 2016 04:27:38 
+process 10 started: Feb 10 2016 04:27:38 
+process 11 started: Feb 10 2016 04:27:38 
+process 5 started: Feb 10 2016 04:27:38 
+process 0 started: Feb 10 2016 04:27:38 
+process 7 started: Feb 10 2016 04:27:38 
+process 1 started: Feb 10 2016 04:27:38 
+process 3 started: Feb 10 2016 04:27:38 
+process 2 started: Feb 10 2016 04:27:38 
+process 4 started: Feb 10 2016 04:27:38 
+process 6 started: Feb 10 2016 04:27:38 
+process 13 started: Feb 10 2016 04:27:39 
+process 14 started: Feb 10 2016 04:27:39 
+process 15 started: Feb 10 2016 04:27:39 
+process 12 started: Feb 10 2016 04:27:39 
+NB_Naive_100_Macro_F run:  143.781753063 sec
+NB_Naive_400_Macro_F run:  168.999186993 sec
+NB_Naive_700_Macro_F run:  452.47181201 sec
+NB_Naive_1600_Macro_F run:  916.430572987 sec
+process 5 last job is _Naive end: Feb 10 2016 04:46:35 
+NB_Naive_1300_Macro_F run:  1609.70142889 sec
+NB_Naive_1900_Macro_F run:  1961.47329903 sec
+process 6 last job is _Naive end: Feb 10 2016 05:03:59 
+NB_Naive_1000_Macro_F run:  2693.09401703 sec
+NB_Smote_100_Macro_F run:  3226.69192195 sec
+process 7 last job is _Smote end: Feb 10 2016 05:25:02 
+NB_Smote_400_Macro_F run:  7736.47427106 sec
+NB_TunedLearner_100_Macro_F evaluation:366.0
+NB_TunedLearner_100_Macro_F run:  8457.73592782 sec
+NB_TunedLearner_400_Macro_F evaluation:348.0
+NB_TunedLearner_400_Macro_F run:  9082.04750681 sec
+NB_TunedLearner_1000_Macro_F evaluation:354.0
+NB_TunedLearner_1000_Macro_F run:  10956.3032339 sec
+process 1 last job is _TunedLearner end: Feb 10 2016 07:33:52 
+NB_TunedLearner_700_Macro_F evaluation:348.0
+NB_TunedLearner_700_Macro_F run:  11103.1684151 sec
+process 8 last job is _Smote end: Feb 10 2016 07:36:23 
+process 14 last job is _TunedLearner end: Feb 10 2016 07:36:24 
+process 15 last job is _TunedLearner end: Feb 10 2016 07:36:24 
+NB_TunedLearner_1300_Macro_F evaluation:360.0
+NB_TunedLearner_1300_Macro_F run:  12571.6484499 sec
+process 2 last job is _TunedLearner end: Feb 10 2016 08:00:49 
+NB_TunedLearner_1600_Macro_F evaluation:336.0
+NB_TunedLearner_1600_Macro_F run:  14322.23528 sec
+process 3 last job is _TunedLearner end: Feb 10 2016 08:29:58 
+NB_TunedLearner_1900_Macro_F evaluation:366.0
+NB_TunedLearner_1900_Macro_F run:  15340.838917 sec
+process 4 last job is _TunedLearner end: Feb 10 2016 08:46:56 
+NB_Smote_700_Macro_F run:  17821.831305 sec
+process 9 last job is _Smote end: Feb 10 2016 09:28:16 
+NB_Smote_1000_Macro_F run:  24532.4373021 sec
+process 10 last job is _Smote end: Feb 10 2016 11:20:09 
+NB_Smote_1300_Macro_F run:  28248.2406859 sec
+process 11 last job is _Smote end: Feb 10 2016 12:22:04 
+
+=====================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   EXIT CODE: 9
+=   CLEANING UP REMAINING PROCESSES
+=   YOU CAN IGNORE THE BELOW CLEANUP MESSAGES
+=====================================================================================
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n3l3-4>
+Subject: Job 150314: <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/electronics.txt 16> Exited
+
+Job <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/electronics.txt 16> was submitted from host <login01.hpc.ncsu.edu> by user <wfu> in cluster <henry2>.
+Job was executed on host(s) <8*n3l3-4>, in queue <single_chassis>, as user <wfu> in cluster <henry2>.
+                            <4*n3l3-6>
+                            <4*n3l3-8>
+</home/wfu> was used as the home directory.
+</home/wfu/Github/SMOTE/src> was used as the working directory.
+Started at Wed Feb 10 04:27:24 2016
+Results reported at Wed Feb 10 23:24:01 2016
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/electronics.txt 16
+------------------------------------------------------------
+
+Exited with exit code 255.
+
+Resource usage summary:
+
+    CPU time   : 206373.55 sec.
+    Max Memory :     40339 MB
+    Max Swap   :     74620 MB
+
+    Max Processes  :        25
+    Max Threads    :        68
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <./err/electronics.err.150314> for stderr output of this job.
+

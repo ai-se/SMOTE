@@ -1,0 +1,80 @@
+process 3 started: Feb 10 2016 04:29:13 
+process 2 started: Feb 10 2016 04:29:13 
+process 0 started: Feb 10 2016 04:29:13 
+process 1 started: Feb 10 2016 04:29:13 
+process 8 started: Feb 10 2016 04:29:14 
+process 14 started: Feb 10 2016 04:29:14 
+process 15 started: Feb 10 2016 04:29:14 
+process 13 started: Feb 10 2016 04:29:14 
+process 9 started: Feb 10 2016 04:29:14 
+process 10 started: Feb 10 2016 04:29:14 
+process 12 started: Feb 10 2016 04:29:14 
+process 11 started: Feb 10 2016 04:29:14 
+process 7 started: Feb 10 2016 04:29:16 
+process 6 started: Feb 10 2016 04:29:16 
+process 5 started: Feb 10 2016 04:29:16 
+process 4 started: Feb 10 2016 04:29:16 
+Linear_SVM_Naive_100_Macro_F run:  81.0862679482 sec
+Linear_SVM_Naive_400_Macro_F run:  118.13202095 sec
+process 1 last job is _Naive end: Feb 10 2016 04:33:12 
+Linear_SVM_Naive_700_Macro_F run:  146.772950888 sec
+process 2 last job is _Naive end: Feb 10 2016 04:33:42 
+Linear_SVM_Naive_1000_Macro_F run:  173.389508963 sec
+process 3 last job is _Naive end: Feb 10 2016 04:34:09 
+Linear_SVM_Naive_1300_Macro_F run:  227.490990877 sec
+process 4 last job is _Naive end: Feb 10 2016 04:35:13 
+Linear_SVM_Naive_1600_Macro_F run:  266.430130005 sec
+process 5 last job is _Naive end: Feb 10 2016 04:35:53 
+Linear_SVM_Naive_1900_Macro_F run:  284.717822075 sec
+process 6 last job is _Naive end: Feb 10 2016 04:36:06 
+
+rank ,                                          name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,                  Linear_SVM_Naive_100_Macro_F ,      31  ,     2 (-   *   --     |              ), 0.31,  0.31,  0.32,  0.34,  0.34
+   2 ,                  Linear_SVM_Naive_400_Macro_F ,      38  ,     1 (               |    - *--     ), 0.38,  0.38,  0.38,  0.39,  0.39
+   2 ,                 Linear_SVM_Naive_1600_Macro_F ,      39  ,     1 (               |      -* --   ), 0.38,  0.39,  0.39,  0.39,  0.40
+   2 ,                 Linear_SVM_Naive_1900_Macro_F ,      39  ,     1 (               |         *-   ), 0.39,  0.39,  0.39,  0.40,  0.40
+   2 ,                 Linear_SVM_Naive_1300_Macro_F ,      39  ,     1 (               |        -*--- ), 0.39,  0.39,  0.39,  0.40,  0.41
+   2 ,                 Linear_SVM_Naive_1000_Macro_F ,      40  ,     1 (               |        - *-- ), 0.39,  0.39,  0.40,  0.40,  0.41
+   2 ,                  Linear_SVM_Naive_700_Macro_F ,      40  ,     1 (               |      --- *   ), 0.38,  0.39,  0.40,  0.40,  0.41
+process 0 last job is _Naive end: Feb 10 2016 04:36:06 
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n3o3-6>
+Subject: Job 150324: <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_LinearSVC.py run /share3/wfu/Datasets/StackExchange/english.txt 16> Exited
+
+Job <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_LinearSVC.py run /share3/wfu/Datasets/StackExchange/english.txt 16> was submitted from host <login01.hpc.ncsu.edu> by user <wfu> in cluster <henry2>.
+Job was executed on host(s) <4*n3o3-6>, in queue <single_chassis>, as user <wfu> in cluster <henry2>.
+                            <4*n3o3-5>
+                            <8*n3o3-10>
+</home/wfu> was used as the home directory.
+</home/wfu/Github/SMOTE/src> was used as the working directory.
+Started at Wed Feb 10 04:29:02 2016
+Results reported at Wed Feb 10 04:36:08 2016
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_LinearSVC.py run /share3/wfu/Datasets/StackExchange/english.txt 16
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time   :   6372.13 sec.
+    Max Memory :     21573 MB
+    Max Swap   :     33459 MB
+
+    Max Processes  :        25
+    Max Threads    :        40
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <./err_svm/english.err.150324> for stderr output of this job.
+

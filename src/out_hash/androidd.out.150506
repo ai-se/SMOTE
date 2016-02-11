@@ -1,0 +1,58 @@
+process 12 started: Feb 10 2016 14:29:11 
+process 13 started:process 11 started: Feb 10 2016 14:29:11 
+ Feb 10 2016 14:29:11 
+process 8 started: Feb 10 2016 14:29:11 
+process 10 started: Feb 10 2016 14:29:11 
+process 9 started: Feb 10 2016 14:29:11 
+process 0 started: Feb 10 2016 14:29:11 
+process 1 started: Feb 10 2016 14:29:11 
+process 4 started: Feb 10 2016 14:29:11 
+process 2 started: Feb 10 2016 14:29:11 
+process 5 started: Feb 10 2016 14:29:11 
+process 3 started: Feb 10 2016 14:29:11 
+process 6 started: Feb 10 2016 14:29:11 
+process 7 started: Feb 10 2016 14:29:11 
+process 14 started: Feb 10 2016 14:29:11 
+process 15 started: Feb 10 2016 14:29:11 
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n3n2-2>
+Subject: Job 150506: <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_hash.py run /share3/wfu/Datasets/StackExchange/androidd.txt 16> Exited
+
+Job <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_hash.py run /share3/wfu/Datasets/StackExchange/androidd.txt 16> was submitted from host <login01.hpc.ncsu.edu> by user <wfu> in cluster <henry2>.
+Job was executed on host(s) <4*n3n2-2>, in queue <single_chassis>, as user <wfu> in cluster <henry2>.
+                            <4*n3n2-3>
+                            <4*n3n2-13>
+                            <2*n3n2-10>
+                            <2*n3n2-14>
+</home/wfu> was used as the home directory.
+</home/wfu/Github/SMOTE/src> was used as the working directory.
+Started at Wed Feb 10 14:28:41 2016
+Results reported at Wed Feb 10 14:29:12 2016
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_hash.py run /share3/wfu/Datasets/StackExchange/androidd.txt 16
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time   :     53.68 sec.
+    Max Memory :       323 MB
+    Max Swap   :      3460 MB
+
+    Max Processes  :        13
+    Max Threads    :        14
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <./err_hash/androidd.err.150506> for stderr output of this job.
+

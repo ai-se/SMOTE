@@ -1,0 +1,59 @@
+process 7 started: Feb 10 2016 04:27:37 
+process 13 started: Feb 10 2016 04:27:38 
+process 14 started: Feb 10 2016 04:27:38 
+process 15 started: Feb 10 2016 04:27:38 
+process 8 started: Feb 10 2016 04:27:38 
+process 10 started: Feb 10 2016 04:27:38 
+process 9 started: Feb 10 2016 04:27:38 
+process 11 started: Feb 10 2016 04:27:39 
+process 12 started: Feb 10 2016 04:27:39 
+process 3 started: Feb 10 2016 04:27:40 
+process 6 started: Feb 10 2016 04:27:40 
+process 0 started: Feb 10 2016 04:27:40 
+process 2 started: Feb 10 2016 04:27:40 
+process 4 started: Feb 10 2016 04:27:40 
+process 5 started: Feb 10 2016 04:27:40 
+process 1 started: Feb 10 2016 04:27:40 
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n2c1-7>
+Subject: Job 150308: <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/rupal.txt 16> Exited
+
+Job <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/rupal.txt 16> was submitted from host <login01.hpc.ncsu.edu> by user <wfu> in cluster <henry2>.
+Job was executed on host(s) <7*n2c1-7>, in queue <single_chassis>, as user <wfu> in cluster <henry2>.
+                            <1*n2c1-2>
+                            <3*n2c1-6>
+                            <2*n2c1-3>
+                            <2*n2c1-11>
+                            <1*n2c1-14>
+</home/wfu> was used as the home directory.
+</home/wfu/Github/SMOTE/src> was used as the working directory.
+Started at Wed Feb 10 04:27:24 2016
+Results reported at Wed Feb 10 04:27:41 2016
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/StackExchange/rupal.txt 16
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time   :     47.91 sec.
+    Max Memory :         3 MB
+    Max Swap   :        35 MB
+
+    Max Processes  :         1
+    Max Threads    :         1
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <./err/rupal.err.150308> for stderr output of this job.
+

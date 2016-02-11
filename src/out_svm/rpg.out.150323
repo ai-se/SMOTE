@@ -1,0 +1,81 @@
+process 2 started: Feb 10 2016 04:28:10 
+process 1 started: Feb 10 2016 04:28:10 
+process 8 started: Feb 10 2016 04:28:10 
+process 10 started: Feb 10 2016 04:28:10 
+process 11 started: Feb 10 2016 04:28:10 
+process 9 started: Feb 10 2016 04:28:10 
+process 12 started: Feb 10 2016 04:28:10 
+process 13 started: Feb 10 2016 04:28:10 
+process 14 started: Feb 10 2016 04:28:10 
+process 15 started: Feb 10 2016 04:28:10 
+process 6 started: Feb 10 2016 04:28:10 
+process 7 started: Feb 10 2016 04:28:10 
+process 4 started: Feb 10 2016 04:28:10 
+process 5 started: Feb 10 2016 04:28:10 
+process 3 started: Feb 10 2016 04:28:10 
+process 0 started: Feb 10 2016 04:28:10 
+Linear_SVM_Naive_100_Macro_F run:  17.5673108101 sec
+Linear_SVM_Naive_400_Macro_F run:  30.0621209145 sec
+process 1 last job is _Naive end: Feb 10 2016 04:29:41 
+Linear_SVM_Naive_700_Macro_F run:  34.8345050812 sec
+process 2 last job is _Naive end: Feb 10 2016 04:29:46 
+Linear_SVM_Naive_1000_Macro_F run:  42.310115099 sec
+process 3 last job is _Naive end: Feb 10 2016 04:29:55 
+Linear_SVM_Naive_1300_Macro_F run:  58.2976410389 sec
+process 4 last job is _Naive end: Feb 10 2016 04:30:12 
+Linear_SVM_Naive_1600_Macro_F run:  66.478085041 sec
+process 5 last job is _Naive end: Feb 10 2016 04:30:19 
+Linear_SVM_Naive_1900_Macro_F run:  75.0396461487 sec
+
+process 6 last job is _Naive end: Feb 10 2016 04:30:28 
+rank ,                                          name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,                  Linear_SVM_Naive_100_Macro_F ,      36  ,     3 (-  * ---       |              ), 0.34,  0.35,  0.37,  0.38,  0.41
+   2 ,                  Linear_SVM_Naive_400_Macro_F ,      48  ,     1 (               |   *          ), 0.48,  0.48,  0.49,  0.49,  0.50
+   3 ,                  Linear_SVM_Naive_700_Macro_F ,      51  ,     2 (               |      *---    ), 0.50,  0.51,  0.51,  0.52,  0.54
+   4 ,                 Linear_SVM_Naive_1000_Macro_F ,      53  ,     2 (               |      -  *    ), 0.51,  0.52,  0.53,  0.54,  0.55
+   4 ,                 Linear_SVM_Naive_1300_Macro_F ,      54  ,     2 (               |          *-  ), 0.53,  0.54,  0.54,  0.55,  0.56
+   4 ,                 Linear_SVM_Naive_1600_Macro_F ,      55  ,     2 (               |        -- *- ), 0.53,  0.55,  0.55,  0.56,  0.56
+   4 ,                 Linear_SVM_Naive_1900_Macro_F ,      56  ,     1 (               |          - * ), 0.54,  0.55,  0.56,  0.57,  0.57
+process 0 last job is _Naive end: Feb 10 2016 04:30:29 
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n3l1-10>
+Subject: Job 150323: <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_LinearSVC.py run /share3/wfu/Datasets/StackExchange/rpg.txt 16> Exited
+
+Job <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_LinearSVC.py run /share3/wfu/Datasets/StackExchange/rpg.txt 16> was submitted from host <login01.hpc.ncsu.edu> by user <wfu> in cluster <henry2>.
+Job was executed on host(s) <4*n3l1-10>, in queue <single_chassis>, as user <wfu> in cluster <henry2>.
+                            <4*n3l1-5>
+                            <4*n3l1-3>
+                            <4*n3l1-6>
+</home/wfu> was used as the home directory.
+</home/wfu/Github/SMOTE/src> was used as the working directory.
+Started at Wed Feb 10 04:28:04 2016
+Results reported at Wed Feb 10 04:30:45 2016
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_LinearSVC.py run /share3/wfu/Datasets/StackExchange/rpg.txt 16
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time   :   2239.36 sec.
+    Max Memory :      3283 MB
+    Max Swap   :     14981 MB
+
+    Max Processes  :        27
+    Max Threads    :        28
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <./err_svm/rpg.err.150323> for stderr output of this job.
+

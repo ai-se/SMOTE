@@ -1,0 +1,82 @@
+process 6 started: Feb 10 2016 14:43:48 
+process 3 started: Feb 10 2016 14:43:48 
+process 0 started: Feb 10 2016 14:43:48 
+process 1 started: Feb 10 2016 14:43:48 
+process 2 started: Feb 10 2016 14:43:48 
+process 7 started: Feb 10 2016 14:43:48 
+process 4 started: Feb 10 2016 14:43:48 
+process 5 started: Feb 10 2016 14:43:48 
+process 11 started: Feb 10 2016 14:43:48 
+process 13 started: Feb 10 2016 14:43:48 
+process 12 started: Feb 10 2016 14:43:48 
+process 10 started: Feb 10 2016 14:43:48 
+process 8 started: Feb 10 2016 14:43:56 
+process 9 started: Feb 10 2016 14:43:56 
+process 15 started: Feb 10 2016 14:43:56 
+process 14 started: Feb 10 2016 14:43:56 
+NB_Naive_100_Macro_F run:  14.0657980442 sec
+NB_Naive_400_Macro_F run:  21.4178869724 sec
+process 1 last job is _Naive end: Feb 10 2016 14:46:53 
+NB_Naive_700_Macro_F run:  27.6869738102 sec
+process 2 last job is _Naive end: Feb 10 2016 14:46:59 
+NB_Naive_1000_Macro_F run:  33.0885620117 sec
+process 3 last job is _Naive end: Feb 10 2016 14:47:04 
+NB_Naive_1300_Macro_F run:  45.3321149349 sec
+process 4 last job is _Naive end: Feb 10 2016 14:47:20 
+NB_Naive_1600_Macro_F run:  52.7890501022 sec
+process 5 last job is _Naive end: Feb 10 2016 14:47:28 
+NB_Naive_1900_Macro_F run:  60.2156379223 sec
+
+process 6 last job is _Naive end: Feb 10 2016 14:47:34 
+rank ,                                          name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,                          NB_Naive_100_Macro_F ,      13  ,     0 (*              |              ), 0.13,  0.13,  0.13,  0.13,  0.13
+   2 ,                          NB_Naive_400_Macro_F ,      24  ,     1 (            -* |              ), 0.23,  0.24,  0.24,  0.24,  0.25
+   3 ,                          NB_Naive_700_Macro_F ,      31  ,     1 (               |   ---*       ), 0.29,  0.31,  0.31,  0.32,  0.32
+   3 ,                         NB_Naive_1000_Macro_F ,      32  ,     1 (               |      -*      ), 0.31,  0.31,  0.32,  0.32,  0.33
+   4 ,                         NB_Naive_1600_Macro_F ,      33  ,     2 (               |       - *--- ), 0.32,  0.33,  0.33,  0.34,  0.37
+   4 ,                         NB_Naive_1300_Macro_F ,      33  ,     1 (               |        -*-   ), 0.32,  0.33,  0.33,  0.34,  0.35
+   5 ,                         NB_Naive_1900_Macro_F ,      35  ,     2 (               |         -- * ), 0.34,  0.35,  0.36,  0.36,  0.36
+process 0 last job is _Naive end: Feb 10 2016 14:47:35 
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n3n2-3>
+Subject: Job 150510: <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_hash.py run /share3/wfu/Datasets/StackExchange/gamedev.txt 16> Exited
+
+Job <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_hash.py run /share3/wfu/Datasets/StackExchange/gamedev.txt 16> was submitted from host <login01.hpc.ncsu.edu> by user <wfu> in cluster <henry2>.
+Job was executed on host(s) <4*n3n2-3>, in queue <single_chassis>, as user <wfu> in cluster <henry2>.
+                            <4*n3n2-2>
+                            <2*n3n2-10>
+                            <4*n3n2-13>
+                            <2*n3n2-8>
+</home/wfu> was used as the home directory.
+</home/wfu/Github/SMOTE/src> was used as the working directory.
+Started at Wed Feb 10 14:43:27 2016
+Results reported at Wed Feb 10 14:47:35 2016
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_hash.py run /share3/wfu/Datasets/StackExchange/gamedev.txt 16
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time   :   3576.12 sec.
+    Max Memory :      7124 MB
+    Max Swap   :     18871 MB
+
+    Max Processes  :        29
+    Max Threads    :        30
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <./err_hash/gamedev.err.150510> for stderr output of this job.
+

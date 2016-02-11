@@ -1,0 +1,80 @@
+process 14 started: Feb 10 2016 04:36:19 
+process 15 started: Feb 10 2016 04:36:19 
+process 12 started: Feb 10 2016 04:36:19 
+process 13 started: Feb 10 2016 04:36:19 
+process 9 started: Feb 10 2016 04:36:19 
+process 8 started: Feb 10 2016 04:36:19 
+process 11 started: Feb 10 2016 04:36:19 
+process 10 started: Feb 10 2016 04:36:19 
+process 1 started: Feb 10 2016 04:36:20 
+process 3 started: Feb 10 2016 04:36:20 
+process 6 started: Feb 10 2016 04:36:20 
+process 5 started: Feb 10 2016 04:36:20 
+process 2 started: Feb 10 2016 04:36:20 
+process 7 started: Feb 10 2016 04:36:20 
+process 4 started: Feb 10 2016 04:36:20 
+process 0 started: Feb 10 2016 04:36:20 
+Linear_SVM_Naive_100_Macro_F run:  492.547996998 sec
+Linear_SVM_Naive_400_Macro_F run:  516.712379932 sec
+process 1 last job is _Naive end: Feb 10 2016 04:50:35 
+Linear_SVM_Naive_1000_Macro_F run:  690.405124903 sec
+process 3 last job is _Naive end: Feb 10 2016 04:53:27 
+Linear_SVM_Naive_700_Macro_F run:  792.470175028 sec
+process 2 last job is _Naive end: Feb 10 2016 04:55:15 
+Linear_SVM_Naive_1900_Macro_F run:  1566.9508121 sec
+process 6 last job is _Naive end: Feb 10 2016 05:08:12 
+Linear_SVM_Naive_1600_Macro_F run:  1695.20942402 sec
+process 5 last job is _Naive end: Feb 10 2016 05:10:19 
+Linear_SVM_Naive_1300_Macro_F run:  2347.93902206 sec
+process 4 last job is _Naive end: Feb 10 2016 05:21:04 
+
+rank ,                                          name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,                  Linear_SVM_Naive_100_Macro_F ,      57  ,     0 (--*            |              ), 0.58,  0.58,  0.58,  0.59,  0.59
+   2 ,                  Linear_SVM_Naive_400_Macro_F ,      68  ,     1 (               |      - *     ), 0.68,  0.68,  0.69,  0.69,  0.69
+   2 ,                  Linear_SVM_Naive_700_Macro_F ,      69  ,     1 (               |         *    ), 0.68,  0.68,  0.69,  0.69,  0.69
+   2 ,                 Linear_SVM_Naive_1000_Macro_F ,      70  ,     1 (               |         - *  ), 0.69,  0.69,  0.70,  0.70,  0.70
+   2 ,                 Linear_SVM_Naive_1300_Macro_F ,      70  ,     0 (               |           *  ), 0.69,  0.70,  0.70,  0.71,  0.71
+   2 ,                 Linear_SVM_Naive_1600_Macro_F ,      70  ,     0 (               |          -*- ), 0.69,  0.70,  0.70,  0.70,  0.71
+   2 ,                 Linear_SVM_Naive_1900_Macro_F ,      70  ,     1 (               |          - * ), 0.69,  0.70,  0.70,  0.71,  0.71
+process 0 last job is _Naive end: Feb 10 2016 05:21:07 
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n3o3-4>
+Subject: Job 150327: <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_LinearSVC.py run /share3/wfu/Datasets/StackExchange/tex.txt 16> Exited
+
+Job <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_LinearSVC.py run /share3/wfu/Datasets/StackExchange/tex.txt 16> was submitted from host <login01.hpc.ncsu.edu> by user <wfu> in cluster <henry2>.
+Job was executed on host(s) <8*n3o3-4>, in queue <single_chassis>, as user <wfu> in cluster <henry2>.
+                            <4*n3o3-5>
+                            <4*n3o3-6>
+</home/wfu> was used as the home directory.
+</home/wfu/Github/SMOTE/src> was used as the working directory.
+Started at Wed Feb 10 04:36:14 2016
+Results reported at Wed Feb 10 05:22:28 2016
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_LinearSVC.py run /share3/wfu/Datasets/StackExchange/tex.txt 16
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time   :  38301.29 sec.
+    Max Memory :     28210 MB
+    Max Swap   :     48348 MB
+
+    Max Processes  :        25
+    Max Threads    :        40
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <./err_svm/tex.err.150327> for stderr output of this job.
+

@@ -1,0 +1,80 @@
+process 4 started: Feb 10 2016 14:53:43 
+process 5 started: Feb 10 2016 14:53:43 
+process 6 started: Feb 10 2016 14:53:43 
+process 7 started: Feb 10 2016 14:53:43 
+process 9 started: Feb 10 2016 14:53:43 
+process 10 started: Feb 10 2016 14:53:43 
+process 14 started: Feb 10 2016 14:53:43 
+process 15 started: Feb 10 2016 14:53:43 
+process 11 started: Feb 10 2016 14:53:43 
+process 12 started: Feb 10 2016 14:53:43 
+process 13 started: Feb 10 2016 14:53:43 
+process 8 started: Feb 10 2016 14:53:43 
+process 1 started: Feb 10 2016 14:53:47 
+process 2 started: Feb 10 2016 14:53:47 
+process 3 started: Feb 10 2016 14:53:47 
+process 0 started: Feb 10 2016 14:53:47 
+NB_Naive_100_Macro_F run:  16.2095441818 sec
+NB_Naive_400_Macro_F run:  25.8282799721 sec
+process 1 last job is _Naive end: Feb 10 2016 14:57:02 
+NB_Naive_700_Macro_F run:  33.9210569859 sec
+process 2 last job is _Naive end: Feb 10 2016 14:57:11 
+NB_Naive_1000_Macro_F run:  45.0953769684 sec
+process 3 last job is _Naive end: Feb 10 2016 14:57:22 
+NB_Naive_1300_Macro_F run:  59.6604747772 sec
+process 4 last job is _Naive end: Feb 10 2016 14:57:43 
+NB_Naive_1600_Macro_F run:  66.6198880672 sec
+process 5 last job is _Naive end: Feb 10 2016 14:57:49 
+NB_Naive_1900_Macro_F run:  86.2044909 sec
+
+process 6 last job is _Naive end: Feb 10 2016 14:58:08 
+rank ,                                          name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,                          NB_Naive_100_Macro_F ,      14  ,     0 (*              |              ), 0.14,  0.14,  0.14,  0.14,  0.14
+   2 ,                          NB_Naive_400_Macro_F ,      21  ,     0 (               *              ), 0.21,  0.21,  0.21,  0.21,  0.21
+   2 ,                          NB_Naive_700_Macro_F ,      22  ,     1 (               |*------       ), 0.21,  0.22,  0.22,  0.22,  0.25
+   2 ,                         NB_Naive_1000_Macro_F ,      22  ,     4 (               |    *  ---    ), 0.21,  0.21,  0.23,  0.25,  0.26
+   3 ,                         NB_Naive_1300_Macro_F ,      26  ,     1 (               |          *-  ), 0.25,  0.25,  0.26,  0.26,  0.27
+   3 ,                         NB_Naive_1900_Macro_F ,      26  ,     2 (               |       ---  * ), 0.25,  0.26,  0.27,  0.27,  0.27
+   3 ,                         NB_Naive_1600_Macro_F ,      27  ,     0 (               |           -* ), 0.26,  0.27,  0.27,  0.27,  0.28
+process 0 last job is _Naive end: Feb 10 2016 14:58:09 
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n2e5-3>
+Subject: Job 150513: <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_hash.py run /share3/wfu/Datasets/StackExchange/electronics.txt 16> Exited
+
+Job <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_hash.py run /share3/wfu/Datasets/StackExchange/electronics.txt 16> was submitted from host <login01.hpc.ncsu.edu> by user <wfu> in cluster <henry2>.
+Job was executed on host(s) <4*n2e5-3>, in queue <single_chassis>, as user <wfu> in cluster <henry2>.
+                            <4*n2e5-4>
+                            <8*n2e5-12>
+</home/wfu> was used as the home directory.
+</home/wfu/Github/SMOTE/src> was used as the working directory.
+Started at Wed Feb 10 14:53:20 2016
+Results reported at Wed Feb 10 14:58:09 2016
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_hash.py run /share3/wfu/Datasets/StackExchange/electronics.txt 16
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time   :   4131.75 sec.
+    Max Memory :     10131 MB
+    Max Swap   :     21956 MB
+
+    Max Processes  :        25
+    Max Threads    :        26
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <./err_hash/electronics.err.150513> for stderr output of this job.
+

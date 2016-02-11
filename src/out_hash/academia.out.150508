@@ -1,0 +1,82 @@
+process 9 started: Feb 10 2016 14:30:05 
+process 8 started: Feb 10 2016 14:30:05 
+process 7 started: Feb 10 2016 14:30:05 
+process 4 started: Feb 10 2016 14:30:05 
+process 6 started: Feb 10 2016 14:30:05 
+process 5 started: Feb 10 2016 14:30:05 
+process 2 started: Feb 10 2016 14:30:05 
+process 3 started: Feb 10 2016 14:30:05 
+process 0 started: Feb 10 2016 14:30:05 
+process 1 started: Feb 10 2016 14:30:05 
+process 14 started: Feb 10 2016 14:30:11 
+process 15 started: Feb 10 2016 14:30:11 
+process 10 started: Feb 10 2016 14:30:11 
+process 13 started: Feb 10 2016 14:30:11 
+process 12 started: Feb 10 2016 14:30:11 
+process 11 started: Feb 10 2016 14:30:11 
+NB_Naive_100_Macro_F run:  4.84594297409 sec
+NB_Naive_400_Macro_F run:  6.22691702843 sec
+process 1 last job is _Naive end: Feb 10 2016 14:30:53 
+NB_Naive_700_Macro_F run:  8.61020207405 sec
+process 2 last job is _Naive end: Feb 10 2016 14:30:56 
+NB_Naive_1000_Macro_F run:  10.4420120716 sec
+process 3 last job is _Naive end: Feb 10 2016 14:30:58 
+NB_Naive_1300_Macro_F run:  13.153758049 sec
+process 4 last job is _Naive end: Feb 10 2016 14:31:00 
+NB_Naive_1600_Macro_F run:  15.2366499901 sec
+process 5 last job is _Naive end: Feb 10 2016 14:31:02 
+NB_Naive_1900_Macro_F run:  17.2542691231 sec
+process 6 last job is _Naive end: Feb 10 2016 14:31:04 
+
+rank ,                                          name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,                          NB_Naive_100_Macro_F ,      11  ,     0 (*              |              ), 0.11,  0.11,  0.11,  0.11,  0.11
+   2 ,                          NB_Naive_400_Macro_F ,      26  ,     4 (               | ---   *      ), 0.22,  0.24,  0.26,  0.27,  0.28
+   2 ,                          NB_Naive_700_Macro_F ,      27  ,     2 (               |      - *-    ), 0.25,  0.26,  0.27,  0.27,  0.28
+   2 ,                         NB_Naive_1900_Macro_F ,      27  ,     2 (               |    ----*--   ), 0.24,  0.27,  0.27,  0.27,  0.29
+   2 ,                         NB_Naive_1000_Macro_F ,      27  ,     1 (               |      --  *-  ), 0.26,  0.27,  0.28,  0.28,  0.30
+   2 ,                         NB_Naive_1300_Macro_F ,      28  ,     0 (               |       --  *  ), 0.26,  0.28,  0.29,  0.29,  0.29
+   2 ,                         NB_Naive_1600_Macro_F ,      28  ,     1 (               |       -- * - ), 0.26,  0.28,  0.28,  0.29,  0.30
+process 0 last job is _Naive end: Feb 10 2016 14:31:04 
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n3n2-13>
+Subject: Job 150508: <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_hash.py run /share3/wfu/Datasets/StackExchange/academia.txt 16> Exited
+
+Job <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_hash.py run /share3/wfu/Datasets/StackExchange/academia.txt 16> was submitted from host <login01.hpc.ncsu.edu> by user <wfu> in cluster <henry2>.
+Job was executed on host(s) <4*n3n2-13>, in queue <single_chassis>, as user <wfu> in cluster <henry2>.
+                            <4*n3n2-3>
+                            <2*n3n2-10>
+                            <4*n3n2-8>
+                            <2*n3n2-14>
+</home/wfu> was used as the home directory.
+</home/wfu/Github/SMOTE/src> was used as the working directory.
+Started at Wed Feb 10 14:29:47 2016
+Results reported at Wed Feb 10 14:31:04 2016
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_hash.py run /share3/wfu/Datasets/StackExchange/academia.txt 16
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time   :    922.02 sec.
+    Max Memory :      1655 MB
+    Max Swap   :     11930 MB
+
+    Max Processes  :        26
+    Max Threads    :        27
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <./err_hash/academia.err.150508> for stderr output of this job.
+
