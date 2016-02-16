@@ -226,12 +226,12 @@ def run(data_src, process, isYes_label=False, target_class="Macro_F",
   goal = {0: "PD", 1: "PF", 2: "PREC", 3: "ACC", 4: "F", 5: "G", 6: "Macro_F", 7: "Micro_F"}[6]
   print("process", str(rank), "started:", time.strftime("%b %d %Y %H:%M:%S "))
   # different processes run different feature experiments
-  features_num = [100 * i for i in xrange(1, 22, 3)]
+  features_num = [40 * i for i in xrange(1, 22, 3)]
   model_tfidf = Settings(data_src, 'tfidf', isYes_label, target_class)
   # model_hash = Settings(data_src, 'hash', isBinary, isYes_label,target_class)
   methods_lst = [model_tfidf]
   modification = [ "_Naive","_Smote","_TunedLearner"]
-  # modification = ["_TunedLearner"]  # [
+  # modification = ["_Naive"]  # [
   learners = [Naive_bayes]
   F_feature = {}
   start_time = time.time()
@@ -289,7 +289,7 @@ def cmd(com="Nothing"):
 
 if __name__ == "__main__":
   if len(sys.argv) == 1:
-    run('../data/StackExchange/android.txt', 1)
+    run('../data/StackExchange/moment.txt', 1)
   else:
     eval(cmd())
     # run('../data/StackExchange/anime.txt')
