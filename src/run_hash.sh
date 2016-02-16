@@ -11,8 +11,14 @@ rm err_hash/*
 #rm out_test/*
 #rm err_test/*
 
+#
+###### this is only for testing on HPC
+#foreach VAR (androidd rupal academia apple gamedev rpg english electronics physics tex scifi)
+#  bsub -W 3600 -n 16 -o ./out_hash/$VAR.out.%J -e ./err_hash/$VAR.err.%J mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_hash.py run /share3/wfu/Datasets/StackExchange/$VAR.txt 16
+#end
 
-##### this is only for testing on HPC
-foreach VAR (androidd rupal academia apple gamedev rpg english electronics physics tex scifi)
-  bsub -W 3600 -n 16 -o ./out_hash/$VAR.out.%J -e ./err_hash/$VAR.err.%J mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining_hash.py run /share3/wfu/Datasets/StackExchange/$VAR.txt 16
+
+##### this is only for testing on HPC, SE tag level
+foreach VAR (ansible atom d3 Ghost graphite-web logstash moment scikit-learn)
+  bsub -W 3600 -n 16 -o ./out_hash/$VAR.out.%J -e ./err_hash/$VAR.err.%J mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/SE/$VAR.txt 16
 end
