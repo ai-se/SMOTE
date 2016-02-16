@@ -1,0 +1,124 @@
+process 0 started: Feb 16 2016 00:05:43 
+process 3 started: Feb 16 2016 00:05:43 
+process 2 started: Feb 16 2016 00:05:43 
+process 1 started: Feb 16 2016 00:05:43 
+process 15 started: Feb 16 2016 00:05:44 
+process 14 started: Feb 16 2016 00:05:44 
+process 5 started: Feb 16 2016 00:05:44 
+process 6 started: Feb 16 2016 00:05:44 
+process 8 started: Feb 16 2016 00:05:44 
+process 13 started: Feb 16 2016 00:05:44 
+process 9 started: Feb 16 2016 00:05:44 
+process 11 started: Feb 16 2016 00:05:44 
+process 4 started: Feb 16 2016 00:05:44 
+process 10 started: Feb 16 2016 00:05:44 
+process 7 started: Feb 16 2016 00:05:44 
+process 12 started: Feb 16 2016 00:05:44 
+NB_Naive_40_Macro_F run:  24.7265079021 sec
+NB_Naive_160_Macro_F run:  25.5130989552 sec
+NB_Naive_280_Macro_F run:  26.3763549328 sec
+NB_Naive_400_Macro_F run:  27.096683979 sec
+NB_Naive_520_Macro_F run:  30.5422971249 sec
+NB_Naive_640_Macro_F run:  34.9003429413 sec
+NB_Naive_760_Macro_F run:  36.1096560955 sec
+NB_Smote_40_Macro_F run:  49.2165198326 sec
+NB_Smote_160_Macro_F run:  62.4984560013 sec
+NB_Smote_280_Macro_F run:  82.4582679272 sec
+NB_Smote_400_Macro_F run:  99.338075161 sec
+NB_Smote_520_Macro_F run:  112.109274864 sec
+NB_Smote_640_Macro_F run:  128.431496143 sec
+NB_Smote_760_Macro_F run:  149.366707802 sec
+NB_TunedLearner_40_Macro_F evaluation:342.0
+NB_TunedLearner_40_Macro_F run:  692.866851807 sec
+NB_TunedLearner_160_Macro_F evaluation:348.0
+NB_TunedLearner_160_Macro_F run:  732.755565882 sec
+NB_TunedLearner_400_Macro_F evaluation:336.0
+NB_TunedLearner_400_Macro_F run:  749.239403963 sec
+process 1 last job is _TunedLearner end: Feb 16 2016 00:18:32 
+NB_TunedLearner_280_Macro_F evaluation:354.0
+NB_TunedLearner_280_Macro_F run:  762.393673897 sec
+process 6 last job is _Naive end: Feb 16 2016 00:18:45 
+process 7 last job is _Smote end: Feb 16 2016 00:18:45 
+process 8 last job is _Smote end: Feb 16 2016 00:18:45 
+process 9 last job is _Smote end: Feb 16 2016 00:18:45 
+process 10 last job is _Smote end: Feb 16 2016 00:18:45 
+process 15 last job is _TunedLearner end: Feb 16 2016 00:18:45 
+process 11 last job is _Smote end: Feb 16 2016 00:18:45 
+process 12 last job is _Smote end: Feb 16 2016 00:18:45 
+process 14 last job is _TunedLearner end: Feb 16 2016 00:18:45 
+process 13 last job is _Smote end: Feb 16 2016 00:18:45 
+process 5 last job is _Naive end: Feb 16 2016 00:18:45 
+NB_TunedLearner_760_Macro_F evaluation:324.0
+NB_TunedLearner_760_Macro_F run:  800.800923109 sec
+process 4 last job is _TunedLearner end: Feb 16 2016 00:19:24 
+NB_TunedLearner_520_Macro_F evaluation:372.0
+NB_TunedLearner_520_Macro_F run:  846.858074903 sec
+process 2 last job is _TunedLearner end: Feb 16 2016 00:20:09 
+NB_TunedLearner_640_Macro_F evaluation:372.0
+NB_TunedLearner_640_Macro_F run:  867.533392191 sec
+process 3 last job is _TunedLearner end: Feb 16 2016 00:20:30 
+
+rank ,                                          name ,    med   ,  iqr 
+----------------------------------------------------
+   1 ,                           NB_Naive_40_Macro_F ,      25  ,     1 (---  *      -- |              ), 0.22,  0.24,  0.25,  0.29,  0.30
+   2 ,                           NB_Smote_40_Macro_F ,      28  ,     1 (        - *--- |              ), 0.27,  0.27,  0.28,  0.29,  0.30
+   3 ,                    NB_TunedLearner_40_Macro_F ,      28  ,     0 (             * |              ), 0.29,  0.29,  0.29,  0.29,  0.30
+   4 ,                          NB_Naive_160_Macro_F ,      31  ,     2 (              -|*   ---       ), 0.30,  0.31,  0.31,  0.33,  0.35
+   4 ,                          NB_Naive_280_Macro_F ,      32  ,     2 (               |- * --        ), 0.30,  0.31,  0.32,  0.33,  0.34
+   4 ,                          NB_Smote_160_Macro_F ,      32  ,     2 (               |- * ---       ), 0.31,  0.31,  0.32,  0.33,  0.34
+   4 ,                          NB_Naive_640_Macro_F ,      31  ,     3 (               |-   * ------  ), 0.31,  0.31,  0.33,  0.34,  0.37
+   4 ,                          NB_Naive_760_Macro_F ,      32  ,     0 (               | - *-----     ), 0.31,  0.32,  0.32,  0.33,  0.35
+   4 ,                          NB_Naive_400_Macro_F ,      32  ,     1 (               |   * -        ), 0.32,  0.32,  0.32,  0.33,  0.34
+   4 ,                   NB_TunedLearner_160_Macro_F ,      32  ,     1 (               | -  *--       ), 0.31,  0.32,  0.33,  0.34,  0.35
+   4 ,                          NB_Naive_520_Macro_F ,      33  ,     1 (               | -- *-        ), 0.32,  0.33,  0.33,  0.33,  0.34
+   5 ,                          NB_Smote_280_Macro_F ,      34  ,     1 (               |   ---*-      ), 0.32,  0.34,  0.34,  0.34,  0.35
+   5 ,                   NB_TunedLearner_280_Macro_F ,      34  ,     2 (               |   -    *---  ), 0.32,  0.33,  0.35,  0.35,  0.37
+   5 ,                   NB_TunedLearner_520_Macro_F ,      35  ,     2 (               |    --  * --  ), 0.33,  0.34,  0.35,  0.36,  0.37
+   5 ,                          NB_Smote_400_Macro_F ,      35  ,     1 (               |      - *---  ), 0.34,  0.35,  0.35,  0.36,  0.37
+   5 ,                   NB_TunedLearner_760_Macro_F ,      35  ,     2 (               |    --  * --- ), 0.33,  0.34,  0.35,  0.36,  0.38
+   5 ,                   NB_TunedLearner_400_Macro_F ,      35  ,     1 (               |     -  *-    ), 0.33,  0.34,  0.35,  0.35,  0.36
+   5 ,                   NB_TunedLearner_640_Macro_F ,      35  ,     3 (               |  -------*-   ), 0.32,  0.35,  0.36,  0.36,  0.37
+   5 ,                          NB_Smote_520_Macro_F ,      36  ,     2 (               |    --    *-- ), 0.33,  0.34,  0.36,  0.37,  0.38
+   5 ,                          NB_Smote_760_Macro_F ,      36  ,     1 (               |         -*-  ), 0.36,  0.36,  0.36,  0.37,  0.37
+   5 ,                          NB_Smote_640_Macro_F ,      36  ,     2 (               |      --- *-  ), 0.34,  0.35,  0.36,  0.37,  0.37
+process 0 last job is _TunedLearner end: Feb 16 2016 00:20:31 
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n2l6-11>
+Subject: Job 174161: <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/SE/atom.txt 16> Done
+
+Job <mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/SE/atom.txt 16> was submitted from host <login01.hpc.ncsu.edu> by user <wfu> in cluster <henry2>.
+Job was executed on host(s) <4*n2l6-11>, in queue <single_chassis>, as user <wfu> in cluster <henry2>.
+                            <10*n2l5-10>
+                            <2*n2l4-2>
+</home/wfu> was used as the home directory.
+</home/wfu/Github/SMOTE/src> was used as the working directory.
+Started at Tue Feb 16 00:05:30 2016
+Results reported at Tue Feb 16 00:20:32 2016
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/SE/atom.txt 16
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time   :  14225.12 sec.
+    Max Memory :      6441 MB
+    Max Swap   :     20245 MB
+
+    Max Processes  :        25
+    Max Threads    :        26
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <./err/atom.err.174161> for stderr output of this job.
+
