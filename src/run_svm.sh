@@ -18,5 +18,5 @@ rm err_svm/*
 
 ##### this is only for testing on HPC, SE tag level
 foreach VAR (ansible atom d3 Ghost graphite-web logstash moment scikit-learn)
-  bsub -W 3600 -n 16 -o ./out{_svm/$VAR.out.%J -e ./err_svm/$VAR.err.%J mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/SE/$VAR.txt 16
+  bsub -W 3600 -n 16 -o ./out_svm/$VAR.out.%J -e ./err_svm/$VAR.err.%J mpiexec -n 16 /share3/wfu/miniconda/bin/python2.7 textMining.py run /share3/wfu/Datasets/SE/$VAR.txt 16
 end
